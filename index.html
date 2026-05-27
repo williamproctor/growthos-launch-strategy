@@ -513,6 +513,78 @@
       color: var(--text-tertiary);
     }
 
+    /* Ranked quote cards for the Quotes Bank page */
+    .ranked-quote {
+      position: relative;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--border);
+      border-radius: 6px;
+      padding: 18px 20px 18px 70px;
+      margin: 14px 0;
+    }
+    .ranked-quote .rank {
+      position: absolute;
+      left: 18px;
+      top: 16px;
+      font-weight: 800;
+      font-size: 22px;
+      color: var(--text-tertiary);
+      letter-spacing: -0.02em;
+      width: 38px;
+      text-align: center;
+    }
+    .ranked-quote .tc {
+      display: block;
+      font-size: 10.5px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .ranked-quote blockquote {
+      margin: 0 0 10px 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--text-primary);
+      font-style: italic;
+    }
+    .ranked-quote .why {
+      font-size: 12.5px;
+      line-height: 1.55;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    .ranked-quote .why::before {
+      content: "Why it ranks here — ";
+      font-weight: 600;
+      color: var(--text-primary);
+      font-style: normal;
+    }
+    .ranked-quote.top {
+      border-left-color: var(--success, #4ade80);
+      background: linear-gradient(180deg, rgba(74,222,128,0.04), var(--bg-elevated));
+    }
+    .ranked-quote.top .rank {
+      color: var(--success, #4ade80);
+    }
+    .ranked-quote.bottom {
+      opacity: 0.78;
+    }
+    .ranked-quote .star {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 2px 8px;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--success, #4ade80);
+      border: 1px solid var(--success, #4ade80);
+      border-radius: 3px;
+      vertical-align: middle;
+    }
+
     /* Narrative beat grid (Launch Video page) */
     .beat-grid {
       display: grid;
@@ -716,6 +788,7 @@
 
         <div class="nav-section">What we built</div>
         <li><a href="#narrative" data-page="narrative"><span class="label">Launch Narrative</span></a></li>
+        <li><a href="#quotes" data-page="quotes"><span class="label">Quotes Bank</span><span class="badge">new</span></a></li>
         <li><a href="#video-plan" data-page="video-plan"><span class="label">Video &amp; Content Plan</span></a></li>
         <li><a href="#surrogate" data-page="surrogate"><span class="label">Surrogate Card</span></a></li>
         <li><a href="#charlie" data-page="charlie"><span class="label">Charlie</span></a></li>
@@ -785,6 +858,15 @@
             <div>
               <div class="ql-title">Launch Video — Narrative Spine</div>
               <div class="ql-detail">Four-beat arc from this morning's Marcel + Harmony meeting</div>
+            </div>
+            <div class="ql-arrow">→</div>
+          </a>
+        </li>
+        <li>
+          <a href="#quotes" data-page="quotes">
+            <div>
+              <div class="ql-title">Quotes Bank — Marcel monologue <span style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--warn);margin-left:6px;">New</span></div>
+              <div class="ql-detail">Top 10 verbatim quotes per beat, ranked best-fit → worst. Plus honest gaps + pickup recording asks.</div>
             </div>
             <div class="ql-arrow">→</div>
           </a>
@@ -1398,6 +1480,402 @@
         <li><strong>The CTA is Marcel's actual CheckThat pattern.</strong> Personal offer + low-friction trigger ("comment OS") + scarcity ("small group") + warm close ("Talk soon"). V1's "Drop a comment for early access" could have been any SaaS launch.</li>
         <li><strong>The word "leverage" appears zero times.</strong> So does "introducing," "we're excited to announce," and any other corporate softener.</li>
       </ul>
+    </section>
+
+    <!-- QUOTES BANK -->
+    <section class="page" id="quotes">
+      <div class="meta-row">
+        <span>Compiled Wed, May 27, 2026 PM</span><span class="dot"></span>
+        <span>Source: ContentOS_Marcel_Monologue_Transcript.md</span><span class="dot"></span>
+        <span>All quotes verbatim</span>
+      </div>
+      <h1>Launch Video — Quotes Bank</h1>
+      <p class="lede">For each of the four beats in the <a href="#narrative" data-page="narrative">Narrative Spine</a>, the top 10 verbatim Marcel quotes ranked best-fit → worst-fit. Plus the honest gaps where the narrative term doesn't exist in the transcript and we need a pickup recording. <strong>No paraphrasing on this page — only what Marcel actually said.</strong></p>
+
+      <div class="callout warn">
+        <div class="callout-title">⚠ Vocabulary check — what Marcel does NOT say in this transcript</div>
+        <p>Before lifting any quote into the script, three honest gaps to know about so we don't splice in language he didn't use:</p>
+        <table style="margin-top:12px;">
+          <thead><tr><th>Narrative term</th><th>In transcript?</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td><strong>"Marketing Engineer"</strong></td><td>❌ no</td><td>Closest is the operator-voice description ("what do you want the system prompt to be?" / "I don't know what a system prompt needs to be? Why are you asking me?"). Concept is fully there; label is not.</td></tr>
+            <tr><td><strong>"AI Stack"</strong></td><td>❌ no</td><td>He says "40,000 MarTech tools" and "disparate tools" and describes the dysfunction at length — but never uses "AI Stack" or "stack."</td></tr>
+            <tr><td><strong>"AEO"</strong></td><td>⚠ once</td><td>Appears at [00:17:45] in a dismissive context. He prefers <strong>"AI visibility,"</strong> <strong>"agents,"</strong> <strong>"inception engine,"</strong> <strong>"filter."</strong></td></tr>
+            <tr><td><strong>"Closed-loop system" / "closed loop"</strong></td><td>✅ yes</td><td>Used repeatedly and intentionally. His term.</td></tr>
+            <tr><td><strong>"Slop"</strong></td><td>✅ yes</td><td>Used at [00:12:12]. Real Marcel vocabulary.</td></tr>
+            <tr><td><strong>"Inception"</strong></td><td>✅ yes</td><td>Used at [00:04:15] and [00:16:27]. His framing for influencing agents.</td></tr>
+            <tr><td><strong>"Reward function"</strong></td><td>✅ yes</td><td>Used several times — Beat 3 / Waymo analogy.</td></tr>
+            <tr><td><strong>"Harness"</strong></td><td>✅ yes</td><td>His preferred metaphor for the product.</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Implication for the script:</strong> if we want Marcel's voice-over to land verbatim, we have to either (a) write around "Marketing Engineer" and "AI Stack" using his actual words, (b) record additional pickups where he says those terms on camera, or (c) reserve those terms for on-screen text / Harmony's narrator voice and let Marcel speak in his own language.</p>
+      </div>
+
+      <hr />
+
+      <h2>Beat 1 — The false prophecy</h2>
+      <p style="color:var(--text-secondary);"><em>Industry tells marketers they need to become engineers / build agents / manage a sprawling AI stack.</em></p>
+      <p><strong>10 strong fits.</strong> None contain the literal phrase "Marketing Engineer" — they all hit the underlying problem.</p>
+
+      <div class="ranked-quote top">
+        <div class="rank">1</div>
+        <span class="tc">[00:18:42 → 00:19:01] <span class="star">Best fit</span></span>
+        <blockquote>"And you have essentially like blank canvases that say, hey, here's 200 nodes, go stitch those nodes together. And then you drag and drop one of those nodes, and there's like, what do you want the system prompt to be? And you're like, I don't I don't know what a system prompt needs to be? Why are you asking me, right?"</blockquote>
+        <p class="why">This IS the Marketing-Engineer absurdity, in operator voice. Better than the literal industry term because it's <em>experienced</em>, not labeled.</p>
+      </div>
+
+      <div class="ranked-quote top">
+        <div class="rank">2</div>
+        <span class="tc">[00:21:33]</span>
+        <blockquote>"And we don't need more tools to overwhelm us to delegate the work to us marketers, but we also no longer need to outsource all our work to agencies."</blockquote>
+        <p class="why">Names both failure modes (engineer-yourself OR outsource) in one breath. Followed two seconds later by <em>"this is coming from someone that built an agency"</em> — built-in credibility.</p>
+      </div>
+
+      <div class="ranked-quote top">
+        <div class="rank">3</div>
+        <span class="tc">[00:08:29]</span>
+        <blockquote>"If you look across marketing, there's over 40,000, what they call MarTech tools."</blockquote>
+        <p class="why">A specific, citable number. Earns the Beat 1 setup before anything else. Use as the cold opener if we lead Beat 1 with a statistic.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">4</div>
+        <span class="tc">[00:09:51 → 00:10:01]</span>
+        <blockquote>"I think like, because of how many tools are out there, how much noise there is, people are just overwhelmed."<br /><br />"teams are just spread so thin."</blockquote>
+        <p class="why">Cleanest verbatim of the human cost. Two short sentences that cut together as one beat.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">5</div>
+        <span class="tc">[00:12:06 → 00:12:24]</span>
+        <blockquote>"And then AI comes along and just like amplifies all the stuff, right? So now everybody's just creating slop without 1st principles understanding of like marketing of like, what does it take to do more, do amazing marketing? What does it take?"</blockquote>
+        <p class="why">"Slop" is on-trend marketer vocabulary. The "AI just amplified the dysfunction" framing is sharper than the typical "AI changes everything" pitch.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">6</div>
+        <span class="tc">[00:11:00 → 00:11:55]</span>
+        <blockquote>"Well, I don't know how websites work. Well, I can't change the copy on this page because I'm not product marketing. product marketing is like, well, I don't know how websites work. I help the messaging, but I don't have access to the CMS. The agency had access to the CMS, but has no context on your brand, right? Then you hire an SEO freelancer. They give you an audit of everything that's broken, and then the digital person has to give that to the web agency, but also get alignment from product marketing to make sure everything is aligned. And then you have a demand person that is spinning up campaigns and just going, you know what, F this website."</blockquote>
+        <p class="why">Long but cinematic. Plays as a montage with cuts between team members. Best Beat 1 if we want comic relief.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">7</div>
+        <span class="tc">[00:08:35 → 00:09:14]</span>
+        <blockquote>"I've been a marketer for 15 plus years... and every time was the same thing, you have your team come and they say, hey, I need a tool, I need this tool, I need that tool. And then they're like, well, okay, we're not getting enough value. Let's just go hire an agency. And so they would outsource a lot of the work, right? And so a lot of the job became buy tools and outsource the work and just orchestrate everything and be a generalist and be an internal seller of what you do."</blockquote>
+        <p class="why">The 15-year throughline; this isn't just an AI-era problem. Useful for establishing his authority.</p>
+      </div>
+
+      <div class="ranked-quote bottom">
+        <div class="rank">8</div>
+        <span class="tc">[00:19:01 → 00:19:24]</span>
+        <blockquote>"It has very few opinions. Because it is not built and most times by marketers that have experienced the pain, that have done this, right?"</blockquote>
+        <p class="why">Indictment of the category. Implies us = the alternative without naming us.</p>
+      </div>
+
+      <div class="ranked-quote bottom">
+        <div class="rank">9</div>
+        <span class="tc">[00:17:45 → 00:17:56]</span>
+        <blockquote>"Now we have AEO tools. That's where you put a bunch of random prompts and it's gonna spin out some some AI visibility thing that then your CEO is gonna say, okay, make that go up, right?"</blockquote>
+        <p class="why">Dismissive in a productive way — names the competitor category and undercuts it. Slight tonal risk (could feel snarky); use carefully.</p>
+      </div>
+
+      <div class="ranked-quote bottom">
+        <div class="rank">10</div>
+        <span class="tc">[00:16:54]</span>
+        <blockquote>"But fundamentally, people always approached the website as disparate tools."</blockquote>
+        <p class="why">Short, but mostly useful as a transition into Beat 3 (closed loop = the opposite of disparate). On its own it's flat.</p>
+      </div>
+
+      <hr />
+
+      <h2>Beat 2 — The refusal</h2>
+      <p style="color:var(--text-secondary);"><em>We don't think marketers need to become engineers.</em></p>
+
+      <div class="callout warn">
+        <div class="callout-title">Honest note — this is the THINNEST beat in the transcript</div>
+        <p>Marcel doesn't deliver a clean <em>"marketers shouldn't have to become engineers"</em> declarative line in those words. He arrives at the same idea through refusal-of-tools and refusal-of-outsourcing — but the rhetorical beat itself is mostly implied, not spoken. <strong>If we want that beat to land as a punchy declarative on camera, we likely need a pickup recording.</strong> See "Pickups to ask Marcel for" at the bottom of this page.</p>
+      </div>
+
+      <div class="ranked-quote top">
+        <div class="rank">1</div>
+        <span class="tc">[00:21:33] <span class="star">Best fit</span></span>
+        <blockquote>"And we don't need more tools to overwhelm us to delegate the work to us marketers, but we also no longer need to outsource all our work to agencies."</blockquote>
+        <p class="why">The only sentence in the transcript that opens with <em>"we don't need."</em> It's the closest verbatim to the Beat 2 statement. <em>(Also Beat 1 #2 — same quote, both beats.)</em></p>
+      </div>
+
+      <div class="ranked-quote top">
+        <div class="rank">2</div>
+        <span class="tc">[00:21:25]</span>
+        <blockquote>"But what you don't need as a marketer is a blank tool for you to figure out what those 200 steps should be."</blockquote>
+        <p class="why">Second-best "you don't need" sentence. Operator-voiced. Pairs naturally with the Beat 1 "200 nodes / system prompt" quote — same arc.</p>
+      </div>
+
+      <div class="ranked-quote top">
+        <div class="rank">3</div>
+        <span class="tc">[00:27:05 → 00:27:22]</span>
+        <blockquote>"no human and no team of humans can possibly make sense of 1000000s of signals across 100s or 1000s of pages that then understand the reward function and and they shouldn't. That's what AI can be really good at, right?"</blockquote>
+        <p class="why">The "and they shouldn't" is the relief framing the narrative spine asks for. Closest thing in the transcript to "you shouldn't have to."</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">4</div>
+        <span class="tc">[00:21:47 → 00:22:07]</span>
+        <blockquote>"I think teams more and more AI native teams want to bring this in house, but they need help and they need a harness that is a smart layer that will help them accelerate their time to learning and improve the quality of their outputs and deliver outcomes faster."</blockquote>
+        <p class="why">The constructive flip side of the refusal. Works as the second half of Beat 2 if we want to land on "what they actually need" before pivoting to Beat 3.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">5</div>
+        <span class="tc">[00:13:54 → 00:14:07]</span>
+        <blockquote>"AI is incredible at this in aggregating this. And the failure mode is that people are trying to use AI to outsource their thinking versus accelerating their learning."</blockquote>
+        <p class="why">Reframes what AI should do FOR marketers. Useful as a Beat 2/3 bridge.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">6</div>
+        <span class="tc">[00:14:39]</span>
+        <blockquote>"Like, you don't need to be an expert in everything in order to have really good essence."</blockquote>
+        <p class="why">Another "you don't need" sentence. Less punchy on its own; works as a supportive cut.</p>
+      </div>
+
+      <div class="ranked-quote bottom">
+        <div class="rank">7</div>
+        <span class="tc">[00:20:13 → 00:20:20]</span>
+        <blockquote>"And I eventually gave up and I was like, there's no way, like, the tech wasn't there, right? And I kind of gave up."</blockquote>
+        <p class="why">Marcel himself, with 15+ years of marketing leadership, tried to build the closed-loop system 10 years ago and couldn't. Implicit refusal: "if I couldn't do this then, why is the industry asking every marketer to do it now?" Powerful subtext but requires setup.</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">Beat 2 has only 5–7 viable verbatim quotes</div>
+        <p>The rest of the transcript is descriptive (Beat 1) or constructive (Beat 3). Recommended path:</p>
+        <ul>
+          <li><strong>Pickup recording:</strong> ask Marcel to record one declarative on-camera line, e.g. <em>"Marketers shouldn't have to become engineers."</em> 5-second take.</li>
+          <li><strong>Composite cut:</strong> use #1 above as the spoken line, with a Beat 2 title card behind it. The line carries the meaning; the card delivers the slogan.</li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <h2>Beat 3 — The different bet (closed-loop content system)</h2>
+      <p style="color:var(--text-secondary);"><em>Closed-loop system that leverages frontier AI under one harness.</em></p>
+      <p><strong>This is the deepest beat in the transcript.</strong> Marcel goes long on closed loops, the Waymo analogy, reward functions, and codifying work. Embarrassment of riches.</p>
+
+      <div class="ranked-quote top">
+        <div class="rank">1</div>
+        <span class="tc">[00:19:45 → 00:19:57] <span class="star">Best fit</span></span>
+        <blockquote>"And and it wasn't until the last like few months where it became super obvious, like that the models now got good enough and and what you needed is a closed loop."</blockquote>
+        <p class="why">The single sentence that names the bet. <em>"What you needed is a closed loop."</em> Should anchor the Beat 3 cut.</p>
+      </div>
+
+      <div class="ranked-quote top">
+        <div class="rank">2</div>
+        <span class="tc">[00:20:20 → 00:20:44]</span>
+        <blockquote>"this is like a full circle moment of now we did build the harness that we think can be a closed loop system that, that can get really smart about your context that can be, have a methodology behind it, that drives the right content strategy, that will deliver more outcomes, and something that with every agent execution with every output you can learn from, right?"</blockquote>
+        <p class="why">The product definition spoken in one continuous take. Trim to the middle for the 90s cut, use the full version for the long-form whiteboard session.</p>
+      </div>
+
+      <div class="ranked-quote top">
+        <div class="rank">3</div>
+        <span class="tc">[00:32:36 → 00:32:51] <span class="star">Closer</span></span>
+        <blockquote>"verifiable playground, which is your website that you can measure and you have the right context. Now you have your right reward function. You have a way to execute the work with agents and humans, and you have a way to learn from all of that. That then gives you that unfair advantage that every marketer wishes they had."</blockquote>
+        <p class="why"><em>"Unfair advantage that every marketer wishes they had"</em> is the closing-frame sound bite. Best candidate to end the video on, or end Beat 3 before Beat 4 takes over.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">4</div>
+        <span class="tc">[00:20:44 → 00:21:23]</span>
+        <blockquote>"And there's no way you can create a closed loop system if you don't ingest all those signals. You need the analytics. You need to understand search, visibility, and intent. You need to understand whether or not a page is being cited and what some of the answers are and how these engines are querying these answers and coming up with it, right? You need to pull it all together. But you also need to have your context. You also need to have agents that have an opinion of the different jobs to be done, a research supervisor agent that actually has a way to think through and find the right sources and research and fact check and do all of that."</blockquote>
+        <p class="why">This is the visual / B-roll script — every signal he names = an icon on screen. Long for a 90s cut; perfect for the homepage product page or whiteboard session.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">5</div>
+        <span class="tc">[00:22:52 → 00:23:17]</span>
+        <blockquote>"When you see a Waymo driving in the street, it's easy to think it's a model. right? A model's doing the whole thing, right? So it's an LLM that just decides to turn left or right. But there's actually like dozens and dozens of systems operating in conjunction, right? You have the perception. You have LIDAR, you have HD maps, you have the control systems."</blockquote>
+        <p class="why">The strongest analogy in the whole transcript. Use it whenever a viewer needs to understand "why isn't this just ChatGPT?"</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">6</div>
+        <span class="tc">[00:25:07 → 00:25:24]</span>
+        <blockquote>"you start with a reward function. What is the reward function is growth. Okay, but growth anywhere? Okay, on LinkedIn or where? Like, what do you mean growth, right? And it's like, well, your website is pretty measurable. It's the most measurable thing you have in marketing because you control. You can measure everything."</blockquote>
+        <p class="why">Conversational, thinks-out-loud cadence — feels unscripted. Lands "website = measurable playground" elegantly.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">7</div>
+        <span class="tc">[00:28:03 → 00:28:28]</span>
+        <blockquote>"And along the way, something happens and a human had to intervene. And or something unexpected happen. And now you need to label that data, you need to understand like, hey, why did that happen? What should have happened instead, and you kind of course correct... And over time, if the system can learn from both the signals as well as the human judgment and the interventions, that system can get smarter and better as serving your reward function and what you're trying to do."</blockquote>
+        <p class="why">The clearest plain-English explanation of how the closed loop <em>learns</em>. Critical for the "what makes this different" beat.</p>
+      </div>
+
+      <div class="ranked-quote bottom">
+        <div class="rank">8</div>
+        <span class="tc">[00:28:45 → 00:28:56]</span>
+        <blockquote>"And that's hard. But I think the reason it took us 18 months to get to this point was you can't possibly do this if you don't have the infrastructure to do it."</blockquote>
+        <p class="why">Anti-hype credential. Differentiates from "shipped in a weekend with Cursor" competitors. Use as a quiet aside, not a punchline.</p>
+      </div>
+
+      <div class="ranked-quote bottom">
+        <div class="rank">9</div>
+        <span class="tc">[00:28:41]</span>
+        <blockquote>"And that's the holy grail, right?"</blockquote>
+        <p class="why">Three-word bumper sticker. Use as a punctuation cut over visuals.</p>
+      </div>
+
+      <div class="ranked-quote bottom">
+        <div class="rank">10</div>
+        <span class="tc">[00:27:22 → 00:27:31]</span>
+        <blockquote>"That's what AI can be really good at, right? It's accelerating the learning, it's grabbing all this context and making sense of all these signals and creating some intelligence on top of it."</blockquote>
+        <p class="why">Reframes AI from threat to leverage. Bridge between Beat 2 (refusal) and Beat 3 (the bet).</p>
+      </div>
+
+      <hr />
+
+      <h2>Beat 4 — The new stakes (AEO / AI visibility)</h2>
+      <p style="color:var(--text-secondary);"><em>Agents are searching the web on behalf of buyers. Your site is your visibility surface area. Scale or disappear.</em></p>
+      <p><strong>Strong material here too.</strong> Marcel has worked out his AEO framing in his own language — <em>"filter," "inception," "translation layer"</em> — which is more memorable than the acronym.</p>
+
+      <div class="ranked-quote top">
+        <div class="rank">1</div>
+        <span class="tc">[00:03:20 → 00:03:50] <span class="star">Best fit</span></span>
+        <blockquote>"Except now, things have shifted. where it's no longer only one audience, your buyers. Your buyers now have a translation layer, your buyers have a entire interpretation layer, a layer that is the filter between them and you that will decide whether or not they ultimately find you, you know, arrive at your website, consume your content."</blockquote>
+        <p class="why">The cleanest verbatim setup of the new stakes. Doesn't need the term "AEO" to land — the picture does the work.</p>
+      </div>
+
+      <div class="ranked-quote top">
+        <div class="rank">2</div>
+        <span class="tc">[00:04:09 → 00:04:19] <span class="star">Sound bite</span></span>
+        <blockquote>"They'll still arrive at your website eventually if you do the right things, but now you got to figure out how do I influence the influencer. How do I play inception with these agents?"</blockquote>
+        <p class="why"><em>"How do I play inception with these agents?"</em> is the sound bite of the video. Memorable, founder-voiced, instantly visual.</p>
+      </div>
+
+      <div class="ranked-quote top">
+        <div class="rank">3</div>
+        <span class="tc">[00:05:48 → 00:06:19]</span>
+        <blockquote>"this game now is not just a quality, an intent game is also a volume game, is a freshness game, is a speed game, because you're no longer trying to get an answer to one top level query one time, and then talk to a human, a salesperson or something. What those agents are doing is they're synthesizing the entire web. And they're fetching 100s of sources."</blockquote>
+        <p class="why">Lists the four properties of the new game — volume, freshness, speed, synthesis. Each one is a separate visual / B-roll beat.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">4</div>
+        <span class="tc">[00:06:36 → 00:07:06]</span>
+        <blockquote>"think of this as like a filter. A buyer driven, but agent, you know, translated filter. And you gotta make it through this filter. And this filter can't just grab, right? 10,000 pages and compact it down to a few words, or it can't just give you the entire dump on, it has to actually synthesize and compress and compact and decide what makes it through or not."</blockquote>
+        <p class="why">Filter metaphor stated and explained. Stronger if used right after #1.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">5</div>
+        <span class="tc">[00:07:25 → 00:08:18] <span class="star">Crescendo</span></span>
+        <blockquote>"Because websites is what you can control. If someone, it's your home address, it's where they can find you is where agents and buyers can verify you're legit. You're a real company. You have real people working. You, you operate, you have your customers. It's what describes what you do, right? Why would you not have your truth be there? And why wouldn't you have the most comprehensive truth be there? And the most accurate and up to date truth about you, your company, your product, who you serve, why you serve them better than anyone else, like the proof that you're better, how it works, and why wouldn't you want to be the most valuable asset on the internet for both buyers and agents? Why wouldn't you want that to be your website?"</blockquote>
+        <p class="why">Long but ends on six consecutive "why wouldn't you" rhetorical hits. If we want the video to crescendo, this is the crescendo. Closes a long-form cut.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">6</div>
+        <span class="tc">[00:04:54]</span>
+        <blockquote>"And so then you got to figure out how do I become part of the inputs so I can influence the output."</blockquote>
+        <p class="why">Single sentence definition of what AEO actually is. Use as on-screen text if we're skipping the acronym.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <div class="rank">7</div>
+        <span class="tc">[00:06:10]</span>
+        <blockquote>"What those agents are doing is they're synthesizing the entire web."</blockquote>
+        <p class="why">Single sentence bumper sticker. Use as a hard-cut graphic moment.</p>
+      </div>
+
+      <div class="ranked-quote bottom">
+        <div class="rank">8</div>
+        <span class="tc">[00:16:14 → 00:16:34]</span>
+        <blockquote>"Now, the content, the surface area inside that website needs to align to the content and your understanding of the market and the persona so that you can be a really useful resource. You should have opinions. It should have like your truth in there that you're in, in, creating this inception engine, if you will, right? For both buyers to navigate, as well as agents to retrieve, find and trust and use it."</blockquote>
+        <p class="why"><em>"Inception engine"</em> + dual-audience website (buyers AND agents). Bridges Beat 4 back to product.</p>
+      </div>
+
+      <div class="ranked-quote bottom">
+        <div class="rank">9</div>
+        <span class="tc">[00:15:49 → 00:15:57]</span>
+        <blockquote>"How do you win at that channel, like your website, your inbound, now that also influences your AI visibility and how you influence agents as well, right?"</blockquote>
+        <p class="why">Uses <em>"AI visibility"</em> verbatim — useful if we want the in-industry term spoken on camera rather than just on a slide.</p>
+      </div>
+
+      <div class="ranked-quote bottom">
+        <div class="rank">10</div>
+        <span class="tc">[00:05:31 → 00:05:48]</span>
+        <blockquote>"And so that's the game we're in. The buyer game is still there, still valid, and you should still win in that game. And a lot of the right principles and things you should do here to build credibility and trust them and systematically become the best answer to people's questions here. I'll also help you in this game"</blockquote>
+        <p class="why">"Both games" framing — acknowledges traditional inbound still matters, AEO is additive. De-risks Beat 4 for viewers who feel threatened by it. Use as a softener if we open Beat 4 too aggressively.</p>
+      </div>
+
+      <hr />
+
+      <h2>Cross-beat utility quotes</h2>
+      <p>A handful of lines that don't belong cleanly to one beat but earn screen time:</p>
+
+      <div class="ranked-quote">
+        <span class="tc">[00:01:23 → 00:01:30]</span>
+        <blockquote>"So for me was always obvious, like, where, what am I measured on as marketing? I measure on conversion. I measure on pipeline, on revenue, how do I get more leads, how do I get more pipeline?"</blockquote>
+        <p class="why">Founder identity / pipeline pragmatist. Useful as an opening identity beat.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <span class="tc">[00:00:51 → 00:01:05]</span>
+        <blockquote>"And so for me, it was always obvious, like, how do you win? In marketing, how do you win as a brand, is to be the most useful piece of content, be the best resource for your audience, how you build trust, right?"</blockquote>
+        <p class="why">First principles statement. Could open the video if we want to start from values.</p>
+      </div>
+
+      <div class="ranked-quote">
+        <span class="tc">[00:32:51]</span>
+        <blockquote>"That then gives you that unfair advantage that every marketer wishes they had."</blockquote>
+        <p class="why">Already listed in Beat 3 #3. Worth holding as the closing line of the whole video.</p>
+      </div>
+
+      <hr />
+
+      <h2>Recommended cut for the 90s video</h2>
+      <p>A first-pass mapping of these quotes onto the V2 script structure:</p>
+      <table>
+        <thead><tr><th>Beat</th><th>Open with</th><th>Middle</th><th>Land on</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><strong>Hook</strong></td>
+            <td>Beat 1 #6 (frag-team montage) <em>OR</em> Beat 1 #3 (40K MarTech)</td>
+            <td>—</td>
+            <td>Beat 1 #1 (system prompt — why are you asking me)</td>
+          </tr>
+          <tr>
+            <td><strong>Refusal</strong></td>
+            <td>Beat 2 #1 (we don't need more tools…)</td>
+            <td>Beat 2 #3 (and they shouldn't)</td>
+            <td><em>pickup needed</em> — or use Beat 2 #4</td>
+          </tr>
+          <tr>
+            <td><strong>The bet</strong></td>
+            <td>Beat 3 #1 (what you needed is a closed loop)</td>
+            <td>Beat 3 #5 (Waymo)</td>
+            <td>Beat 3 #2 (product manifesto in one breath)</td>
+          </tr>
+          <tr>
+            <td><strong>Stakes</strong></td>
+            <td>Beat 4 #1 (translation layer)</td>
+            <td>Beat 4 #2 (inception with agents) + Beat 4 #3 (synthesizing the web)</td>
+            <td>Beat 4 #5 (six "why wouldn't you" close) — or Beat 3 #3 (unfair advantage) as the final word</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr />
+
+      <h2>Pickups to ask Marcel for</h2>
+      <p>If we want to shoot any additional lines to plug verbatim into the cut, the smallest set that gives us the cleanest narrative:</p>
+      <div class="callout">
+        <ol>
+          <li><strong>"Marketers shouldn't have to become engineers."</strong> One declarative on-camera take. 5 seconds. Closes the Beat 2 gap above.</li>
+          <li><strong>"You don't need a 40-tool AI stack. You need a system."</strong> Optional. If we want the literal "AI stack" term as a hard contrast.</li>
+          <li><strong>A clean :15 outro CTA.</strong> Whatever the launch CTA ends up being (waitlist, demo, "see the system"). Decide in lock-meeting first.</li>
+        </ol>
+        <p>Everything else in the four beats can be sourced verbatim from this transcript.</p>
+      </div>
     </section>
 
     <!-- VIDEO & CONTENT PLAN -->
