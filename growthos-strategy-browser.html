@@ -1,0 +1,2185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GrowthOS — Strategy & Plans</title>
+  <style>
+    :root {
+      --bg: #0f1011;
+      --bg-elevated: #161718;
+      --bg-sidebar: #0a0b0c;
+      --border: #232425;
+      --border-strong: #2f3031;
+      --text: #e8e8e8;
+      --text-secondary: #a0a0a0;
+      --text-tertiary: #707070;
+      --accent: #e8e8e8;
+      --accent-muted: #6b6b6b;
+      --warn: #d9a86c;
+      --danger: #d97a6c;
+      --success: #8caa84;
+      --code-bg: #1a1b1c;
+      --max-width: 760px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter",
+        Helvetica, Arial, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body { display: flex; min-height: 100vh; }
+
+    /* Sidebar */
+    aside {
+      width: 280px;
+      flex-shrink: 0;
+      background: var(--bg-sidebar);
+      border-right: 1px solid var(--border);
+      padding: 32px 24px;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    .brand {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .brand-sub {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-bottom: 28px;
+    }
+
+    nav ul { list-style: none; margin: 0; padding: 0; }
+    nav li { margin: 2px 0; }
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      font-size: 14px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.1s, color 0.1s;
+    }
+    nav a:hover { color: var(--text); background: var(--bg-elevated); }
+    nav a.active { color: var(--text); background: var(--bg-elevated); }
+    nav a .label { flex: 1; }
+    nav a .badge {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+    }
+    nav a.active .badge { color: var(--text-secondary); }
+
+    .nav-section {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      padding: 0 10px;
+      margin: 24px 0 6px;
+    }
+
+    .nav-footer {
+      margin-top: 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-tertiary);
+    }
+
+    /* Main */
+    main {
+      flex: 1;
+      padding: 56px 64px;
+      max-width: calc(var(--max-width) + 128px);
+      width: 100%;
+    }
+
+    section.page { display: none; }
+    section.page.active { display: block; }
+
+    .meta-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-bottom: 24px;
+    }
+    .meta-row .dot {
+      width: 4px; height: 4px; border-radius: 50%;
+      background: var(--text-tertiary);
+    }
+
+    h1 {
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin: 0 0 8px;
+      color: var(--text);
+    }
+    h2 {
+      font-size: 22px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      margin: 48px 0 12px;
+      color: var(--text);
+    }
+    h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin: 32px 0 8px;
+      color: var(--text);
+    }
+    h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 20px 0 6px;
+      color: var(--text);
+    }
+
+    p, ul, ol, table { margin: 12px 0; color: var(--text); }
+    p { color: #d8d8d8; }
+    ul, ol { padding-left: 22px; }
+    li { margin: 6px 0; color: #d8d8d8; }
+    li > strong { color: var(--text); }
+
+    .lede {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin: 0 0 24px;
+    }
+
+    em { color: var(--text-secondary); }
+    strong { color: var(--text); font-weight: 600; }
+
+    code {
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 0.88em;
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      padding: 1px 5px;
+      border-radius: 3px;
+      color: #d8d8d8;
+    }
+
+    blockquote {
+      margin: 20px 0;
+      padding: 14px 18px;
+      border-left: 2px solid var(--border-strong);
+      background: var(--bg-elevated);
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+    blockquote p { margin: 0; color: var(--text-secondary); }
+    blockquote strong { color: var(--text); }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    th, td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+      color: #d8d8d8;
+      vertical-align: top;
+    }
+    th {
+      background: var(--bg-elevated);
+      font-weight: 600;
+      color: var(--text);
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    tr:last-child td { border-bottom: none; }
+
+    /* Cards */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 16px 18px;
+    }
+    .card .card-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 6px;
+    }
+    .card .card-value {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .card .card-detail {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 4px;
+    }
+    .card.warn .card-value { color: var(--warn); }
+    .card.danger .card-value { color: var(--danger); }
+    .card.success .card-value { color: var(--success); }
+
+    /* Status pills */
+    .pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 3px;
+      border: 1px solid var(--border-strong);
+      color: var(--text-secondary);
+      background: var(--bg-elevated);
+    }
+    .pill.warn { color: var(--warn); border-color: rgba(217, 168, 108, 0.4); }
+    .pill.danger { color: var(--danger); border-color: rgba(217, 122, 108, 0.4); }
+    .pill.success { color: var(--success); border-color: rgba(140, 170, 132, 0.4); }
+
+    /* Callouts */
+    .callout {
+      margin: 18px 0;
+      padding: 14px 18px;
+      border: 1px solid var(--border-strong);
+      border-left-width: 3px;
+      border-radius: 4px;
+      background: var(--bg-elevated);
+      font-size: 14px;
+    }
+    .callout-title {
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+      font-size: 13px;
+    }
+    .callout p { margin: 4px 0; color: var(--text-secondary); }
+    .callout.warn { border-left-color: var(--warn); }
+    .callout.warn .callout-title { color: var(--warn); }
+    .callout.danger { border-left-color: var(--danger); }
+    .callout.danger .callout-title { color: var(--danger); }
+
+    /* Quick-link list (used on Overview) */
+    .quick-links {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    .quick-links a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.1s, border-color 0.1s;
+    }
+    .quick-links a:hover {
+      background: #1d1e1f;
+      border-color: var(--border-strong);
+    }
+    .quick-links .ql-title { font-weight: 600; }
+    .quick-links .ql-detail {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-top: 2px;
+    }
+    .quick-links .ql-arrow { color: var(--text-tertiary); font-size: 16px; }
+
+    /* Reference grid (Charlie character sheet) */
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .ref-tile {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .ref-image {
+      aspect-ratio: 1 / 1;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-tertiary);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      position: relative;
+    }
+    .ref-image.r-16-9 { aspect-ratio: 16 / 9; }
+    .ref-image.r-9-16 { aspect-ratio: 9 / 16; }
+    .ref-image::before { content: "awaiting render"; }
+    .ref-image.has-image::before { display: none; }
+    .ref-image img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+    }
+    .ref-body { padding: 14px 16px; }
+    .ref-tag {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: 6px;
+    }
+    .ref-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text);
+      margin: 0 0 8px;
+    }
+    .ref-prompt {
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    pre {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 16px 20px;
+      font-family: ui-monospace, "SF Mono", Menlo, monospace;
+      font-size: 12px;
+      color: #d8d8d8;
+      line-height: 1.6;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      margin: 14px 0;
+    }
+
+    /* Survey insights — bar charts, signal grid, VoC quotes */
+    .signal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin: 20px 0 28px;
+    }
+    .signal {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent, #7b8aff);
+      border-radius: 6px;
+      padding: 14px 14px 16px;
+    }
+    .signal-pct {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      font-variant-numeric: tabular-nums;
+    }
+    .signal-label {
+      margin-top: 6px;
+      font-size: 11px;
+      line-height: 1.4;
+      color: var(--text-secondary);
+    }
+    .signal.warn { border-left-color: var(--warn); }
+    .signal.danger { border-left-color: var(--danger); }
+    .signal.success { border-left-color: var(--success); }
+    .signal.info { border-left-color: var(--accent, #7b8aff); }
+
+    .bar-list {
+      margin: 16px 0 28px;
+      border-top: 1px solid var(--border);
+    }
+    .bar-row {
+      display: grid;
+      grid-template-columns: minmax(140px, 1fr) 2fr 44px;
+      gap: 14px;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+    }
+    .bar-label {
+      color: var(--text-secondary);
+      line-height: 1.35;
+    }
+    .bar-track {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 3px;
+      height: 8px;
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      background: var(--accent, #7b8aff);
+      border-radius: 3px;
+      transition: width 0.3s ease;
+    }
+    .bar-fill.warn { background: var(--warn); }
+    .bar-fill.danger { background: var(--danger); }
+    .bar-fill.success { background: var(--success); }
+    .bar-fill.muted { background: var(--text-tertiary); opacity: 0.4; }
+    .bar-value {
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--text-primary);
+      text-align: right;
+    }
+
+    .voc-quote {
+      background: var(--bg-elevated);
+      border-left: 3px solid var(--accent, #7b8aff);
+      border-radius: 0 6px 6px 0;
+      padding: 14px 18px;
+      margin: 12px 0;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--text-primary);
+      font-style: italic;
+    }
+    .voc-attr {
+      display: block;
+      margin-top: 8px;
+      font-style: normal;
+      font-size: 10.5px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+    }
+
+    /* Narrative beat grid (Launch Video page) */
+    .beat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 20px 0 32px;
+    }
+    .beat-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent, #7b8aff);
+      border-radius: 6px;
+      padding: 16px 16px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .beat-num {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+    }
+    .beat-card h4 {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+    .beat-card p {
+      margin: 0;
+      font-size: 12px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+    }
+    .beat-card.refusal { border-left-color: var(--warn); }
+    .beat-card.bet { border-left-color: var(--success, #6dd28b); }
+    .beat-card.stakes { border-left-color: var(--danger); }
+    @media (max-width: 1100px) {
+      .beat-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .beat-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Style comparison grid (Charlie style direction) */
+    .style-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 18px;
+      margin: 28px 0 40px;
+    }
+    /* Bleed the comparison grid into the empty space beyond main's prose width.
+       main is left-aligned with max-width ~888px and 64px right padding inside,
+       so on wider viewports we extend the grid to the right only. Sidebar is 280px. */
+    @media (min-width: 1280px) {
+      .style-grid {
+        width: calc(100% + min(420px, 100vw - 1168px));
+      }
+    }
+    .style-tile {
+      margin: 0;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.18s ease, transform 0.18s ease,
+                  box-shadow 0.18s ease;
+    }
+    .style-tile:hover {
+      border-color: var(--accent, #7b8aff);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px -12px rgba(0, 0, 0, 0.6);
+    }
+    .style-tile .style-img-link {
+      position: relative;
+      display: block;
+      background: #0b0d12;
+      overflow: hidden;
+    }
+    .style-tile img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .style-tile:hover img {
+      transform: scale(1.035);
+    }
+    .style-zoom {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      background: rgba(10, 12, 18, 0.72);
+      color: rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0;
+      transition: opacity 0.18s ease;
+      pointer-events: none;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .style-tile:hover .style-zoom { opacity: 1; }
+    .style-body {
+      padding: 12px 14px 14px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .style-head {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .style-num {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      color: var(--text-tertiary);
+      font-variant-numeric: tabular-nums;
+    }
+    .style-tile h4 {
+      margin: 0;
+      font-size: 13.5px;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -0.005em;
+    }
+    .style-desc {
+      font-size: 11.5px;
+      line-height: 1.5;
+      color: var(--text-secondary);
+      margin: 0;
+    }
+    .style-bestfor {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px dashed var(--border);
+      font-size: 9.75px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-tertiary);
+      line-height: 1.6;
+    }
+    .style-bestfor strong {
+      color: var(--text-secondary);
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      margin-right: 2px;
+    }
+    @media (max-width: 720px) {
+      .style-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+    }
+    @media (max-width: 480px) {
+      .style-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Print */
+    @media print {
+      aside { display: none; }
+      main { padding: 0; }
+      section.page { display: block !important; page-break-after: always; }
+      body { background: white; color: black; }
+      h1, h2, h3, h4, p, li, td, th, .card, .callout { color: black; }
+    }
+
+    /* Mobile */
+    @media (max-width: 900px) {
+      body { flex-direction: column; }
+      aside {
+        width: 100%; height: auto; position: static;
+        padding: 20px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      main { padding: 32px 24px; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <div class="brand">GrowthOS</div>
+    <div class="brand-sub">Strategy &amp; plans browser</div>
+
+    <nav>
+      <ul>
+        <li><a href="#overview" data-page="overview"><span class="label">Overview</span><span class="badge">today</span></a></li>
+
+        <div class="nav-section">What we built</div>
+        <li><a href="#narrative" data-page="narrative"><span class="label">Launch Narrative</span></a></li>
+        <li><a href="#video-plan" data-page="video-plan"><span class="label">Video &amp; Content Plan</span></a></li>
+        <li><a href="#surrogate" data-page="surrogate"><span class="label">Surrogate Card</span></a></li>
+        <li><a href="#charlie" data-page="charlie"><span class="label">Charlie</span></a></li>
+
+        <div class="nav-section">Research</div>
+        <li><a href="#survey" data-page="survey"><span class="label">Survey Insights</span><span class="badge">new</span></a></li>
+
+        <div class="nav-section">Source docs</div>
+        <li><a href="#marketing-week" data-page="marketing-week"><span class="label">Marketing Week</span></a></li>
+        <li><a href="#launch-plan" data-page="launch-plan"><span class="label">Launch Plan</span></a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-footer">
+      Last assembled <br />Wed, May 27, 2026
+    </div>
+  </aside>
+
+  <main>
+    <!-- OVERVIEW -->
+    <section class="page active" id="overview">
+      <div class="meta-row">
+        <span>Today</span><span class="dot"></span>
+        <span>Wed, May 27, 2026</span><span class="dot"></span>
+        <span>Production Day 1 of 2</span>
+      </div>
+      <h1>Overview</h1>
+      <p class="lede">You're in production this week. Messaging locked Tuesday — Wed/Thu is recording. This page surfaces today's priorities and the docs we've built.</p>
+
+      <h2>Status at a glance</h2>
+      <div class="grid-3">
+        <div class="card warn">
+          <div class="card-label">Production days left</div>
+          <div class="card-value">2</div>
+          <div class="card-detail">Wed &amp; Thu — shoot Marcel pilot + B-roll</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Launch date</div>
+          <div class="card-value">Jun 2</div>
+          <div class="card-detail">6 days from today</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Active plans in this browser</div>
+          <div class="card-value">4</div>
+        </div>
+      </div>
+
+      <h2>Today — Marcel pilot recording</h2>
+      <div class="callout warn">
+        <div class="callout-title">Pre-shoot checklist</div>
+        <p>Confirm before you press record: messaging locked? · surrogate confirmed (George or Harmony)? · Episode 1 topic locked? · whiteboard prepped (3 boards, color convention)? · objection card printed for surrogate? · audio test on all three mics?</p>
+      </div>
+
+      <h3>Open docs you'll need today</h3>
+      <ul class="quick-links">
+        <li>
+          <a href="#survey" data-page="survey">
+            <div>
+              <div class="ql-title">Survey Insights — GrowthOS Launch <span style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--warn);margin-left:6px;">New</span></div>
+              <div class="ql-detail">N=100 · 73% advisor opt-in · 16 high-intent leads · full narrative validation</div>
+            </div>
+            <div class="ql-arrow">→</div>
+          </a>
+        </li>
+        <li>
+          <a href="#narrative" data-page="narrative">
+            <div>
+              <div class="ql-title">Launch Video — Narrative Spine</div>
+              <div class="ql-detail">Four-beat arc from this morning's Marcel + Harmony meeting</div>
+            </div>
+            <div class="ql-arrow">→</div>
+          </a>
+        </li>
+        <li>
+          <a href="#surrogate" data-page="surrogate">
+            <div>
+              <div class="ql-title">Episode 1 — Surrogate Card</div>
+              <div class="ql-detail">Hand this to George/Harmony before recording</div>
+            </div>
+            <div class="ql-arrow">→</div>
+          </a>
+        </li>
+        <li>
+          <a href="#video-plan" data-page="video-plan">
+            <div>
+              <div class="ql-title">Video &amp; Content Plan — Episode 1 outline</div>
+              <div class="ql-detail">Whiteboard layout + 5-beat arc for Marcel</div>
+            </div>
+            <div class="ql-arrow">→</div>
+          </a>
+        </li>
+        <li>
+          <a href="#marketing-week" data-page="marketing-week">
+            <div>
+              <div class="ql-title">Marketing Week — Wed/Thu plan</div>
+              <div class="ql-detail">Source doc: what's locked, what's recording</div>
+            </div>
+            <div class="ql-arrow">→</div>
+          </a>
+        </li>
+      </ul>
+
+      <h2>What's in here</h2>
+      <table>
+        <thead>
+          <tr><th>Doc</th><th>Purpose</th><th>Audience</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Video &amp; Content Plan</strong></td><td>Pre-read proposing two video franchises (Whiteboard Sessions, Charlie the OS Dog) + three secondary lanes</td><td>Harmony, Marcel</td></tr>
+          <tr><td><strong>Surrogate Card</strong></td><td>One-pager prop for the person across from Marcel in the pilot recording</td><td>George (primary) or Harmony</td></tr>
+          <tr><td><strong>Charlie</strong></td><td>Character sheet + marketing plan for the GrowthX bulldog franchise. Personality, voice, visual identity, prompt templates, rollout phases.</td><td>You, Harmony · for production reference</td></tr>
+          <tr><td><strong>Marketing Week</strong></td><td>Source doc — week-of agenda: Tue lock, Wed/Thu record, following week derivative assets</td><td>You, Harmony, Marcel</td></tr>
+          <tr><td><strong>Launch Plan</strong></td><td>Source doc — summary of master launch plan (objective, goals, ICP, messaging, programs, workback)</td><td>You, Harmony</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SURVEY INSIGHTS -->
+    <section class="page" id="survey">
+      <div class="meta-row">
+        <span>Captured today</span><span class="dot"></span>
+        <span>N=100 · Live</span><span class="dot"></span>
+        <span>Window: May 12–27, 2026</span><span class="dot"></span>
+        <span>Source: GTM-AI Survey (LinkedIn 21%, direct 79%)</span>
+      </div>
+      <h1>Survey Insights — GrowthOS Launch</h1>
+      <p class="lede">100 marketing leaders answered 27 questions about AI in GTM. The results validate the entire launch narrative — and surface 16 directly identifiable high-intent leads. This page is the strategic read; the full deliverable (with sales-ready CSV and reproducible analysis script) lives in this folder.</p>
+
+      <h2>Bottom line</h2>
+      <div class="signal-grid">
+        <div class="signal warn">
+          <div class="signal-pct">62%</div>
+          <div class="signal-label">"Marketing Engineer" disenchantment — skill loss, tool churn, can't hire AI talent, or "knowing which tools are worth it"</div>
+        </div>
+        <div class="signal info">
+          <div class="signal-pct">66%</div>
+          <div class="signal-label">Fragmentation pain — no consolidated view of web/content OR fragmentation is the #1 blocker</div>
+        </div>
+        <div class="signal info">
+          <div class="signal-pct">60%</div>
+          <div class="signal-label">Can't cleanly attribute content / organic spend to revenue</div>
+        </div>
+        <div class="signal success">
+          <div class="signal-pct">56%</div>
+          <div class="signal-label">Plan to invest in AI Visibility / AEO in next 12 months — <strong>#1 investment category</strong></div>
+        </div>
+        <div class="signal danger">
+          <div class="signal-pct">73%</div>
+          <div class="signal-label">Opted in for an advisor session — this isn't a survey, it's a pipeline event</div>
+        </div>
+        <div class="signal danger">
+          <div class="signal-pct">16</div>
+          <div class="signal-label">Directly identifiable high-intent leads (advisor opt-in + planning AEO + not tracking). See CSV in this folder.</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">Three things to internalize before the launch meeting</div>
+        <ol>
+          <li><strong>The narrative spine is right.</strong> Every beat — false prophecy, refusal, closed-loop bet, AEO stakes — has measurable proof in this sample. Use the percentages on launch slides.</li>
+          <li><strong>The market doesn't know us.</strong> Zero respondents mentioned GrowthOS, ContentOS, or CheckThat in the open "what tools excite you?" question. Direct competitors mentioned: AirOps (×2), Cassidy, HeyMarvin, AnswerRank.ai. The launch IS the awareness event.</li>
+          <li><strong>Sales has 16 names to call this week.</strong> The vetted list is <code>Survey - High Intent Leads.csv</code>. Half of them need a manual ICP review before outreach — see Data Quality.</li>
+        </ol>
+      </div>
+
+      <hr />
+
+      <h2>How the survey validates each beat of the launch narrative</h2>
+
+      <h3 style="margin-top:24px;">Beat 1 · The false prophecy — "Marketing Engineer"</h3>
+      <p>62% of respondents flagged either skill loss, tool churn, can't-hire-AI-talent, or "knowing which tools are worth it" as a top challenge. They are living inside the false prophecy.</p>
+      <div class="bar-list">
+        <div class="bar-row"><div class="bar-label">Maintaining brand voice and quality (top-2 AI challenge)</div><div class="bar-track"><div class="bar-fill warn" style="width:51%"></div></div><div class="bar-value">51%</div></div>
+        <div class="bar-row"><div class="bar-label">Faster output but harder to maintain quality (top problem AI creates)</div><div class="bar-track"><div class="bar-fill warn" style="width:49%"></div></div><div class="bar-value">49%</div></div>
+        <div class="bar-row"><div class="bar-label">More content but less strategic thinking</div><div class="bar-track"><div class="bar-fill warn" style="width:44%"></div></div><div class="bar-value">44%</div></div>
+        <div class="bar-row"><div class="bar-label">Publishing more AI content AND have brand-voice pain</div><div class="bar-track"><div class="bar-fill danger" style="width:44%"></div></div><div class="bar-value">44%</div></div>
+        <div class="bar-row"><div class="bar-label">Team losing core skills (writing, strategy, creative)</div><div class="bar-track"><div class="bar-fill warn" style="width:34%"></div></div><div class="bar-value">34%</div></div>
+        <div class="bar-row"><div class="bar-label">Tools change faster than we can keep up</div><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div><div class="bar-value">28%</div></div>
+        <div class="bar-row"><div class="bar-label">Only 7% have rebuilt around AI AND have a documented playbook</div><div class="bar-track"><div class="bar-fill muted" style="width:7%"></div></div><div class="bar-value">7%</div></div>
+      </div>
+
+      <h3>Beat 2 · The refusal — "Marketers shouldn't have to become engineers"</h3>
+      <p>This audience is primed to hear the relief. The cohort that says AI is creating "less strategic thinking" (44%) and "more editing time" (48%) is the cohort that will resonate hardest with the refusal beat.</p>
+
+      <h3>Beat 3 · The different bet — closed-loop content system</h3>
+      <p>The biggest single validation of the launch. 66% have fragmentation pain. 60% have attribution pain. The voice-of-customer quotes literally repeat the GrowthOS pitch.</p>
+      <div class="bar-list">
+        <div class="bar-row"><div class="bar-label">Fragmentation pain (no consolidated view OR fragmentation is #1 blocker)</div><div class="bar-track"><div class="bar-fill danger" style="width:66%"></div></div><div class="bar-value">66%</div></div>
+        <div class="bar-row"><div class="bar-label">Can't cleanly attribute content/organic spend to revenue</div><div class="bar-track"><div class="bar-fill danger" style="width:60%"></div></div><div class="bar-value">60%</div></div>
+        <div class="bar-row"><div class="bar-label">"Strategy is unclear / keeps changing" is #1 content blocker</div><div class="bar-track"><div class="bar-fill warn" style="width:30%"></div></div><div class="bar-value">30%</div></div>
+        <div class="bar-row"><div class="bar-label">"Saves time on tasks but adds time to reviewing and editing"</div><div class="bar-track"><div class="bar-fill warn" style="width:48%"></div></div><div class="bar-value">48%</div></div>
+      </div>
+
+      <h3>Beat 4 · The new stakes — AEO / AI visibility</h3>
+      <p>56% plan to invest in AI Visibility / AEO in the next 12 months — the #1 investment category, beating content production at scale (49%) and outbound (42%). And the market hasn't been won yet — only 5% report AEO as their primary inbound driver today.</p>
+      <div class="bar-list">
+        <div class="bar-row"><div class="bar-label">AI Visibility & AEO (top-2 investment)</div><div class="bar-track"><div class="bar-fill success" style="width:56%"></div></div><div class="bar-value">56%</div></div>
+        <div class="bar-row"><div class="bar-label">Content production at scale</div><div class="bar-track"><div class="bar-fill" style="width:49%"></div></div><div class="bar-value">49%</div></div>
+        <div class="bar-row"><div class="bar-label">Outbound &amp; prospecting</div><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><div class="bar-value">42%</div></div>
+        <div class="bar-row"><div class="bar-label">Marketing ops &amp; automation</div><div class="bar-track"><div class="bar-fill" style="width:41%"></div></div><div class="bar-value">41%</div></div>
+        <div class="bar-row"><div class="bar-label">Strategy &amp; planning</div><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><div class="bar-value">18%</div></div>
+      </div>
+      <p><strong>60% of the market has no coherent AEO answer yet:</strong> 41% "figuring it out," 10% relying on existing SEO and assuming it carries, 9% haven't thought about it. That's the wedge. Of those who plan to invest in AEO, 32% say "we don't have a tool to track it" is their #1 barrier.</p>
+
+      <hr />
+
+      <h2>Voice of the customer — the lines for slides</h2>
+      <p>Q21 free-text ("what do you wish AI could do for GTM that it can't today") is the most useful field in the survey. These respondents are articulating the GrowthOS thesis without knowing it exists yet.</p>
+
+      <div class="voc-quote">
+        "I feel like I need to build every part of the workflow with skills. It would be great if we defined the goal, gave the inputs, and then AI would walk through building a workflow holistically."
+        <span class="voc-attr">Q21 · what do you wish AI could do</span>
+      </div>
+      <div class="voc-quote">
+        "Skill-based AI systems, where the model operates from documented judgment and voice rather than one-shot prompts. The shift is from prompting to operating."
+        <span class="voc-attr">Q10 · tool you're most excited about — literally describes the GrowthOS thesis as the thing they're most excited about</span>
+      </div>
+      <div class="voc-quote">
+        "Connect dots across siloed systems without me babysitting."
+        <span class="voc-attr">Q21</span>
+      </div>
+      <div class="voc-quote">
+        "I wish AI could reliably act as an execution-ready GTM operator, not just an assistant that produces drafts or insights."
+        <span class="voc-attr">Q21</span>
+      </div>
+      <div class="voc-quote">
+        "Understand our ICP, positioning, category context, pricing, sales cycle, product constraints, and the 'why' behind past decisions, AND keep it consistent across every asset without as much manual prompting."
+        <span class="voc-attr">Q21</span>
+      </div>
+      <div class="voc-quote">
+        "Reliably connect content and AI-assisted campaigns to actual pipeline/revenue outcomes across channels without so much manual setup."
+        <span class="voc-attr">Q21</span>
+      </div>
+
+      <hr />
+
+      <h2>Where the market is on AEO</h2>
+      <div class="grid-2">
+        <div>
+          <h3 style="margin-top:0;">AEO strategy state</h3>
+          <div class="bar-list">
+            <div class="bar-row"><div class="bar-label">Figuring it out</div><div class="bar-track"><div class="bar-fill warn" style="width:41%"></div></div><div class="bar-value">41%</div></div>
+            <div class="bar-row"><div class="bar-label">Defined strategy</div><div class="bar-track"><div class="bar-fill success" style="width:40%"></div></div><div class="bar-value">40%</div></div>
+            <div class="bar-row"><div class="bar-label">Relying on existing SEO</div><div class="bar-track"><div class="bar-fill warn" style="width:10%"></div></div><div class="bar-value">10%</div></div>
+            <div class="bar-row"><div class="bar-label">Haven't thought about it</div><div class="bar-track"><div class="bar-fill danger" style="width:9%"></div></div><div class="bar-value">9%</div></div>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-top:0;">Tracking AI brand mentions</h3>
+          <div class="bar-list">
+            <div class="bar-row"><div class="bar-label">Track regularly</div><div class="bar-track"><div class="bar-fill success" style="width:46%"></div></div><div class="bar-value">46%</div></div>
+            <div class="bar-row"><div class="bar-label">Checked a few times</div><div class="bar-track"><div class="bar-fill warn" style="width:29%"></div></div><div class="bar-value">29%</div></div>
+            <div class="bar-row"><div class="bar-label">Know we should</div><div class="bar-track"><div class="bar-fill warn" style="width:15%"></div></div><div class="bar-value">15%</div></div>
+            <div class="bar-row"><div class="bar-label">Not a priority</div><div class="bar-track"><div class="bar-fill danger" style="width:10%"></div></div><div class="bar-value">10%</div></div>
+          </div>
+        </div>
+      </div>
+
+      <h3>Biggest barrier to improving AI visibility</h3>
+      <div class="bar-list">
+        <div class="bar-row"><div class="bar-label">Don't have a tool to track it</div><div class="bar-track"><div class="bar-fill danger" style="width:32%"></div></div><div class="bar-value">32%</div></div>
+        <div class="bar-row"><div class="bar-label">Don't know where to start</div><div class="bar-track"><div class="bar-fill warn" style="width:21%"></div></div><div class="bar-value">21%</div></div>
+        <div class="bar-row"><div class="bar-label">Other</div><div class="bar-track"><div class="bar-fill muted" style="width:16%"></div></div><div class="bar-value">16%</div></div>
+        <div class="bar-row"><div class="bar-label">Budget</div><div class="bar-track"><div class="bar-fill" style="width:14%"></div></div><div class="bar-value">14%</div></div>
+        <div class="bar-row"><div class="bar-label">Not convinced it matters yet</div><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><div class="bar-value">9%</div></div>
+        <div class="bar-row"><div class="bar-label">Not sure who owns it</div><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><div class="bar-value">8%</div></div>
+      </div>
+
+      <hr />
+
+      <h2>ICP behavior — who is furthest along</h2>
+
+      <h3>Role × AEO strategy maturity</h3>
+      <table>
+        <thead><tr><th>Role</th><th>n</th><th>Defined strategy</th><th>Figuring it out</th></tr></thead>
+        <tbody>
+          <tr><td><strong>VP of Marketing</strong></td><td>25</td><td><strong>60%</strong></td><td>28%</td></tr>
+          <tr><td>Marketing Ops / RevOps</td><td>13</td><td>46%</td><td>31%</td></tr>
+          <tr><td>Growth Lead</td><td>18</td><td>39%</td><td>44%</td></tr>
+          <tr><td>Content Lead</td><td>12</td><td>33%</td><td>58%</td></tr>
+          <tr><td>Founder / CEO</td><td>21</td><td>24%</td><td>43%</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Read:</strong> VPs of Marketing are the most strategy-mature and the most tool-ready — that's the primary ICP. Founders are least mature; they need education before tools. Content leads are the practitioners feeling the pain most acutely.</p>
+
+      <h3>Content / SEO spend × AEO maturity (the buying-stage indicator)</h3>
+      <table>
+        <thead><tr><th>Monthly content / SEO spend</th><th>n</th><th>% with defined AEO strategy</th></tr></thead>
+        <tbody>
+          <tr><td>$50K+</td><td>9</td><td><strong>78%</strong></td></tr>
+          <tr><td>$15–50K</td><td>23</td><td><strong>65%</strong></td></tr>
+          <tr><td>$5–15K</td><td>21</td><td>48%</td></tr>
+          <tr><td>Under $5K</td><td>35</td><td>17%</td></tr>
+          <tr><td>Don't track</td><td>12</td><td>17%</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Read:</strong> AEO maturity scales directly with content spend. Companies already spending real money on content have already moved on AEO. The under-$5K cohort hasn't gotten there yet. Pricing tiers should reflect this distribution.</p>
+
+      <h3>Stage × where the budget actually sits</h3>
+      <table>
+        <thead><tr><th>Stage</th><th>n</th><th>Modal monthly mkt budget</th></tr></thead>
+        <tbody>
+          <tr><td>Bootstrapped</td><td>30</td><td>Under $10K (33%)</td></tr>
+          <tr><td>Seed</td><td>29</td><td>Under $10K (31%)</td></tr>
+          <tr><td><strong>Series A</strong></td><td>19</td><td><strong>$25–75K (58%)</strong></td></tr>
+          <tr><td>Series B-C</td><td>14</td><td>Mixed; 21% at $150K+</td></tr>
+          <tr><td>Series D+</td><td>8</td><td>$25–75K (38%)</td></tr>
+        </tbody>
+      </table>
+      <p><strong>Read:</strong> Series A is the highest-density paying ICP. Past the figuring-it-out phase, has urgency, has budget concentration. Bootstrapped and seed are most numerous but lowest spend per company.</p>
+
+      <hr />
+
+      <h2>Competitive landscape (from Q10 — "tools you're excited about")</h2>
+      <div class="grid-2">
+        <div>
+          <h3 style="margin-top:0;">Direct / adjacent competitors mentioned</h3>
+          <ul>
+            <li><strong>AirOps</strong> — 2 mentions, one specifically for AEO workflow. Closest direct competitor in the data.</li>
+            <li><strong>Cassidy</strong> — 1 mention, agent/workflow builder</li>
+            <li><strong>HeyMarvin</strong> — 1 mention, research/analysis</li>
+            <li><strong>AnswerRank.ai</strong> — 1 mention, AEO-specific</li>
+            <li><strong>Granola</strong> — meeting notes / general AI assistant</li>
+            <li>Many generic mentions of <em>"AI-native GTM tools"</em>, <em>"agentic workflows"</em>, <em>"multi-agent orchestration"</em></li>
+          </ul>
+        </div>
+        <div>
+          <h3 style="margin-top:0;">Foundation tools dominating mindshare</h3>
+          <div class="bar-list">
+            <div class="bar-row"><div class="bar-label">ChatGPT</div><div class="bar-track"><div class="bar-fill" style="width:74%"></div></div><div class="bar-value">74%</div></div>
+            <div class="bar-row"><div class="bar-label">Claude</div><div class="bar-track"><div class="bar-fill" style="width:65%"></div></div><div class="bar-value">65%</div></div>
+            <div class="bar-row"><div class="bar-label">Built into existing tools</div><div class="bar-track"><div class="bar-fill" style="width:46%"></div></div><div class="bar-value">46%</div></div>
+            <div class="bar-row"><div class="bar-label">Gemini</div><div class="bar-track"><div class="bar-fill" style="width:43%"></div></div><div class="bar-value">43%</div></div>
+            <div class="bar-row"><div class="bar-label">Cursor / coding assistants</div><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><div class="bar-value">25%</div></div>
+            <div class="bar-row"><div class="bar-label">Perplexity</div><div class="bar-track"><div class="bar-fill" style="width:16%"></div></div><div class="bar-value">16%</div></div>
+            <div class="bar-row"><div class="bar-label">Jasper / Copy.ai</div><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><div class="bar-value">8%</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="callout danger">
+        <div class="callout-title">Mentions of GrowthOS, ContentOS, or CheckThat in this sample</div>
+        <p><strong>Zero.</strong> The launch is the awareness event. The market is hungry for what we describe and has not heard of us yet.</p>
+      </div>
+
+      <hr />
+
+      <h2>Data quality caveats — read before sharing any number</h2>
+      <div class="callout warn">
+        <div class="callout-title">What to verify</div>
+        <ol>
+          <li><strong>7 responses have clearly off-ICP position titles</strong> — "kennel attendant," "transmitter operator," "mail superintendent," "grain marketer," "cosmetics marketer," "farm and home management advisor," "food marketer." All passed honeypot. Could be panel responses, spam, or test data. Flagged with <code>off_icp_flag = review</code> in the leads CSV. Hand-vet before any sales outreach.</li>
+          <li><strong>Position field quality is mixed.</strong> Only 66/100 positions contain a marketing/growth/founder/CMO/VP marker. The rest may be valid but warrant review.</li>
+          <li><strong>Survey is live.</strong> Only 2 responses today (May 27). Re-run analysis weekly through launch — script is <code>analyze_survey.py</code> in this folder. Big spikes hit on May 25 (36) and May 26 (17); confirm what drove them.</li>
+          <li><strong>UTM coverage is poor.</strong> Only 21% have a known UTM source (all LinkedIn). Add UTM enforcement on all distribution links before launch week so the response wave is attributable.</li>
+          <li><strong>Composite signals include the off-ICP responses.</strong> 62%, 66%, 60% etc. may shift slightly after cleanup.</li>
+          <li><strong>Sample is self-selected.</strong> Anyone who finished 27 questions about AI in GTM is more AI-engaged than the average marketer. Adjust read accordingly.</li>
+        </ol>
+      </div>
+
+      <hr />
+
+      <h2>Recommended actions for launch</h2>
+
+      <h3>This week (pre-launch)</h3>
+      <ol>
+        <li><strong>Sales:</strong> contact the 16 high-intent leads with personalized intro referencing their survey answer. CSV: <code>Survey - High Intent Leads.csv</code>. Hand-vet the off-ICP-flagged rows first.</li>
+        <li><strong>Content:</strong> publish a teaser social post using one specific stat — <em>"62% of marketers we surveyed said they're losing core skills to AI tool sprawl. We don't think that's the future."</em> Pin as launch lead-in.</li>
+        <li><strong>Engineering / RevOps:</strong> add UTM enforcement on every distribution link so the launch-week response wave is attributable.</li>
+      </ol>
+
+      <h3>Launch week</h3>
+      <ol start="4">
+        <li><strong>Use the survey as the launch press hook.</strong> <em>"100 marketing leaders told us..."</em> is a stronger angle than <em>"we built a thing."</em></li>
+        <li><strong>Ship the AEO Playbook as the launch lead magnet.</strong> 32% have no playbook + 56% planning AEO investment + 21% don't know where to start = obvious download intent.</li>
+        <li><strong>Run the launch announcement through the known-LinkedIn sample first</strong> before paid amplification — they already raised their hand.</li>
+      </ol>
+
+      <h3>Post-launch</h3>
+      <ol start="7">
+        <li><strong>Re-run <code>analyze_survey.py</code> weekly</strong> through end of June. Watch whether the 16-lead cohort converts to demo or waitlist.</li>
+        <li><strong>Add 3-5 product-fit questions to Phase 2 of the survey.</strong> Current survey is rich on context but light on "would you buy this." Test a closing question like <em>"If a tool did [GrowthOS pitch], would you take a demo this quarter?"</em></li>
+      </ol>
+
+      <hr />
+
+      <h2>Files in this analysis bundle</h2>
+      <table>
+        <thead><tr><th>File</th><th>What it is</th></tr></thead>
+        <tbody>
+          <tr><td><code>Survey Insights - GrowthOS Launch.md</code></td><td>This page in markdown form — Notion-ready</td></tr>
+          <tr><td><code>Survey - High Intent Leads.csv</code></td><td>16 advisor-opted-in high-intent leads with off-ICP-flag column for sales</td></tr>
+          <tr><td><code>analyze_survey.py</code></td><td>Reproducible analysis script. Run <code>python3 analyze_survey.py</code> from this folder to refresh.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- LAUNCH NARRATIVE -->
+    <section class="page" id="narrative">
+      <div class="meta-row">
+        <span>Captured today</span><span class="dot"></span>
+        <span>Wed, May 27, 2026 · 11:00 AM</span><span class="dot"></span>
+        <span>Source: Marcel + Harmony meeting</span>
+      </div>
+      <h1>Launch Video — Narrative Spine</h1>
+      <p class="lede">The central story for the launch video. Every other piece of launch content — whiteboard sessions, social cuts, eventually Charlie — should ladder up to or reference this spine.</p>
+
+      <h2>The four-beat arc</h2>
+      <div class="beat-grid">
+        <div class="beat-card">
+          <span class="beat-num">Beat 1 · Setup</span>
+          <h4>The false prophecy</h4>
+          <p>"You need to become a Marketing Engineer." The industry is telling marketers they need to build agents, manage a sprawling AI Stack, become technical.</p>
+        </div>
+        <div class="beat-card refusal">
+          <span class="beat-num">Beat 2 · Pivot</span>
+          <h4>The refusal</h4>
+          <p>We don't think marketers need to become engineers.</p>
+        </div>
+        <div class="beat-card bet">
+          <span class="beat-num">Beat 3 · Position</span>
+          <h4>The different bet</h4>
+          <p>We built a platform that leverages frontier technology in a closed-loop system, so you can scale content without becoming a tools company.</p>
+        </div>
+        <div class="beat-card stakes">
+          <span class="beat-num">Beat 4 · Stakes</span>
+          <h4>The new stakes</h4>
+          <p>Agents are searching the web. Your site is your visibility surface in the AEO marketplace. Scale or disappear.</p>
+        </div>
+      </div>
+
+      <h2>What each beat is doing</h2>
+
+      <h3>Beat 1 — Name the lazy consensus before it names us</h3>
+      <p>"Marketing Engineer" is a real, in-the-wild term. The "AI Stack" is a real, in-the-wild buzzword. This beat lands only if the viewer recognizes the description immediately — so we need <strong>receipts</strong> on screen: actual job postings, actual stack diagrams, actual tweets.</p>
+
+      <h3>Beat 2 — Plant the flag</h3>
+      <p>Short, declarative, founder-voiced. This is the pivot from describing the world to taking a stance.</p>
+      <div class="callout warn">
+        <div class="callout-title">Risk to manage</div>
+        <p>"You don't need to become an engineer" can sound dismissive of marketers who <em>want</em> to upskill. Frame it as relief, not criticism — <em>you shouldn't have to</em>.</p>
+      </div>
+
+      <h3>Beat 3 — Offer the different bet</h3>
+      <p>"Closed-loop system" is doing heavy lifting. For an audience seeing GrowthOS for the first time, this phrase doesn't land on its own. It needs a one-sentence definition or a visual.</p>
+
+      <h3>Beat 4 — Redefine the stakes so our bet is the only sensible bet</h3>
+      <p>AEO is the hinge. The bet on this beat is that the viewer either already feels the AEO shift, or we make them feel it in a few seconds. Instinct: skip the acronym, use the picture — <em>"When buyers ask ChatGPT, your website is what the agent reads."</em></p>
+
+      <hr />
+
+      <h2>Tone &amp; voice</h2>
+      <ul>
+        <li>Founder-voiced (Marcel), not narrator-voiced</li>
+        <li>Direct, slightly contrarian, not defensive</li>
+        <li>We are not selling tools — we are selling a position</li>
+      </ul>
+
+      <h2>What this video is NOT</h2>
+      <ul>
+        <li>Not a product demo — that's downstream</li>
+        <li>Not a "future of marketing" think-piece</li>
+        <li>Not a how-to — the whiteboard sessions are the how</li>
+      </ul>
+      <p>It's a positioning shot — <strong>name the wave, plant the flag</strong>.</p>
+
+      <hr />
+
+      <h2>Open questions to lock with Marcel + Harmony</h2>
+      <div class="callout">
+        <div class="callout-title">Four decisions needed before storyboard</div>
+        <ol>
+          <li><strong>"Closed-loop system"</strong> — what's our visual or one-line definition for someone seeing it for the first time?</li>
+          <li><strong>AEO</strong> — define the acronym in-video, or skip it and lead with the picture?</li>
+          <li><strong>CTA / closing beat</strong> — does the video end on the stakes, or land on a specific invitation (waitlist, demo, "see how it works")?</li>
+          <li><strong>Receipts for Beat 1</strong> — comfortable putting real screenshots of industry / competitor messaging on screen, or do we paraphrase to avoid naming names?</li>
+        </ol>
+      </div>
+
+      <h2>How this fits the rest of the launch</h2>
+      <table>
+        <thead>
+          <tr><th style="width:32%;">Asset</th><th>Role relative to the spine</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>This video</strong></td>
+            <td>The spine. Plays on homepage hero. Cut into a :30 and a :15 for social.</td>
+          </tr>
+          <tr>
+            <td><strong>Whiteboard Sessions with Marcel</strong></td>
+            <td>The "okay, show me" companion. Long-form. Picks up where the spine leaves off. See <a href="#video-plan" data-page="video-plan">Video &amp; Content Plan</a>.</td>
+          </tr>
+          <tr>
+            <td><strong>Social cuts</strong></td>
+            <td>Each beat is its own post. Beat 1 alone is a thread. Beat 4 alone is a manifesto post.</td>
+          </tr>
+          <tr>
+            <td><strong>Charlie (post-launch)</strong></td>
+            <td>Ladders to the same position from a different angle — the marketer who refuses to drown in tools. See <a href="#charlie" data-page="charlie">Charlie</a>.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Production status</h2>
+      <div class="grid-3">
+        <div class="card success">
+          <div class="card-label">Messaging</div>
+          <div class="card-value">Locked</div>
+          <div class="card-detail">Tuesday's session</div>
+        </div>
+        <div class="card warn">
+          <div class="card-label">Narrative spine</div>
+          <div class="card-value">In review</div>
+          <div class="card-detail">4 open questions to close</div>
+        </div>
+        <div class="card">
+          <div class="card-label">Shoot target</div>
+          <div class="card-value">Wed/Thu</div>
+          <div class="card-detail">Once spine is locked</div>
+        </div>
+      </div>
+
+      <hr />
+
+      <h2>V2 Script · 90-second Marcel cut <span style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--warn);margin-left:8px;vertical-align:middle;">Total rewrite · Wed PM</span></h2>
+      <p>Total rewrite after V1 was flagged as too generic. Rebuilt from a deeper voice study (CheckThat launch transcript, website VSL, six recent LinkedIn posts) and a research pass on what's working in 2026 founder-led launch videos. The full deliverable — diagnosis of what V1 got wrong, research synthesis, annotated script with delivery notes, alternate openers and closes, and B-roll plan — lives in <code>Launch Video - 90s Script - Marcel V2.md</code>. V1 is preserved at <code>Launch Video - 90s Script - Marcel V1.md</code> for the diff.</p>
+
+      <div class="callout">
+        <div class="callout-title">Opener · Scene · ~17 sec</div>
+        <p>"Hey, what's up everyone, Marcel here.</p>
+        <p>I had a call yesterday with a CMO. She pulls up her Notion and shows me her 'AI stack.' Twelve tools. Eleven grand a month. I asked her: 'Has any of this moved your pipeline?'</p>
+        <p>She just laughed."</p>
+      </div>
+
+      <div class="callout warn">
+        <div class="callout-title">The Consensus · ~15 sec</div>
+        <p>"This is what they're telling marketers right now: to keep your job, you need to become a 'Marketing Engineer.' Learn the APIs. Build the agents. Wire up the stack.</p>
+        <p>I think it's the dumbest pitch in B2B right now."</p>
+      </div>
+
+      <div class="callout" style="border-left-color: var(--success);">
+        <div class="callout-title" style="color: var(--success);">The Flip / Product Reveal · ~19 sec</div>
+        <p>"Marketers shouldn't have to become engineers. They should have a system that already DID the engineering.</p>
+        <p>That's what we built. ContentOS. We wired the best frontier AI into a closed-loop content system. Research, planning, drafting, optimization — end to end. You bring the strategy. You bring the taste. The system does the rest."</p>
+      </div>
+
+      <div class="callout danger">
+        <div class="callout-title">Stakes · ~23 sec</div>
+        <p>"Your buyers stopped Googling. Right now, today, an AI agent is reading the web for them, building shortlists before you even know they're in market. They might never land on your homepage. And if they do, your homepage isn't your homepage anymore. It's how AI describes you to the room.</p>
+        <p>Brands that publish trustworthy content at scale own this. Everyone else disappears."</p>
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">Offer · ~7 sec</div>
+        <p>"I'm letting a small group into ContentOS early. Comment 'OS' below and I'll DM you personally. Talk soon."</p>
+      </div>
+
+      <p class="lede" style="margin-top:24px;">227 words · ~83–90 sec depending on pause placement</p>
+
+      <h3>Why V2 sounds like Marcel and V1 didn't</h3>
+      <ul>
+        <li><strong>Opens with a SCENE, not a claim.</strong> A specific CMO, a specific Notion page, a specific dollar number, ending on a specific human reaction ("She just laughed"). V1 opened with a manifesto. Modern launch videos open with a moment.</li>
+        <li><strong>The inversion is the headline, not a buried line.</strong> "Marketers shouldn't have to become engineers. They should have a system that already DID the engineering." That's the screenshot. Every other line is in service of landing it.</li>
+        <li><strong>"Wired" is a callback, not a coincidence.</strong> The consensus beat says "Wire up the stack." The flip beat says "We wired the best frontier AI into a closed-loop content system." Marcel just said <em>"we did the wiring so you don't have to"</em> without saying it.</li>
+        <li><strong>ONE customer-shaped moment, not a list of names.</strong> V1 listed five brands in one sentence as receipts; V2 spends those same words on one specific person and her actual reaction. The single-scene version hits harder in 90 seconds.</li>
+        <li><strong>Stakes get ONE picture, not three escalations.</strong> "An AI agent is reading the web for them, building shortlists before you even know they're in market." That's the line. V2 doesn't try to top it.</li>
+        <li><strong>The CTA is Marcel's actual CheckThat pattern.</strong> Personal offer + low-friction trigger ("comment OS") + scarcity ("small group") + warm close ("Talk soon"). V1's "Drop a comment for early access" could have been any SaaS launch.</li>
+        <li><strong>The word "leverage" appears zero times.</strong> So does "introducing," "we're excited to announce," and any other corporate softener.</li>
+      </ul>
+    </section>
+
+    <!-- VIDEO & CONTENT PLAN -->
+    <section class="page" id="video-plan">
+      <div class="meta-row">
+        <span>Pre-read for Harmony</span><span class="dot"></span>
+        <span>Drafted May 25, 2026</span><span class="dot"></span>
+        <span>Status: in review</span>
+      </div>
+      <h1>Video &amp; Content Expansion</h1>
+      <p class="lede">For Tuesday's lock-down session. Production options I can execute Wed/Thu (and the following week) once messaging is finalized.</p>
+
+      <h2>Why I'm proposing this</h2>
+      <p>The website is sharp and the launch programs are well-scoped, but the content engine <em>post-launch</em> is going to live or die on two things: <strong>explaining why GrowthOS is different from the noise</strong> (the GitHub repos, agent skills, and "marketing OS" wrappers flooding the market) and <strong>getting eyeballs back on us continuously</strong> so the message has time to land.</p>
+      <p>The most effective way to do that — and the most realistic for our team size — is to greenlight <strong>two flagship video franchises</strong> that work in opposite directions of the funnel and feed every other channel.</p>
+      <ol>
+        <li><strong>The Whiteboard Sessions with Marcel</strong> — long-form explainer that lives on YouTube + podcast feeds + sales send-aheads.</li>
+        <li><strong>Charlie the OS Dog</strong> — generative-AI short-form, GrowthX-adjacent, designed to be shared and replied-to. Wendy's-style brand voice with our mascot doing the talking.</li>
+      </ol>
+      <p>Greenlighting both Tuesday means I shoot the long-form (Marcel) on Wed/Thu and I prototype the first 3 Charlie clips next week while Seedance, Kling, and Veo renders run in the background.</p>
+
+      <div class="callout warn">
+        <div class="callout-title">Important constraint</div>
+        <p>Messaging won't be locked until Tuesday's session. None of the on-camera content below should be recorded before that lock. The shoot plan assumes a Tuesday-EOD lock so Wed/Thu can execute.</p>
+      </div>
+
+      <hr />
+
+      <h2>Franchise 1: The Whiteboard Sessions</h2>
+
+      <h3>The format</h3>
+      <p>Marcel teaches one big idea per episode. Across from him is a <strong>surrogate</strong> — someone who stands in for our ICP buyer (Head of Content, Sr. SEO, CMO). They're not pretending to be a journalist or a co-host. They're the person on the other side of a sales call who genuinely doesn't know GrowthOS yet and is asking the questions every real prospect asks.</p>
+      <p>A real whiteboard is the third character. Marcel draws the system as he explains it. The viewer leaves with both a mental model AND a screenshot-worthy artifact.</p>
+
+      <h3>Why this works</h3>
+      <ul>
+        <li>It's <strong>the sales call, made public</strong>. Every objection a prospect raises in a demo gets addressed publicly, which compresses our cycle.</li>
+        <li>It produces <strong>proof of expertise, not pitch</strong>. Marcel's whiteboard is the moat.</li>
+        <li>The whiteboard frames generate a static visual asset (Twitter card, LinkedIn carousel, deck slide) for free, every episode.</li>
+        <li>The format is <strong>defensible against AI slop</strong>. Anyone can spin up a SaaS thought-leadership podcast. Almost no one can put a founder on camera who can teach a system live.</li>
+        <li>It builds a flywheel: every episode answers a question that becomes a blog post, a sales enablement send-ahead, and a paid ad angle.</li>
+      </ul>
+
+      <h3>Reference points</h3>
+      <ul>
+        <li>Y Combinator's <em>How to Build the Future</em></li>
+        <li><em>Acquired</em> podcast (narrative clarity over flash)</li>
+        <li>David Perell's writing breakdowns</li>
+        <li>Tim Ferriss' Naval whiteboard session</li>
+        <li>Any Masters of Scale moment where Reid Hoffman interrupts to sketch the model</li>
+      </ul>
+
+      <h3>Surrogate options</h3>
+      <p>I'm running production both days, so I can't be in the chair. Need someone who can ask the questions a real prospect would ask — credibly, on camera, with minimal prep. Pick one and stick with it for the season — recurring chemistry is the moat.</p>
+      <table>
+        <thead><tr><th>Option</th><th>Pros</th><th>Cons</th></tr></thead>
+        <tbody>
+          <tr><td><strong>George</strong></td><td>Works with our customers daily, knows real questions and objections cold, internal but credible</td><td>Need to confirm comfort on camera + prep time before Wednesday</td></tr>
+          <tr><td><strong>Harmony</strong></td><td>Sharp marketing peer, natural chemistry with Marcel, fastest to lock</td><td>Already on camera in other launch assets — risks insular feel over a season</td></tr>
+          <tr><td><strong>A friendly customer</strong> (rotating)</td><td>Highest credibility, real ICP voice, customer logo each episode</td><td>Coordination cost, NDA/approvals, hard to lock by Wednesday</td></tr>
+          <tr><td><strong>External host</strong> (a creator we pay)</td><td>Built-in audience, polished delivery</td><td>Cost, scheduling, less authentic for a pilot</td></tr>
+        </tbody>
+      </table>
+      <div class="callout">
+        <div class="callout-title">My recommendation</div>
+        <p><strong>George for the pilot.</strong> He talks to our buyers every week, so the questions he asks Marcel will mirror the questions Marcel actually has to answer on a real sales call. Harmony is the strong backup if George isn't available or comfortable. Move to customer-as-surrogate on episode 3–4 once we know the format works.</p>
+      </div>
+
+      <h3>Episode 1–3 topic options (lock 1 Tuesday)</h3>
+      <ol>
+        <li><strong>"What 'Growth OS' actually means"</strong> — Marcel maps the six primitives on the whiteboard from scratch. The definitional episode. Best as Episode 1.</li>
+        <li><strong>"Why your agency keeps resetting"</strong> — The compounding intelligence argument visualized. Strong wedge against agency RFPs.</li>
+        <li><strong>"What AEO actually changes about your content strategy"</strong> — Anchored in the AI Visibility engine. Most timely topic.</li>
+        <li><strong>"The five things that break when you scale content with AI"</strong> — Operator-focused, less hype, lots of permission to be honest.</li>
+        <li><strong>"How we audit a website in 30 minutes"</strong> — Marcel does it live on a real (consented) site. Closest thing to a free sales call.</li>
+      </ol>
+
+      <h3>Episode 1 — light outline + whiteboard layout</h3>
+      <p><em>Deliberately under-baked. Messaging isn't locked until Tuesday, so this is a structure for Marcel to fill, not a script.</em></p>
+      <p><strong>Working title:</strong> <em>What a Growth OS Actually Is</em></p>
+      <p><strong>Length:</strong> ~20-min cut from ~60–75 min raw.</p>
+      <p><strong>Single goal of the episode:</strong> The surrogate (and the viewer) leaves understanding why GrowthOS is a <em>system</em> rather than another tool, and why the system compounds while a tool stack resets.</p>
+
+      <h4>Whiteboard layout — three boards, left to right</h4>
+      <ol>
+        <li><strong>Left board — "The Status Quo."</strong> Marcel draws the fragmented stack as a row of disconnected boxes: SEO tool, content optimizer, agency, analytics, AI writer. Lines that don't connect. Tally up the monthly cost. The visual point: it's a graveyard, not a system.</li>
+        <li><strong>Middle board — "What 'Growth OS' Means."</strong> Marcel erases the boxes and re-draws the same surface as a closed loop, labeling each node with one of the primitives from the site: Context, Pages, Opportunities, Agents, Signals, Snapshots. He draws arrows showing how each one feeds the next.</li>
+        <li><strong>Right board — "Why It Compounds."</strong> Marcel sketches a simple Q1 → Q2 → Q3 progression showing how each pass through the loop is smarter than the last. Contrast: agency resets to zero on a new engagement; GrowthOS keeps every prior cycle of context.</li>
+      </ol>
+      <p>The board itself becomes the hero static asset for the episode (LinkedIn carousel, Twitter card, deck slide).</p>
+
+      <h4>Five-beat conversational arc</h4>
+      <ol>
+        <li><strong>Open (1–2 min).</strong> Surrogate: "Marcel, what are you drawing for me today?" Marcel sets the stake in one sentence.</li>
+        <li><strong>The old way is broken (5–7 min).</strong> Surrogate walks through their own current stack out loud. Marcel diagnoses on the left board as they talk.</li>
+        <li><strong>What changes (8–10 min).</strong> Marcel moves to the middle board, introduces primitives one at a time. Surrogate pushes back on each.</li>
+        <li><strong>The compounding payoff (5–7 min).</strong> Marcel moves to the right board. Surrogate asks for proof. Marcel cites real customer trajectories.</li>
+        <li><strong>Close (3–5 min).</strong> Surrogate: <em>"OK — what would I actually do tomorrow?"</em> Marcel gives 2–3 concrete next moves.</li>
+      </ol>
+
+      <h4>Things I will NOT pre-write before Tuesday</h4>
+      <ul>
+        <li>The cold open / hook</li>
+        <li>Any specific positioning language</li>
+        <li>The category name Marcel uses on board 2</li>
+        <li>Customer-name proof points until we confirm what's referenceable</li>
+      </ul>
+
+      <h4>Things I WILL prep Tuesday night</h4>
+      <ul>
+        <li>The objection card for the surrogate (see <a href="#surrogate" data-page="surrogate">Surrogate Card</a>)</li>
+        <li>The whiteboard color convention (primitives in one color, signals/connections in another, costs in a third)</li>
+        <li>A printed cheat-sheet for Marcel with the five beats and the right-board "compounding" framing</li>
+      </ul>
+
+      <h3>Production needs (Wed/Thu)</h3>
+      <ul>
+        <li>Real whiteboard, locked-off wide camera + close-up camera on the board</li>
+        <li>Marcel mic'd, surrogate mic'd, room mic for backup</li>
+        <li>Desk/doc cam on any printed reference Marcel pulls in</li>
+        <li>~75 min of recording per episode → 20-min cut + 6–10 short-form pulls</li>
+        <li><strong>I can shoot 2 pilot episodes across the two days</strong> if topics are locked Tuesday night</li>
+      </ul>
+
+      <h3>Distribution</h3>
+      <ul>
+        <li>Full episode: YouTube + Spotify + Apple Podcasts</li>
+        <li>20-min cut: embed on growthx.com under a new <code>/library</code> or <code>/sessions</code> page</li>
+        <li>Whiteboard photograph: standalone LinkedIn carousel ("Marcel drew this in 8 minutes")</li>
+        <li>6–10 short-form pulls: LinkedIn, X, and TikTok if we spin one up</li>
+        <li>Sales: every episode becomes a send-ahead — "watch this 6-min clip before our call"</li>
+      </ul>
+
+      <hr />
+
+      <h2>Franchise 2: Charlie the OS Dog</h2>
+
+      <h3>The concept</h3>
+      <p>Charlie, the GrowthX English bulldog, has Opinions about marketing. He's senior, tired, has seen every trend cycle, and runs an "OS" for marketers without ever needing to attend a single meeting. We use Seedance 2.0, Kling 3.0, Veo, and Google Omni to put Charlie in absurd, sharply observed situations that any marketer would recognize.</p>
+      <p><strong>We're not selling GrowthOS in the clips.</strong> We're building a character marketers want to follow. The Wendy's principle: the content isn't about the product, it's about the personality. The product benefits because the personality lives on a feed people already trust.</p>
+
+      <h3>Why this works for us specifically</h3>
+      <ul>
+        <li>The category we're entering ("Growth OS," "AI growth infrastructure," etc.) is <strong>flooded with serious, indistinguishable thought-leadership content.</strong> A character voice cuts through that immediately.</li>
+        <li>Charlie predates GrowthOS, which means we already have brand equity — we're not inventing a mascot from scratch.</li>
+        <li>Gen-AI video has dropped the cost of producing this kind of content by ~100x. Before generative video, this would have required a 3D animator. Now it's a Wednesday afternoon.</li>
+        <li>Reply-game potential — Charlie can be a quote-tweet/DM character, not just a post-on-the-feed character.</li>
+      </ul>
+
+      <h3>Reference brand voices</h3>
+      <ul>
+        <li><strong>Wendy's</strong> — savagery in service of fans</li>
+        <li><strong>Duolingo</strong> — owl as unhinged but lovable mascot, brand-safe weirdness</li>
+        <li><strong>Liquid Death</strong> — marketing-first, product-incidental</li>
+        <li><strong>Aviation Gin / Mint Mobile</strong> — character (Reynolds) is the funnel</li>
+        <li><strong>Surreal Cereal</strong> — copy-driven, low-production, high-personality</li>
+        <li><strong>MSCHF</strong> — drops, stunts, cultural moments</li>
+      </ul>
+      <p>The shared lesson: <strong>distinct character + consistent voice + cadence beats budget every time.</strong></p>
+
+      <h3>Content pillars (lock 3–4 on Tuesday)</h3>
+      <ol>
+        <li><strong>"Charlie reviews the stack"</strong> — POV: Charlie evaluates a marketing tool. Always disappointed.</li>
+        <li><strong>"A day in the life of Charlie, CMO"</strong> — Charlie wears a tiny blazer, runs a "meeting," signs off on a quarterly plan, naps.</li>
+        <li><strong>"Charlie reacts to bad marketing tweets"</strong> — Bulldog reactions cut over screenshotted hot takes. Pure reply-game ammo.</li>
+        <li><strong>"Charlie's content audit"</strong> — Charlie stares at a blog post, judges silently, walks away.</li>
+        <li><strong>"Charlie + Marcel"</strong> — Recurring odd-couple bit where Marcel explains something serious and Charlie is unimpressed.</li>
+      </ol>
+
+      <h3>Tooling map</h3>
+      <ul>
+        <li><strong>Seedance 2.0</strong> — Lip-sync and short-form motion. For dialogue or talking-Charlie bits.</li>
+        <li><strong>Kling 3.0</strong> — Transitions, surreal/dream sequences, physics-y comedy beats.</li>
+        <li><strong>Veo</strong> — Highest fidelity narrative shots and hero clips.</li>
+        <li><strong>Google Omni</strong> — Multimodal scene composition and world-consistent backgrounds.</li>
+        <li>All four: reference-image consistency from a curated Charlie character sheet I'll build Wed.</li>
+      </ul>
+
+      <h3>Cadence + format</h3>
+      <ul>
+        <li><strong>2 posts per week</strong> minimum: an evergreen library piece + 1 reactive piece</li>
+        <li><strong>15–30 seconds each</strong>, vertical, captioned</li>
+        <li><strong>No paid spend at first</strong> — pure organic to find which formats hit</li>
+        <li>Cross-post: LinkedIn corporate, X corporate, Marcel's personal X, dedicated Charlie handles (TBD)</li>
+      </ul>
+
+      <h3>Risks + guardrails</h3>
+      <ul>
+        <li>Charlie cannot punch down at customers, name real competitors directly, or punch at anyone's job</li>
+        <li>One person owns voice consistency — proposing Harmony + me as the review pair</li>
+        <li>We test 5–10 clips quietly on Marcel's personal account before launching as a corporate franchise</li>
+        <li><strong>Charlie launches AFTER the main GrowthOS launch</strong>, not concurrent — so we don't dilute the core message in launch week</li>
+      </ul>
+
+      <hr />
+
+      <h2>Three more lanes that fall out of the same shoots</h2>
+
+      <h3>A. The Six Primitives Explainer Series</h3>
+      <p>One 60–90 second video per primitive (Context, Pages, Opportunities, Agents, Signals, Snapshots). Marcel does each on the whiteboard in a single take. Six videos shot in one afternoon. Each lives on its respective product page.</p>
+
+      <h3>B. Customer Documentary Shorts</h3>
+      <p>3–5 min mini-docs on 2 lighthouse customers (Vercel, Lovable, etc.). Pure proof. We use them in sales, on the homepage, and as standalone YouTube content. Won't shoot Wed/Thu — schedule for the following week.</p>
+
+      <h3>C. The Compounding Audit</h3>
+      <p>Marcel-led, live (or recorded-as-live), public website audits using GrowthOS as the lens. Monthly cadence. Sponsor-able down the road. Closest analog: <em>Levels.fyi</em> salary teardowns or <em>Marketing Examples</em> breakdowns, but for content portfolios.</p>
+
+      <hr />
+
+      <h2>What I need from Tuesday in order to ship Wed/Thu</h2>
+      <table>
+        <thead><tr><th>Decision</th><th>Why I need it before Wednesday</th></tr></thead>
+        <tbody>
+          <tr><td>Greenlight on The Whiteboard Sessions (yes/no + Episode 1 topic)</td><td>So I can lock Marcel's prep + the whiteboard layout Tuesday night</td></tr>
+          <tr><td>Surrogate decision (George or Harmony for the pilot)</td><td>I'm on production both days, so I can't be in the chair — need to confirm George by EOD Tuesday so he can prep, Harmony as the backup</td></tr>
+          <tr><td>Greenlight on Charlie franchise (yes/no + which 3 pillars)</td><td>So I can spend Wed afternoon building the character reference sheets and start renders</td></tr>
+          <tr><td>Voice/tone bounds for Charlie</td><td>So we don't end up with a re-review cycle on every post</td></tr>
+          <tr><td>Lock on the "what category are we in" line</td><td>So Marcel's Episode 1 whiteboard isn't outdated by Friday</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What I'll have ready by EOD Thursday if we lock the above</h2>
+      <ul>
+        <li>1–2 Whiteboard Sessions episodes, fully recorded (rough cuts following week)</li>
+        <li>Six Primitives short-form set, fully recorded</li>
+        <li>Charlie character reference sheet + 3 prototype clips for internal review (not for publishing yet)</li>
+        <li>All B-roll we need (Marcel at desk, office, hands on whiteboard) for short-form pulls across the entire launch</li>
+      </ul>
+
+      <h2>Open questions for you and Marcel</h2>
+      <ol>
+        <li>Do we have a budget line for any of this beyond my time and existing tool access, or are we strict zero-vendor on launch content?</li>
+        <li>Is Marcel open to a recurring on-camera commitment (e.g., monthly), or do we treat the Whiteboard Sessions as a one-shot pilot we evaluate before committing?</li>
+        <li>Where do we want Charlie to live distribution-wise — under the GrowthX corporate handles, or as a separate handle (@CharlieTheBulldog or similar)?</li>
+        <li>Can we lock George (or Harmony) as the pilot surrogate before EOD Tuesday so they have time to prep? And are there customers I can quietly start reaching out to for Episode 3's surrogate seat, or do you want to own that outreach?</li>
+        <li>Do we want to align the Charlie launch with any specific moment (Product Hunt day, post-launch week, July kickoff), or just start when the content is good?</li>
+      </ol>
+    </section>
+
+    <!-- SURROGATE CARD -->
+    <section class="page" id="surrogate">
+      <div class="meta-row">
+        <span>Episode 1 prop</span><span class="dot"></span>
+        <span>Print at 100% · one page</span><span class="dot"></span>
+        <span>Hand to George or Harmony before recording</span>
+      </div>
+      <h1>Episode 1 — Surrogate Card</h1>
+      <p class="lede"><em>Whiteboard Sessions — <strong>What a Growth OS Actually Is</strong></em></p>
+
+      <h2>Your one job</h2>
+      <p>Be the buyer on the other side of a sales call. Stay genuinely curious. Don't interview — react. If Marcel says something you wouldn't accept at face value on a real call, push back.</p>
+
+      <h2>The five beats — what you're doing in each</h2>
+      <ol>
+        <li><strong>Open (1–2 min).</strong> Cue Marcel with: <em>"What are you drawing for me today?"</em> Then shut up.</li>
+        <li><strong>The old way is broken (5–7 min).</strong> Walk Marcel through a current stack out loud — be specific, name real tools, name a monthly cost. Let him diagnose as he draws on the left board. Don't help him.</li>
+        <li><strong>What changes (8–10 min).</strong> Marcel introduces primitives one at a time on the middle board. <strong>Push back on every single one.</strong> Don't let him move on until you'd be satisfied if he said this to you in a real demo.</li>
+        <li><strong>The compounding payoff (5–7 min).</strong> Ask for proof. <em>"Show me what month 6 looks like vs. month 1. Who's actually done that?"</em> Make him cite real customer trajectories.</li>
+        <li><strong>Close (3–5 min).</strong> Land with: <em>"OK — what would I actually do tomorrow?"</em> Make him give you 2–3 concrete moves, not a manifesto.</li>
+      </ol>
+
+      <h2>The five must-ask objections</h2>
+      <p><em>These have to get answered on tape, even if Marcel doesn't volunteer them.</em></p>
+      <ol>
+        <li><strong>"How is this different from Ahrefs / Clearscope / our agency?"</strong><br/>Use whichever tools match your real comparison set.</li>
+        <li><strong>"How is this different from a GPT wrapper, an agent skill, or a GitHub repo my team could build in a week?"</strong><br/>The AI-slop objection. Most important one.</li>
+        <li><strong>"What does my team actually own day-to-day if your system is doing this?"</strong><br/>The <em>am I being automated</em> objection.</li>
+        <li><strong>"What's the catch — where does this NOT work?"</strong><br/>Force a real answer. Don't accept <em>"it works for everyone."</em></li>
+        <li><strong>"If I'm just here for AI visibility, do I need the rest of it?"</strong><br/>The unbundling question.</li>
+      </ol>
+
+      <h2>If Marcel uses jargon</h2>
+      <p>Stop him. <em>"Wait — say that in English."</em> Every time. The viewer needs this more than Marcel realizes.</p>
+
+      <h2>Don'ts</h2>
+      <ul>
+        <li>Don't be a journalist. You're not neutral — you're skeptical.</li>
+        <li>Don't help him finish a sentence.</li>
+        <li>Don't agree just to keep things moving. Disagreement is the moat.</li>
+        <li>Don't reference internal GrowthX context (team names, internal projects). You're a stand-in for a buyer.</li>
+      </ul>
+
+      <h2>If you get off track, reset with one of these</h2>
+      <ul>
+        <li><em>"Bring me back to the whiteboard."</em></li>
+        <li><em>"Pretend I'm hearing this for the first time."</em></li>
+        <li><em>"Pretend I have $20K/month already in this category and one quarter to prove it works."</em></li>
+      </ul>
+
+      <hr />
+      <p style="text-align: center; color: var(--text-tertiary); font-size: 12px;"><em>Print at 100%. One page. Hold this off-camera — don't read from it, glance.</em></p>
+    </section>
+
+    <!-- CHARLIE -->
+    <section class="page" id="charlie">
+      <div class="meta-row">
+        <span>Character sheet · v0.1</span><span class="dot"></span>
+        <span>First draft</span><span class="dot"></span>
+        <span>Visual reference: awaiting real-Charlie photos</span>
+      </div>
+      <h1>Charlie — The OS Dog</h1>
+      <p class="lede">Character sheet and rollout plan for the generative-AI short-form franchise. Built to keep voice consistent across every clip, every render, every channel — no matter who's producing.</p>
+
+      <div class="callout">
+        <div class="callout-title">What this is</div>
+        <p>A working draft. Locks the things that should be locked (personality, tonal range, settings, do/don't) and clearly flags what's still in motion (real reference photos, distribution handle, launch timing).</p>
+      </div>
+
+      <h2>Identity</h2>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-label">The basics</div>
+          <p style="margin:8px 0 0;color:#d8d8d8;">
+            <strong>Name:</strong> Charlie<br/>
+            <strong>Species:</strong> English Bulldog<br/>
+            <strong>Age in fiction:</strong> Senior. Gray muzzle. World-weary.<br/>
+            <strong>Title in fiction:</strong> CMO Emeritus. Runs an OS without ever attending a meeting.<br/>
+            <strong>Origin:</strong> The actual GrowthX mascot, repositioned for the GrowthOS era.
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-label">The one-line essence</div>
+          <p style="margin:8px 0 0;color:#d8d8d8;">Charlie is the <strong>Larry David of marketing dogs</strong>. He's not here to be cute. He's here to react to the absurdity of how marketing actually works. The product benefit lives in the silence after the reaction.</p>
+        </div>
+      </div>
+
+      <h2>Personality</h2>
+      <ul>
+        <li><strong>Senior.</strong> Has seen every trend cycle. Bored before the trend starts.</li>
+        <li><strong>Skeptical without being mean.</strong> He doesn't dunk. He just looks at you until you realize.</li>
+        <li><strong>Opinionated, but rarely speaks.</strong> The look IS the take.</li>
+        <li><strong>Observational, not aspirational.</strong> Charlie is not the hero of his content — the absurdity is. He's the witness.</li>
+        <li><strong>Never sells.</strong> Charlie never mentions GrowthOS, ContentOS, GrowthX, or any product name. He's an adjacent character, not an ad.</li>
+      </ul>
+
+      <h2>Voice</h2>
+      <p>Charlie is 90% silent. His reactions do the talking. When he does "speak" (text overlay, thought bubble, AI voiceover), it's one short observation. Dry. No exclamation marks. Never finishes a thought he doesn't have to.</p>
+      <p><strong>Catchphrase candidates to test:</strong></p>
+      <ul>
+        <li><em>"Mm."</em> — the universal Charlie response</li>
+        <li><em>"Bark."</em> — his rating system. One bark to five. He never gives five.</li>
+        <li><em>"Pass."</em> — text overlay after he stares at something for a beat too long</li>
+        <li><em>"Hmm."</em> — the soft no</li>
+      </ul>
+
+      <h2>Visual identity</h2>
+
+      <h3>The dog himself</h3>
+      <p>The real Charlie is the source of truth. Once we have a reference photo set (front, side, 3/4 left, 3/4 right, expressions at rest, expressions alert), every render gets locked to his actual coat, jowl shape, eye color, and signature look.</p>
+      <div class="callout warn">
+        <div class="callout-title">Blocker</div>
+        <p>I need <strong>6–12 reference photos of the real Charlie</strong> from existing GrowthX content before we move to production renders. For prototyping right now we can use a generic senior English bulldog with the right vibe — but production must lock to the real dog.</p>
+      </div>
+
+      <h3>Style direction — pick a lane</h3>
+      <p>Same subject (hero portrait, slight scowl, weary expression), rendered in ten distinct visual styles. The choice here cascades into every future Charlie render — wardrobe, settings, even the comedic register changes per style. Click any image to open it full-size.</p>
+      <div class="callout">
+        <div class="callout-title">Comparison note</div>
+        <p>Styles 01–05 were rendered with a fast prototyping tool. Styles 06–10 are gpt-image-2 production quality. If you want apples-to-apples I can re-render 01–05 at gpt-image-2 quality too (~$1.05 additional). The franchise's production renders will all come from gpt-image-2 regardless of which lane you pick.</p>
+      </div>
+      <div class="style-grid">
+
+        <figure class="style-tile">
+          <a class="style-img-link" href="assets/charlie-style-01-photoreal.png" target="_blank">
+            <img src="assets/charlie-style-01-photoreal.png" alt="Photo-real Charlie" loading="lazy" />
+            <span class="style-zoom" aria-hidden="true">⤢</span>
+          </a>
+          <figcaption class="style-body">
+            <div class="style-head"><span class="style-num">01</span><h4>Photo-real</h4></div>
+            <p class="style-desc">"A real dog who happens to be in a sweater." Documentary credibility — humor has to come from the situation, not the style.</p>
+            <div class="style-bestfor"><strong>Best for</strong> · reaction shots · reply game · documentary clips</div>
+          </figcaption>
+        </figure>
+
+        <figure class="style-tile">
+          <a class="style-img-link" href="assets/charlie-style-02-pixar.png" target="_blank">
+            <img src="assets/charlie-style-02-pixar.png" alt="Pixar-style Charlie" loading="lazy" />
+            <span class="style-zoom" aria-hidden="true">⤢</span>
+          </a>
+          <figcaption class="style-body">
+            <div class="style-head"><span class="style-num">02</span><h4>Pixar 3D</h4></div>
+            <p class="style-desc">Highest production-value feel. Reads as a "character" instantly — but leans cute and kid-adjacent, which can undercut B2B credibility.</p>
+            <div class="style-bestfor"><strong>Best for</strong> · hero brand spot · big-budget signaling · evergreen anchor</div>
+          </figcaption>
+        </figure>
+
+        <figure class="style-tile">
+          <a class="style-img-link" href="assets/charlie-style-03-aardman.png" target="_blank">
+            <img src="assets/charlie-style-03-aardman.png" alt="Aardman claymation Charlie" loading="lazy" />
+            <span class="style-zoom" aria-hidden="true">⤢</span>
+          </a>
+          <figcaption class="style-body">
+            <div class="style-head"><span class="style-num">03</span><h4>Aardman claymation</h4></div>
+            <p class="style-desc">Dry British comedy baked into the medium. Almost no B2B brand uses this — the format itself says "we don't take ourselves too seriously."</p>
+            <div class="style-bestfor"><strong>Best for</strong> · serialized franchise · recurring character storytelling</div>
+          </figcaption>
+        </figure>
+
+        <figure class="style-tile">
+          <a class="style-img-link" href="assets/charlie-style-04-2d-vector.png" target="_blank">
+            <img src="assets/charlie-style-04-2d-vector.png" alt="2D vector animated Charlie" loading="lazy" />
+            <span class="style-zoom" aria-hidden="true">⤢</span>
+          </a>
+          <figcaption class="style-body">
+            <div class="style-head"><span class="style-num">04</span><h4>2D vector</h4></div>
+            <p class="style-desc">Friendly, modern, shareable. Cheapest path to motion. Risk: crowded — many B2B brands have landed in this lane.</p>
+            <div class="style-bestfor"><strong>Best for</strong> · short-form social · mobile feeds · scaling volume</div>
+          </figcaption>
+        </figure>
+
+        <figure class="style-tile">
+          <a class="style-img-link" href="assets/charlie-style-05-comic.png" target="_blank">
+            <img src="assets/charlie-style-05-comic.png" alt="Comic book Charlie" loading="lazy" />
+            <span class="style-zoom" aria-hidden="true">⤢</span>
+          </a>
+          <figcaption class="style-body">
+            <div class="style-head"><span class="style-num">05</span><h4>Comic / graphic novel</h4></div>
+            <p class="style-desc">Most personality-forward of the lot. Strongest as static — LinkedIn carousels, deck slides, blog headers. Hard to animate.</p>
+            <div class="style-bestfor"><strong>Best for</strong> · written-content companion art · blog headers · sales decks</div>
+          </figcaption>
+        </figure>
+
+        <figure class="style-tile">
+          <a class="style-img-link" href="assets/charlie-style-06-felt-puppet.png" target="_blank">
+            <img src="assets/charlie-style-06-felt-puppet.png" alt="Felt puppet Charlie" loading="lazy" />
+            <span class="style-zoom" aria-hidden="true">⤢</span>
+          </a>
+          <figcaption class="style-body">
+            <div class="style-head"><span class="style-num">06</span><h4>Felt puppet</h4></div>
+            <p class="style-desc">Tactile, handmade warmth — the Muppets / Sesame Street lane. Softer and friendlier than claymation; decades of audience trust baked in.</p>
+            <div class="style-bestfor"><strong>Best for</strong> · warm character-driven content · accessible humor</div>
+          </figcaption>
+        </figure>
+
+        <figure class="style-tile">
+          <a class="style-img-link" href="assets/charlie-style-07-ghibli.png" target="_blank">
+            <img src="assets/charlie-style-07-ghibli.png" alt="Studio Ghibli Charlie" loading="lazy" />
+            <span class="style-zoom" aria-hidden="true">⤢</span>
+          </a>
+          <figcaption class="style-body">
+            <div class="style-head"><span class="style-num">07</span><h4>Studio Ghibli watercolor</h4></div>
+            <p class="style-desc">Hand-painted Miyazaki feel. Rare in B2B. Risk: the soft painterly tone may undercut Charlie's dry skepticism — he reads gentle, not weary.</p>
+            <div class="style-bestfor"><strong>Best for</strong> · contemplative seasonal pieces · year-end recaps · brand films</div>
+          </figcaption>
+        </figure>
+
+        <figure class="style-tile">
+          <a class="style-img-link" href="assets/charlie-style-08-anime.png" target="_blank">
+            <img src="assets/charlie-style-08-anime.png" alt="Anime Charlie" loading="lazy" />
+            <span class="style-zoom" aria-hidden="true">⤢</span>
+          </a>
+          <figcaption class="style-body">
+            <div class="style-head"><span class="style-num">08</span><h4>Anime / cel-shaded</h4></div>
+            <p class="style-desc">Bold shonen energy. Charlie as the intense protagonist of his own series. Hilarious as a one-off; could feel try-hard as the default lane.</p>
+            <div class="style-bestfor"><strong>Best for</strong> · one-off intense moments · "Charlie reacts" reply-game ammo</div>
+          </figcaption>
+        </figure>
+
+        <figure class="style-tile">
+          <a class="style-img-link" href="assets/charlie-style-09-pixel-art.png" target="_blank">
+            <img src="assets/charlie-style-09-pixel-art.png" alt="Pixel art Charlie" loading="lazy" />
+            <span class="style-zoom" aria-hidden="true">⤢</span>
+          </a>
+          <figcaption class="style-body">
+            <div class="style-head"><span class="style-num">09</span><h4>16-bit pixel art</h4></div>
+            <p class="style-desc">SNES-era sprite. Instantly nostalgic and shareable. Tradeoff: faces collapse to a few pixels — emotional range narrows considerably.</p>
+            <div class="style-bestfor"><strong>Best for</strong> · launch announcement · gamified content · retro callbacks</div>
+          </figcaption>
+        </figure>
+
+        <figure class="style-tile">
+          <a class="style-img-link" href="assets/charlie-style-10-midcentury.png" target="_blank">
+            <img src="assets/charlie-style-10-midcentury.png" alt="Mid-century modern Charlie" loading="lazy" />
+            <span class="style-zoom" aria-hidden="true">⤢</span>
+          </a>
+          <figcaption class="style-body">
+            <div class="style-head"><span class="style-num">10</span><h4>Mid-century flat</h4></div>
+            <p class="style-desc">Vintage editorial style. Designer-y, sophisticated. Functions more as a logo system than a character — Charlie becomes an icon, not a personality.</p>
+            <div class="style-bestfor"><strong>Best for</strong> · brand identity · conference signage · premium asset moments</div>
+          </figcaption>
+        </figure>
+
+      </div>
+
+      <div class="callout">
+        <div class="callout-title">My recommendation (subject to update once 06–10 render)</div>
+        <p>Based on what's visible so far: lead with <strong>03 (Aardman claymation)</strong> for hero clips and <strong>01 (photo-real)</strong> for reactive reply-game posts. Will revise after the felt puppet (06) renders — that's the strongest competitor to Aardman in the "tactile handmade character" lane and could win on accessibility/warmth.</p>
+      </div>
+
+      <h3>Wardrobe</h3>
+      <p>Tiny accessories that signal his "role" without putting him in costume. Quiet. Believable.</p>
+      <ul>
+        <li>Small black blazer lapel pin (eventually the GrowthX mark)</li>
+        <li>Bluetooth earpiece — almost too small to see</li>
+        <li>Reading glasses balanced on top of his head, not on his nose</li>
+        <li>Office badge on a thin lanyard</li>
+        <li>Occasionally: a tiny blazer over the shoulders (use sparingly — costume-y if overused)</li>
+      </ul>
+
+      <h3>Settings — Charlie's world</h3>
+      <p>Charlie lives in marketing's natural habitats. Indoor, lit by office light or screen glow. Outdoor moments are rare and always in transit (commute, coffee, errand). Never in a park. Never on a beach.</p>
+      <ul>
+        <li><strong>The desk.</strong> A leather chair he barely fits in. Laptop. Coffee. Calendar on the wall.</li>
+        <li><strong>The conference room.</strong> Long table. Empty chairs. A whiteboard covered in marketing acronyms.</li>
+        <li><strong>The kitchen / break room.</strong> Coffee machine. Free snacks. Nobody around.</li>
+        <li><strong>The coffee shop.</strong> Sitting across from an empty chair. Espresso untouched.</li>
+        <li><strong>The commute.</strong> Outside an unmarked office building, badge on, slightly weary.</li>
+        <li><strong>The screen-share.</strong> Looking directly into a webcam. Bluetooth earpiece. The Zoom POV.</li>
+      </ul>
+
+      <h2>Tonal range</h2>
+      <table>
+        <thead><tr><th>Do</th><th>Don't</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Bored, smug, unimpressed, mock-attentive, asleep mid-meeting, judgmental, quietly sympathetic</td>
+            <td>Angry, sad, hurt, scared, aggressive, manic, "cute"</td>
+          </tr>
+          <tr>
+            <td>Office, conference room, coffee shop, commute, screen-share</td>
+            <td>Park, beach, dog show, fields, "outdoor adventure" framing</td>
+          </tr>
+          <tr>
+            <td>Looking directly into the camera — the silent take</td>
+            <td>Looking at another dog, another person, or a treat</td>
+          </tr>
+          <tr>
+            <td>Dry, observational, low-volume comedy</td>
+            <td>Voiceover narrating jokes; on-the-nose punchlines</td>
+          </tr>
+          <tr>
+            <td>Punch up at the category (marketing's noise) and the status quo (broken stacks, agency theater)</td>
+            <td>Punch down at customers, real competitors by name, or anyone's job</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Visual reference set</h2>
+      <p>Six foundational scenes. Each is a deliberate piece of Charlie's world. Once renders are approved, these lock visual consistency across the entire franchise — every future clip cites this set as its reference.</p>
+      <div class="ref-grid">
+
+        <div class="ref-tile">
+          <div class="ref-image has-image"><img src="assets/charlie-prototype-01-hero.png" alt="Charlie hero portrait prototype" /></div>
+          <div class="ref-body">
+            <span class="ref-tag">Brand asset · 1:1 · Prototype</span>
+            <h3 class="ref-title">01 · Hero portrait</h3>
+            <p class="ref-prompt">Studio-quality portrait of a senior English bulldog with a slight scowl, looking directly into camera. Soft warm office lighting, slight depth of field. Wearing a small black blazer lapel pin. Neutral office background slightly out of focus. Photographic, not stylized.</p>
+          </div>
+        </div>
+
+        <div class="ref-tile">
+          <div class="ref-image r-16-9 has-image"><img src="assets/charlie-prototype-02-desk.png" alt="Charlie at the desk prototype" /></div>
+          <div class="ref-body">
+            <span class="ref-tag">Establishing · 16:9 · Prototype</span>
+            <h3 class="ref-title">02 · At the desk</h3>
+            <p class="ref-prompt">Wide shot of a senior English bulldog sitting in a leather office chair, paws resting on a desk in front of a closed MacBook. Cluttered desk with a coffee cup and a framed photo. He stares unimpressed at the laptop. Natural office light. Empty office around him. Mundane, dry tone.</p>
+          </div>
+        </div>
+
+        <div class="ref-tile">
+          <div class="ref-image r-16-9"></div>
+          <div class="ref-body">
+            <span class="ref-tag">Set piece · 16:9</span>
+            <h3 class="ref-title">03 · Asleep in the conference room</h3>
+            <p class="ref-prompt">Senior English bulldog asleep at the end of a long empty conference room table. Empty chairs around the table. A whiteboard in the background covered in marketing acronyms. Fluorescent office light. Wide and still. Slightly absurd, slightly sad.</p>
+          </div>
+        </div>
+
+        <div class="ref-tile">
+          <div class="ref-image"></div>
+          <div class="ref-body">
+            <span class="ref-tag">Reply game · 1:1</span>
+            <h3 class="ref-title">04 · The reaction</h3>
+            <p class="ref-prompt">Tight close-up on a senior English bulldog's face. He side-eyes the camera with a mock-shocked expression — eyes wide, jowls slightly raised. Soft natural light, neutral background. Expression reads as "I cannot believe what I just saw."</p>
+          </div>
+        </div>
+
+        <div class="ref-tile">
+          <div class="ref-image r-9-16"></div>
+          <div class="ref-body">
+            <span class="ref-tag">Day-in-life · 9:16</span>
+            <h3 class="ref-title">05 · The commute</h3>
+            <p class="ref-prompt">Senior English bulldog standing on a sidewalk outside an unmarked office building. Tiny work badge on a thin lanyard around his neck. Light rain. Morning. He looks down at the sidewalk, weary. Cinematic still, low contrast.</p>
+          </div>
+        </div>
+
+        <div class="ref-tile">
+          <div class="ref-image"></div>
+          <div class="ref-body">
+            <span class="ref-tag">Screen-share · 1:1</span>
+            <h3 class="ref-title">06 · The webcam stare</h3>
+            <p class="ref-prompt">POV from a laptop webcam: a senior English bulldog stares directly at the screen. A tiny Bluetooth earpiece visible. Office background slightly blurred. He looks tired but attentive. The implied joke: he's in a meeting.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <h2>Master prompt template (Seedance / Kling / Veo)</h2>
+      <p>Use this as the structural skeleton for every Charlie render. Lock the reference set first — every prompt cites it. Only the action, setting, and resolve change between clips.</p>
+      <pre>[CHARACTER REFERENCE: 3-4 locked Charlie reference images]
+
+A senior English bulldog [described per locked reference: coat color,
+jowl shape, eye color, signature features]. He is in [SETTING from
+the approved list]. He wears [WARDROBE from the approved list — or none].
+
+ACTION: [one observable beat, short — e.g., "stares at the laptop,"
+         "exhales slowly," "shifts his weight"]
+
+RESOLVE: [he turns his head and stares directly into the camera with
+          EXPRESSION from the do-list]
+
+LIGHTING: natural office light / screen glow / overcast street light
+          (no warm sunset, no studio glamour)
+CAMERA:   locked-off mid-shot at his eye level — no pet-cam high
+          angles, no extreme close-ups unless reaction
+TONE:     mundane, slightly absurd, dry. No music in the prompt.
+          No captions burned in.
+ASPECT:   9:16 vertical (social) or 1:1 (cross-post)
+
+NEGATIVE: cute, adorable, happy, playful, anthropomorphic standing,
+          outdoor adventure, other animals, dialogue from Charlie</pre>
+
+      <h2>Rollout plan</h2>
+      <table>
+        <thead><tr><th>Phase</th><th>What</th><th>When</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Phase 0</strong></td><td>Character sheet v1 locked. Real Charlie reference photos collected. Image-gen approach decided.</td><td>This week</td></tr>
+          <tr><td><strong>Phase 1</strong></td><td>10 prototype clips rendered. Internal review only — not public.</td><td>Following week</td></tr>
+          <tr><td><strong>Phase 2</strong></td><td>Soft launch: 5 of the best clips drip-posted on Marcel's personal account over 2 weeks. Read engagement, refine voice.</td><td>~Mid-June, post GrowthOS launch</td></tr>
+          <tr><td><strong>Phase 3</strong></td><td>Corporate franchise launch. Dedicated handle decision (@CharlieTheOS or under @GrowthX). Cadence locked.</td><td>Late June / early July</td></tr>
+          <tr><td><strong>Phase 4</strong></td><td>Steady state: 2 posts per week (1 evergreen + 1 reactive). Monthly review of what's working.</td><td>Ongoing from July</td></tr>
+        </tbody>
+      </table>
+
+      <h2>What I need to ship Phase 1</h2>
+      <ul>
+        <li><strong>6–12 reference photos of the real Charlie</strong> — anything we've already shot for GrowthX content is fine. Front, side, 3/4 angles, expressions at rest, expressions alert.</li>
+        <li><strong>Decision on image-gen API path</strong> — native tool for prototypes vs. gpt-image (your API) for production.</li>
+        <li><strong>Approval on personality + tonal range</strong> from you and Harmony — this doc.</li>
+        <li><strong>3 content pillars locked</strong> from the Video Plan ("Charlie reviews the stack," "Day in the life," "Charlie reacts to bad marketing tweets," "Charlie's content audit," "Charlie + Marcel" — pick 3).</li>
+        <li><strong>Distribution handle decision</strong> — corporate handle or dedicated (can defer to Phase 3 if needed).</li>
+      </ul>
+    </section>
+
+    <!-- MARKETING WEEK -->
+    <section class="page" id="marketing-week">
+      <div class="meta-row">
+        <span>Source doc</span><span class="dot"></span>
+        <span>Owner: Harmony + Marcel</span><span class="dot"></span>
+        <span>Week of May 26 – 29</span>
+      </div>
+      <h1>GrowthOS Marketing Week</h1>
+      <p class="lede">Tuesday: align on narrative. Wednesday/Thursday: record content. Following week: turn everything into launch assets.</p>
+
+      <h2>Tuesday — Lock Everything In</h2>
+      <p><em>Goal: Leave this session with locked messaging, a clear narrative, and a production-ready content plan. Nothing gets recorded until this is done.</em></p>
+
+      <h3>Messaging &amp; Positioning</h3>
+      <ul>
+        <li>Align on final GrowthOS positioning and category framing</li>
+        <li>Lock the "why now" narrative (paid decline, AEO/LLM shift, compounding organic growth)</li>
+        <li>Agree on the core value proposition statement(s)</li>
+      </ul>
+
+      <h3>Website Copy</h3>
+      <ul>
+        <li>Align on homepage headline and subhead</li>
+        <li>Lock the above-the-fold narrative arc (pain → shift → solution)</li>
+        <li>Confirm section structure and key messages for each section</li>
+        <li>Agree on CTAs and conversion architecture</li>
+        <li><strong>Must-have:</strong> Paid landing page — Hero, Demo Form Fill, social bar</li>
+      </ul>
+
+      <h3>Programs to Launch &amp; Win</h3>
+      <ul>
+        <li>Decide which programs to prioritize at launch (AI-led growth workshop, podcast/video series, demos)</li>
+        <li>For each program: confirm format, audience, goal, and cadence</li>
+        <li>Align on which programs launch in June vs. July</li>
+      </ul>
+
+      <h3>Content &amp; Video Planning</h3>
+      <ul>
+        <li><strong>AI-Led Growth Workshop</strong> — confirm format (live, recorded, hybrid), audience, registration strategy</li>
+        <li><strong>Podcast / Long-Form Video</strong> — decide yes/no; if yes, confirm format, host, frequency, first 3 episode topics</li>
+        <li><strong>OS Demos</strong> — agree on which product workflows to demo and at what depth</li>
+        <li><strong>Short-Form Video</strong> — confirm topics, hooks, formats for June/July</li>
+        <li><strong>Other long-form content</strong> — any guides, reports, or flagship pieces to greenlight</li>
+      </ul>
+
+      <h3>Sequencing &amp; Calendar</h3>
+      <ul>
+        <li>Build the June–July content calendar skeleton</li>
+        <li>Assign owners and deadlines for each asset</li>
+        <li>Confirm launch date and any tied announcements</li>
+      </ul>
+
+      <hr />
+
+      <h2>Wednesday &amp; Thursday — Record</h2>
+      <p><em>Goal: Execute against everything locked on Tuesday. No building, no deciding — only recording.</em></p>
+      <ul>
+        <li><strong>Will is owning the to-do list and all asset logistics for these two days</strong></li>
+        <li>Recording order TBD based on Tuesday's output</li>
+        <li>Assets may include: talking-head videos, product demos, workshop recording, short-form clips, podcast pilot</li>
+        <li>Narrative and scripts should be finalized Tuesday night before recording begins</li>
+      </ul>
+
+      <hr />
+
+      <h2>Following Week — Derivative Assets &amp; Launch Prep</h2>
+      <p><em>Goal: Take everything decided on Tuesday and produced Wednesday/Thursday, and build the full launch asset set.</em></p>
+      <p>Will returns for last-minute video updates and any additional recordings.</p>
+
+      <hr />
+
+      <h2>Key Decisions for Tuesday</h2>
+      <table>
+        <thead><tr><th>Decision</th><th>Options</th><th>Owner</th></tr></thead>
+        <tbody>
+          <tr><td>Category Positioning</td><td>TBD</td><td>Harmony + Marcel</td></tr>
+          <tr><td>Website Messaging</td><td>TBD</td><td>Harmony + Marcel</td></tr>
+          <tr><td>Workshop format</td><td>Live / Recorded / Hybrid</td><td>Harmony + Marcel</td></tr>
+          <tr><td>Podcast or long-form video</td><td>Yes / No / Later</td><td>Marcel</td></tr>
+          <tr><td>June vs. July program priorities</td><td>TBD</td><td>Harmony + Marcel</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- LAUNCH PLAN -->
+    <section class="page" id="launch-plan">
+      <div class="meta-row">
+        <span>Source doc</span><span class="dot"></span>
+        <span>Owner: Harmony</span><span class="dot"></span>
+        <span>Last updated May 5, 2026</span>
+      </div>
+      <h1>GrowthOS Marketing Launch Plan</h1>
+      <p class="lede">Master plan summary. <strong>Market launch: June 2, 2026.</strong> Full source doc lives in Notion.</p>
+
+      <h2>Objective</h2>
+      <p>Reset the market's perception of GrowthX as a technology and software company — not an agency — and scale qualified demand for ContentOS / GrowthOS through a waitlist.</p>
+      <p>This launch marks the company's transition from services-led to software-first. It is not an incremental update. It is a category-defining moment.</p>
+
+      <h3>What success looks like</h3>
+      <ul>
+        <li>Market understands GrowthX is a software company — the product is the lead, services are the support layer</li>
+        <li>Growth and content leaders at B2B tech companies recognize GrowthOS as a new category, not a better version of what they already use</li>
+        <li>A qualified waitlist of ICP-fit buyers actively interested in early access</li>
+        <li>Internal team aligned on what we're selling, to whom, and how to talk about it</li>
+        <li>Sales has a crisp narrative and a clear demo path that converts interest to pipeline</li>
+      </ul>
+
+      <h2>Goals &amp; Key Results</h2>
+
+      <h3>Awareness / Demand</h3>
+      <ul>
+        <li><strong>Share of voice:</strong> Establish GrowthX / GrowthOS as a named player in the category within the launch window; target 2–3 earned media placements; track branded search volume lift 30/60/90 days post-launch</li>
+        <li><strong>Waitlist:</strong> 300 form fills within first 30 days · 1,000 hand raisers by EOY (quality bar, not just volume) · 70%+ ICP match</li>
+      </ul>
+
+      <h3>Pipeline / Revenue created</h3>
+      <ul>
+        <li><strong>First 30 days:</strong> 10 new sprints / customers kicked off in June → $720K bookings</li>
+        <li><strong>First 90 days:</strong> 42 sprints (Jun–Aug) → $3.02M bookings</li>
+        <li><strong>EOY 2026:</strong> 157 sprints (Jun 2 – Dec 31) → $11.3M bookings</li>
+      </ul>
+
+      <h3>Post-Sale Operations</h3>
+      <ul>
+        <li>Operational readiness to onboard <strong>10 new clients per week</strong> at full launch velocity</li>
+        <li><strong>Customer Effort Score (CES):</strong> 5.5+ out of 7 within first 30 days of onboarding</li>
+        <li><strong>Time-to-first-value:</strong> under 5 business days</li>
+      </ul>
+
+      <h3>Product</h3>
+      <ul>
+        <li>First 10–25 customers as a structured validation cohort</li>
+        <li>Define 3 success metrics that signal GrowthOS is working for a customer</li>
+        <li>Identify the 2–3 use cases where it creates the most immediate, visible value</li>
+        <li>2 quantified customer case studies within 90 days</li>
+      </ul>
+
+      <h2>ICP &amp; Personas</h2>
+      <h3>Ideal Customer Profile</h3>
+      <ul>
+        <li><strong>Growth trajectory:</strong> Recent raise or 20%+ headcount growth in last 12 months</li>
+        <li><strong>Company size:</strong> $10M+ raised, or 150–2,500 employees</li>
+        <li><strong>Marketing team:</strong> ~5+ people</li>
+        <li><strong>Operational readiness:</strong> Internal owner accountable for the system — Content Manager, SEO Manager, Growth Marketing Manager, Digital/Demand Marketing Manager who owns the website</li>
+        <li><strong>Domain authority:</strong> DA ~30+</li>
+        <li><strong>Website portfolio:</strong> 100+ pages</li>
+        <li><strong>Content maturity:</strong> Already publishing 2+ per week, organic growth a stated priority</li>
+        <li><strong>Decision-making:</strong> Single decision-maker with budget authority, can approve in 1–2 weeks</li>
+        <li><strong>Geography:</strong> US-first, English-speaking</li>
+        <li><strong>Technical:</strong> Must have GA4 / GSC access</li>
+      </ul>
+
+      <h3>Persona priorities</h3>
+      <table>
+        <thead><tr><th>Tier</th><th>Persona</th><th>Titles</th></tr></thead>
+        <tbody>
+          <tr><td><strong>Primary</strong></td><td>Senior Operator / Decision-Maker</td><td>Director/Head of Content, Head of SEO, Sr. Director Demand Gen / Growth</td></tr>
+          <tr><td><strong>Primary</strong></td><td>Economic Buyer</td><td>CMO, VP Marketing, sometimes CEO/COO</td></tr>
+          <tr><td><strong>Secondary</strong></td><td>End User / Daily Operator</td><td>Content Marketer, SEO Specialist, Content Strategist, Writer/Editor</td></tr>
+          <tr><td><strong>Secondary</strong></td><td>Budget Influencer</td><td>CFO, VP Finance</td></tr>
+          <tr><td><strong>Orbit</strong></td><td>Edge / Technical Influencer</td><td>Freelance writers · MarOps / RevOps</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Messaging</h2>
+
+      <h3>Primary message</h3>
+      <p><strong>Headline:</strong> Turn your website into a compounding growth engine</p>
+      <p><strong>Subhead:</strong> GrowthOS manages, creates, and optimizes every page on your site — driving more visibility, traffic, and conversions from AI and search engines.</p>
+
+      <h3>Six primitives (per v21 site)</h3>
+      <p><strong>Context · Pages · Opportunities · Agents · Signals · Snapshots</strong></p>
+
+      <h3>Three engines</h3>
+      <ul>
+        <li><strong>AI Visibility</strong> — "If AI doesn't know you, you're invisible"</li>
+        <li><strong>Compounding Intelligence</strong> — "Every quarter stacks on the last. Agencies reset — we compound."</li>
+        <li><strong>Content at Scale</strong> — "10x content without 10x the team"</li>
+      </ul>
+
+      <h3>Tone &amp; voice</h3>
+      <p>GrowthOS sounds like a senior operator who's been in the room — not a vendor pitching from outside it. Confident without being arrogant, specific without being technical, direct without being cold.</p>
+
+      <h2>Launch programs (summary)</h2>
+      <table>
+        <thead><tr><th>Program</th><th>Owner</th><th>Goal</th></tr></thead>
+        <tbody>
+          <tr><td>Website &amp; Positioning</td><td>Will</td><td>Waitlist CVR, category comprehension</td></tr>
+          <tr><td>Waitlist Experience</td><td>Harmony + Will</td><td>Qualified fills, ICP segmentation</td></tr>
+          <tr><td>Demand Capture (PH, G2, Social, Email, Investor)</td><td>Harmony + Danni</td><td>Launch day volume + velocity</td></tr>
+          <tr><td>Launch Event</td><td>Harmony + Andi</td><td>Customer/prospect engagement</td></tr>
+          <tr><td>Paid (LinkedIn + Google)</td><td>Drew</td><td>CPL, waitlist CVR, retargeting</td></tr>
+          <tr><td>Press</td><td>Harmony</td><td>1 exclusive + 2–3 earned placements</td></tr>
+          <tr><td>Pillar Assets (Survey, Roast, Podcast, Videos, Workshop)</td><td>Harmony + Danni + Will</td><td>Awareness, credibility, search/AEO presence</td></tr>
+          <tr><td>Partner / Co-Marketing</td><td>Harmony + Marcel</td><td>Reach extension, warm pipeline</td></tr>
+          <tr><td>Sales Enablement</td><td>Harmony + Jeff + Jesus</td><td>Conversion, deal velocity</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Workback (T = June 2)</h2>
+      <table>
+        <thead><tr><th>Milestone</th><th>Timing</th></tr></thead>
+        <tbody>
+          <tr><td>Strategy locked</td><td>T − 8 weeks</td></tr>
+          <tr><td>Briefs out</td><td>T − 6 weeks</td></tr>
+          <tr><td>Production begins</td><td>T − 5 weeks</td></tr>
+          <tr><td>Content in review</td><td>T − 4 weeks</td></tr>
+          <tr><td>Campaigns built</td><td>T − 3 weeks</td></tr>
+          <tr><td>Enablement delivered</td><td>T − 2 weeks</td></tr>
+          <tr><td>Final QA</td><td>T − 1 week</td></tr>
+          <tr><td>Day-before checks</td><td>T − 1 day</td></tr>
+          <tr><td><strong>LAUNCH</strong></td><td><strong>T = June 2, 2026</strong></td></tr>
+          <tr><td>Week 1 review</td><td>T + 1 week</td></tr>
+          <tr><td>Follow-up wave</td><td>T + 2 weeks</td></tr>
+          <tr><td>Retro</td><td>T + 4 weeks</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    (function() {
+      const links = document.querySelectorAll('nav a[data-page]');
+      const pages = document.querySelectorAll('section.page');
+
+      function setActive(pageId) {
+        pages.forEach(p => p.classList.toggle('active', p.id === pageId));
+        links.forEach(l => l.classList.toggle('active', l.dataset.page === pageId));
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      }
+
+      function navigate(pageId, updateHash) {
+        if (!document.getElementById(pageId)) return;
+        setActive(pageId);
+        if (updateHash) history.replaceState(null, '', '#' + pageId);
+      }
+
+      document.querySelectorAll('a[data-page]').forEach(a => {
+        a.addEventListener('click', e => {
+          e.preventDefault();
+          navigate(a.dataset.page, true);
+        });
+      });
+
+      const initial = (location.hash || '#overview').slice(1);
+      navigate(initial, false);
+
+      window.addEventListener('hashchange', () => {
+        navigate((location.hash || '#overview').slice(1), false);
+      });
+    })();
+  </script>
+</body>
+</html>

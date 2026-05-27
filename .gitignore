@@ -1,0 +1,30 @@
+# Secrets / credentials — NEVER COMMIT
+.env
+.env.*
+*.pem
+*.key
+credentials.json
+*api*key*
+
+# PII — survey contains real names + emails
+Survey - High Intent Leads.csv
+
+# Python environment
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+
+# macOS / editor cruft
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs / temp
+*.log
+.cache/
+tmp/
