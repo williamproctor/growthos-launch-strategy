@@ -2,18 +2,18 @@
 
 Internal strategy & planning archive for the GrowthOS launch (Jun 2, 2026).
 
-The live site is `growthos-strategy-browser.html` — open it locally with any browser, or run a quick local server:
+The live site is `index.html` — hosted via GitHub Pages, or open it locally with any browser, or run a quick local server:
 
 ```bash
 python3 -m http.server 8000
-# then open http://localhost:8000/growthos-strategy-browser.html
+# then open http://localhost:8000/
 ```
 
 ## What's in here
 
 | File | What it is |
 |---|---|
-| `growthos-strategy-browser.html` | The browsable strategy site — opens in any browser, no build step |
+| `index.html` | The browsable strategy site — opens in any browser, no build step |
 | `Launch Video - Narrative Spine.md` | Four-beat arc captured from Marcel + Harmony meeting (May 27) |
 | `Launch Video - 90s Script - Marcel V2.md` | Current draft of the 90-second Marcel cut |
 | `Launch Video - 90s Script - Marcel V1.md` | Prior draft (kept for diff) |
