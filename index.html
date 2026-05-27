@@ -774,8 +774,8 @@
         <li>
           <a href="#survey" data-page="survey">
             <div>
-              <div class="ql-title">Survey Insights — GrowthOS Launch <span style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--warn);margin-left:6px;">New</span></div>
-              <div class="ql-detail">N=100 · 73% advisor opt-in · 16 high-intent leads · full narrative validation</div>
+              <div class="ql-title">Survey Insights — GrowthOS Launch <span style="font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--warn);margin-left:6px;">Updated</span></div>
+              <div class="ql-detail">N=181 · 130 advisor opt-ins (72%) · 23 high-intent leads · full narrative validation</div>
             </div>
             <div class="ql-arrow">→</div>
           </a>
@@ -836,38 +836,43 @@
     <!-- SURVEY INSIGHTS -->
     <section class="page" id="survey">
       <div class="meta-row">
-        <span>Captured today</span><span class="dot"></span>
-        <span>N=100 · Live</span><span class="dot"></span>
+        <span>Updated today PM</span><span class="dot"></span>
+        <span>N=181 · Live</span><span class="dot"></span>
         <span>Window: May 12–27, 2026</span><span class="dot"></span>
-        <span>Source: GTM-AI Survey (LinkedIn 21%, direct 79%)</span>
+        <span>Source: GTM-AI Survey (LinkedIn 22%, direct/unknown 78%)</span>
       </div>
       <h1>Survey Insights — GrowthOS Launch</h1>
-      <p class="lede">100 marketing leaders answered 27 questions about AI in GTM. The results validate the entire launch narrative — and surface 16 directly identifiable high-intent leads. This page is the strategic read; the full deliverable (with sales-ready CSV and reproducible analysis script) lives in this folder.</p>
+      <p class="lede">181 marketing leaders answered 27 questions about AI in GTM. The results validate the entire launch narrative — and surface <strong>23 directly identifiable high-intent leads</strong>. This page is the strategic read; the full deliverable (with sales-ready CSV and reproducible analysis script) lives in this folder.</p>
+
+      <div class="callout">
+        <div class="callout-title">What changed since the morning read</div>
+        <p>Previous analysis ran on a paginated 100-row export (the default Supabase Table Editor page size). This is the full 181-response dataset. <strong>Headline percentages stayed within 5pp of the prior read — narrative is intact</strong> — but the absolute opt-in volumes nearly doubled and the high-intent lead list grew from 16 to 23.</p>
+      </div>
 
       <h2>Bottom line</h2>
       <div class="signal-grid">
         <div class="signal warn">
-          <div class="signal-pct">62%</div>
+          <div class="signal-pct">63%</div>
           <div class="signal-label">"Marketing Engineer" disenchantment — skill loss, tool churn, can't hire AI talent, or "knowing which tools are worth it"</div>
         </div>
         <div class="signal info">
-          <div class="signal-pct">66%</div>
+          <div class="signal-pct">64%</div>
           <div class="signal-label">Fragmentation pain — no consolidated view of web/content OR fragmentation is the #1 blocker</div>
         </div>
         <div class="signal info">
-          <div class="signal-pct">60%</div>
+          <div class="signal-pct">58%</div>
           <div class="signal-label">Can't cleanly attribute content / organic spend to revenue</div>
         </div>
         <div class="signal success">
-          <div class="signal-pct">56%</div>
-          <div class="signal-label">Plan to invest in AI Visibility / AEO in next 12 months — <strong>#1 investment category</strong></div>
+          <div class="signal-pct">52%</div>
+          <div class="signal-label">Plan to invest in AI Visibility / AEO in next 12 months — <strong>#1 investment category</strong> (tied with marketing ops at 50%)</div>
         </div>
         <div class="signal danger">
-          <div class="signal-pct">73%</div>
-          <div class="signal-label">Opted in for an advisor session — this isn't a survey, it's a pipeline event</div>
+          <div class="signal-pct">130</div>
+          <div class="signal-label">Opted in for an advisor session (72%) — this isn't a survey, it's a pipeline event</div>
         </div>
         <div class="signal danger">
-          <div class="signal-pct">16</div>
+          <div class="signal-pct">23</div>
           <div class="signal-label">Directly identifiable high-intent leads (advisor opt-in + planning AEO + not tracking). See CSV in this folder.</div>
         </div>
       </div>
@@ -876,49 +881,66 @@
         <div class="callout-title">Three things to internalize before the launch meeting</div>
         <ol>
           <li><strong>The narrative spine is right.</strong> Every beat — false prophecy, refusal, closed-loop bet, AEO stakes — has measurable proof in this sample. Use the percentages on launch slides.</li>
-          <li><strong>The market doesn't know us.</strong> Zero respondents mentioned GrowthOS, ContentOS, or CheckThat in the open "what tools excite you?" question. Direct competitors mentioned: AirOps (×2), Cassidy, HeyMarvin, AnswerRank.ai. The launch IS the awareness event.</li>
-          <li><strong>Sales has 16 names to call this week.</strong> The vetted list is <code>Survey - High Intent Leads.csv</code>. Half of them need a manual ICP review before outreach — see Data Quality.</li>
+          <li><strong>The awareness needle moved off zero, but barely.</strong> In the 100-row sample, zero respondents had mentioned us. In the full 181, <strong>one respondent named "GrowthOS"</strong> and <strong>one specifically called out "checkthat.ai"</strong> ("Do satellite tools by GrowthX count?"). Direct competitors mentioned: NotebookLM (11), Granola (8), AirOps (4), Cassidy, HeyMarvin, AnswerRank.ai. <strong>The launch is still the awareness event.</strong></li>
+          <li><strong>Sales has 23 names to call this week.</strong> The vetted list is <code>Survey - High Intent Leads.csv</code>. 7 of them need a manual ICP review before outreach — see Data Quality.</li>
         </ol>
       </div>
+
+      <h3>What changed: 100-row → 181-row read</h3>
+      <table>
+        <thead><tr><th>Metric</th><th>100-row</th><th>181-row</th><th>Direction</th></tr></thead>
+        <tbody>
+          <tr><td>"Marketing Engineer" disenchantment</td><td>62%</td><td>63%</td><td>flat</td></tr>
+          <tr><td>Fragmentation pain</td><td>66%</td><td>64%</td><td>flat</td></tr>
+          <tr><td>Attribution pain</td><td>60%</td><td>58%</td><td>flat</td></tr>
+          <tr><td>AEO investment (top-2)</td><td>56%</td><td>52%</td><td>-4pp</td></tr>
+          <tr><td>Advisor opt-ins (count)</td><td>73</td><td><strong>130</strong></td><td><strong>+78%</strong></td></tr>
+          <tr><td>Report opt-ins (count)</td><td>85</td><td><strong>144</strong></td><td><strong>+69%</strong></td></tr>
+          <tr><td>ICP fit (role + stage + budget)</td><td>50</td><td>91</td><td>proportional</td></tr>
+          <tr><td><strong>High-intent leads</strong></td><td>16</td><td><strong>23</strong></td><td><strong>+44%</strong></td></tr>
+          <tr><td>Brand mentions (GrowthOS / CheckThat)</td><td>0</td><td><strong>2</strong></td><td><strong>off zero</strong></td></tr>
+        </tbody>
+      </table>
+      <p>The pattern: percentages held, absolute volumes roughly doubled. That's the right shape — it means the prior sample wasn't biased, just incomplete.</p>
 
       <hr />
 
       <h2>How the survey validates each beat of the launch narrative</h2>
 
       <h3 style="margin-top:24px;">Beat 1 · The false prophecy — "Marketing Engineer"</h3>
-      <p>62% of respondents flagged either skill loss, tool churn, can't-hire-AI-talent, or "knowing which tools are worth it" as a top challenge. They are living inside the false prophecy.</p>
+      <p>63% of respondents flagged either skill loss, tool churn, can't-hire-AI-talent, or "knowing which tools are worth it" as a top challenge. They are living inside the false prophecy.</p>
       <div class="bar-list">
-        <div class="bar-row"><div class="bar-label">Maintaining brand voice and quality (top-2 AI challenge)</div><div class="bar-track"><div class="bar-fill warn" style="width:51%"></div></div><div class="bar-value">51%</div></div>
-        <div class="bar-row"><div class="bar-label">Faster output but harder to maintain quality (top problem AI creates)</div><div class="bar-track"><div class="bar-fill warn" style="width:49%"></div></div><div class="bar-value">49%</div></div>
-        <div class="bar-row"><div class="bar-label">More content but less strategic thinking</div><div class="bar-track"><div class="bar-fill warn" style="width:44%"></div></div><div class="bar-value">44%</div></div>
-        <div class="bar-row"><div class="bar-label">Publishing more AI content AND have brand-voice pain</div><div class="bar-track"><div class="bar-fill danger" style="width:44%"></div></div><div class="bar-value">44%</div></div>
-        <div class="bar-row"><div class="bar-label">Team losing core skills (writing, strategy, creative)</div><div class="bar-track"><div class="bar-fill warn" style="width:34%"></div></div><div class="bar-value">34%</div></div>
-        <div class="bar-row"><div class="bar-label">Tools change faster than we can keep up</div><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div><div class="bar-value">28%</div></div>
-        <div class="bar-row"><div class="bar-label">Only 7% have rebuilt around AI AND have a documented playbook</div><div class="bar-track"><div class="bar-fill muted" style="width:7%"></div></div><div class="bar-value">7%</div></div>
+        <div class="bar-row"><div class="bar-label">Maintaining brand voice and quality (top-2 AI challenge)</div><div class="bar-track"><div class="bar-fill warn" style="width:52%"></div></div><div class="bar-value">52%</div></div>
+        <div class="bar-row"><div class="bar-label">Faster output but harder to maintain quality (top problem AI creates)</div><div class="bar-track"><div class="bar-fill warn" style="width:50%"></div></div><div class="bar-value">50%</div></div>
+        <div class="bar-row"><div class="bar-label">More content but less strategic thinking</div><div class="bar-track"><div class="bar-fill warn" style="width:49%"></div></div><div class="bar-value">49%</div></div>
+        <div class="bar-row"><div class="bar-label">Publishing more AI content AND have brand-voice pain</div><div class="bar-track"><div class="bar-fill danger" style="width:45%"></div></div><div class="bar-value">45%</div></div>
+        <div class="bar-row"><div class="bar-label">Tools change faster than we can keep up</div><div class="bar-track"><div class="bar-fill" style="width:31%"></div></div><div class="bar-value">31%</div></div>
+        <div class="bar-row"><div class="bar-label">Team losing core skills (writing, strategy, creative)</div><div class="bar-track"><div class="bar-fill warn" style="width:27%"></div></div><div class="bar-value">27%</div></div>
+        <div class="bar-row"><div class="bar-label">Have rebuilt around AI AND have a documented playbook</div><div class="bar-track"><div class="bar-fill muted" style="width:9%"></div></div><div class="bar-value">9%</div></div>
       </div>
 
       <h3>Beat 2 · The refusal — "Marketers shouldn't have to become engineers"</h3>
-      <p>This audience is primed to hear the relief. The cohort that says AI is creating "less strategic thinking" (44%) and "more editing time" (48%) is the cohort that will resonate hardest with the refusal beat.</p>
+      <p>This audience is primed to hear the relief. The cohort that says AI is creating "less strategic thinking" (49%) and "more editing time" (44%) is the cohort that will resonate hardest with the refusal beat.</p>
 
       <h3>Beat 3 · The different bet — closed-loop content system</h3>
-      <p>The biggest single validation of the launch. 66% have fragmentation pain. 60% have attribution pain. The voice-of-customer quotes literally repeat the GrowthOS pitch.</p>
+      <p>The biggest single validation of the launch. 64% have fragmentation pain. 58% have attribution pain. The voice-of-customer quotes literally repeat the GrowthOS pitch.</p>
       <div class="bar-list">
-        <div class="bar-row"><div class="bar-label">Fragmentation pain (no consolidated view OR fragmentation is #1 blocker)</div><div class="bar-track"><div class="bar-fill danger" style="width:66%"></div></div><div class="bar-value">66%</div></div>
-        <div class="bar-row"><div class="bar-label">Can't cleanly attribute content/organic spend to revenue</div><div class="bar-track"><div class="bar-fill danger" style="width:60%"></div></div><div class="bar-value">60%</div></div>
-        <div class="bar-row"><div class="bar-label">"Strategy is unclear / keeps changing" is #1 content blocker</div><div class="bar-track"><div class="bar-fill warn" style="width:30%"></div></div><div class="bar-value">30%</div></div>
-        <div class="bar-row"><div class="bar-label">"Saves time on tasks but adds time to reviewing and editing"</div><div class="bar-track"><div class="bar-fill warn" style="width:48%"></div></div><div class="bar-value">48%</div></div>
+        <div class="bar-row"><div class="bar-label">Fragmentation pain (no consolidated view OR fragmentation is #1 blocker)</div><div class="bar-track"><div class="bar-fill danger" style="width:64%"></div></div><div class="bar-value">64%</div></div>
+        <div class="bar-row"><div class="bar-label">Can't cleanly attribute content/organic spend to revenue</div><div class="bar-track"><div class="bar-fill danger" style="width:58%"></div></div><div class="bar-value">58%</div></div>
+        <div class="bar-row"><div class="bar-label">"Saves time on tasks but adds time to reviewing and editing"</div><div class="bar-track"><div class="bar-fill warn" style="width:44%"></div></div><div class="bar-value">44%</div></div>
+        <div class="bar-row"><div class="bar-label">"Strategy is unclear / keeps changing" is #1 content blocker</div><div class="bar-track"><div class="bar-fill warn" style="width:26%"></div></div><div class="bar-value">26%</div></div>
       </div>
 
       <h3>Beat 4 · The new stakes — AEO / AI visibility</h3>
-      <p>56% plan to invest in AI Visibility / AEO in the next 12 months — the #1 investment category, beating content production at scale (49%) and outbound (42%). And the market hasn't been won yet — only 5% report AEO as their primary inbound driver today.</p>
+      <p>52% plan to invest in AI Visibility / AEO in the next 12 months — the #1 investment category, tied with marketing ops (50%) and content production at scale (49%), beating outbound (41%). And the market hasn't been won yet — only 8% report AEO as their primary inbound driver today.</p>
       <div class="bar-list">
-        <div class="bar-row"><div class="bar-label">AI Visibility & AEO (top-2 investment)</div><div class="bar-track"><div class="bar-fill success" style="width:56%"></div></div><div class="bar-value">56%</div></div>
+        <div class="bar-row"><div class="bar-label">AI Visibility & AEO (top-2 investment)</div><div class="bar-track"><div class="bar-fill success" style="width:52%"></div></div><div class="bar-value">52%</div></div>
+        <div class="bar-row"><div class="bar-label">Marketing ops &amp; automation</div><div class="bar-track"><div class="bar-fill" style="width:50%"></div></div><div class="bar-value">50%</div></div>
         <div class="bar-row"><div class="bar-label">Content production at scale</div><div class="bar-track"><div class="bar-fill" style="width:49%"></div></div><div class="bar-value">49%</div></div>
-        <div class="bar-row"><div class="bar-label">Outbound &amp; prospecting</div><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><div class="bar-value">42%</div></div>
-        <div class="bar-row"><div class="bar-label">Marketing ops &amp; automation</div><div class="bar-track"><div class="bar-fill" style="width:41%"></div></div><div class="bar-value">41%</div></div>
-        <div class="bar-row"><div class="bar-label">Strategy &amp; planning</div><div class="bar-track"><div class="bar-fill" style="width:18%"></div></div><div class="bar-value">18%</div></div>
+        <div class="bar-row"><div class="bar-label">Outbound &amp; prospecting</div><div class="bar-track"><div class="bar-fill" style="width:41%"></div></div><div class="bar-value">41%</div></div>
+        <div class="bar-row"><div class="bar-label">Strategy &amp; planning</div><div class="bar-track"><div class="bar-fill" style="width:20%"></div></div><div class="bar-value">20%</div></div>
       </div>
-      <p><strong>60% of the market has no coherent AEO answer yet:</strong> 41% "figuring it out," 10% relying on existing SEO and assuming it carries, 9% haven't thought about it. That's the wedge. Of those who plan to invest in AEO, 32% say "we don't have a tool to track it" is their #1 barrier.</p>
+      <p><strong>57% of the market has no coherent AEO answer yet:</strong> 40% "figuring it out," 9% relying on existing SEO and assuming it carries, 8% haven't thought about it. That's the wedge. <strong>Among the 80 respondents planning AEO investment, "no tool to track it" (29%) and "budget" (28%) are the top barriers — essentially tied.</strong> They want it, they don't have the means.</p>
 
       <hr />
 
@@ -928,6 +950,10 @@
       <div class="voc-quote">
         "I feel like I need to build every part of the workflow with skills. It would be great if we defined the goal, gave the inputs, and then AI would walk through building a workflow holistically."
         <span class="voc-attr">Q21 · what do you wish AI could do</span>
+      </div>
+      <div class="voc-quote">
+        "I want AI agents to do tasks 'end-to-end' in an autonomous way and ping me as a leader with updates. Idea is to have 'goal-oriented agents' and not just 'helping agents'."
+        <span class="voc-attr">Q21 · new in 181-row set — the GrowthOS thesis stated back to us</span>
       </div>
       <div class="voc-quote">
         "Skill-based AI systems, where the model operates from documented judgment and voice rather than one-shot prompts. The shift is from prompting to operating."
@@ -940,6 +966,10 @@
       <div class="voc-quote">
         "I wish AI could reliably act as an execution-ready GTM operator, not just an assistant that produces drafts or insights."
         <span class="voc-attr">Q21</span>
+      </div>
+      <div class="voc-quote">
+        "Find all the relevant pieces of info it needs to know so I don't have to upload and crowdsource relevant docs to teach it."
+        <span class="voc-attr">Q21 · new in 181-row set — context fragmentation pain</span>
       </div>
       <div class="voc-quote">
         "Understand our ICP, positioning, category context, pricing, sales cycle, product constraints, and the 'why' behind past decisions, AND keep it consistent across every asset without as much manual prompting."
@@ -957,32 +987,33 @@
         <div>
           <h3 style="margin-top:0;">AEO strategy state</h3>
           <div class="bar-list">
-            <div class="bar-row"><div class="bar-label">Figuring it out</div><div class="bar-track"><div class="bar-fill warn" style="width:41%"></div></div><div class="bar-value">41%</div></div>
-            <div class="bar-row"><div class="bar-label">Defined strategy</div><div class="bar-track"><div class="bar-fill success" style="width:40%"></div></div><div class="bar-value">40%</div></div>
-            <div class="bar-row"><div class="bar-label">Relying on existing SEO</div><div class="bar-track"><div class="bar-fill warn" style="width:10%"></div></div><div class="bar-value">10%</div></div>
-            <div class="bar-row"><div class="bar-label">Haven't thought about it</div><div class="bar-track"><div class="bar-fill danger" style="width:9%"></div></div><div class="bar-value">9%</div></div>
+            <div class="bar-row"><div class="bar-label">Defined strategy</div><div class="bar-track"><div class="bar-fill success" style="width:43%"></div></div><div class="bar-value">43%</div></div>
+            <div class="bar-row"><div class="bar-label">Figuring it out</div><div class="bar-track"><div class="bar-fill warn" style="width:40%"></div></div><div class="bar-value">40%</div></div>
+            <div class="bar-row"><div class="bar-label">Relying on existing SEO</div><div class="bar-track"><div class="bar-fill warn" style="width:9%"></div></div><div class="bar-value">9%</div></div>
+            <div class="bar-row"><div class="bar-label">Haven't thought about it</div><div class="bar-track"><div class="bar-fill danger" style="width:8%"></div></div><div class="bar-value">8%</div></div>
           </div>
         </div>
         <div>
           <h3 style="margin-top:0;">Tracking AI brand mentions</h3>
           <div class="bar-list">
-            <div class="bar-row"><div class="bar-label">Track regularly</div><div class="bar-track"><div class="bar-fill success" style="width:46%"></div></div><div class="bar-value">46%</div></div>
-            <div class="bar-row"><div class="bar-label">Checked a few times</div><div class="bar-track"><div class="bar-fill warn" style="width:29%"></div></div><div class="bar-value">29%</div></div>
-            <div class="bar-row"><div class="bar-label">Know we should</div><div class="bar-track"><div class="bar-fill warn" style="width:15%"></div></div><div class="bar-value">15%</div></div>
-            <div class="bar-row"><div class="bar-label">Not a priority</div><div class="bar-track"><div class="bar-fill danger" style="width:10%"></div></div><div class="bar-value">10%</div></div>
+            <div class="bar-row"><div class="bar-label">Track regularly</div><div class="bar-track"><div class="bar-fill success" style="width:51%"></div></div><div class="bar-value">51%</div></div>
+            <div class="bar-row"><div class="bar-label">Checked a few times</div><div class="bar-track"><div class="bar-fill warn" style="width:27%"></div></div><div class="bar-value">27%</div></div>
+            <div class="bar-row"><div class="bar-label">Know we should</div><div class="bar-track"><div class="bar-fill warn" style="width:13%"></div></div><div class="bar-value">13%</div></div>
+            <div class="bar-row"><div class="bar-label">Not a priority</div><div class="bar-track"><div class="bar-fill danger" style="width:9%"></div></div><div class="bar-value">9%</div></div>
           </div>
         </div>
       </div>
 
-      <h3>Biggest barrier to improving AI visibility</h3>
+      <h3>Biggest barrier to improving AI visibility (all respondents)</h3>
       <div class="bar-list">
-        <div class="bar-row"><div class="bar-label">Don't have a tool to track it</div><div class="bar-track"><div class="bar-fill danger" style="width:32%"></div></div><div class="bar-value">32%</div></div>
-        <div class="bar-row"><div class="bar-label">Don't know where to start</div><div class="bar-track"><div class="bar-fill warn" style="width:21%"></div></div><div class="bar-value">21%</div></div>
-        <div class="bar-row"><div class="bar-label">Other</div><div class="bar-track"><div class="bar-fill muted" style="width:16%"></div></div><div class="bar-value">16%</div></div>
-        <div class="bar-row"><div class="bar-label">Budget</div><div class="bar-track"><div class="bar-fill" style="width:14%"></div></div><div class="bar-value">14%</div></div>
-        <div class="bar-row"><div class="bar-label">Not convinced it matters yet</div><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><div class="bar-value">9%</div></div>
-        <div class="bar-row"><div class="bar-label">Not sure who owns it</div><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><div class="bar-value">8%</div></div>
+        <div class="bar-row"><div class="bar-label">Don't have a tool to track it</div><div class="bar-track"><div class="bar-fill danger" style="width:25%"></div></div><div class="bar-value">25%</div></div>
+        <div class="bar-row"><div class="bar-label">Don't know where to start</div><div class="bar-track"><div class="bar-fill warn" style="width:22%"></div></div><div class="bar-value">22%</div></div>
+        <div class="bar-row"><div class="bar-label">Budget</div><div class="bar-track"><div class="bar-fill warn" style="width:21%"></div></div><div class="bar-value">21%</div></div>
+        <div class="bar-row"><div class="bar-label">Other</div><div class="bar-track"><div class="bar-fill muted" style="width:14%"></div></div><div class="bar-value">14%</div></div>
+        <div class="bar-row"><div class="bar-label">Not sure who owns it</div><div class="bar-track"><div class="bar-fill" style="width:11%"></div></div><div class="bar-value">11%</div></div>
+        <div class="bar-row"><div class="bar-label">Not convinced it matters yet</div><div class="bar-track"><div class="bar-fill" style="width:7%"></div></div><div class="bar-value">7%</div></div>
       </div>
+      <p><strong>Among the 80 planning AEO investment specifically</strong>, the barriers shift: "no tool" (29%) and "budget" (28%) are tied at the top, then "don't know where to start" (18%).</p>
 
       <hr />
 
@@ -992,24 +1023,25 @@
       <table>
         <thead><tr><th>Role</th><th>n</th><th>Defined strategy</th><th>Figuring it out</th></tr></thead>
         <tbody>
-          <tr><td><strong>VP of Marketing</strong></td><td>25</td><td><strong>60%</strong></td><td>28%</td></tr>
-          <tr><td>Marketing Ops / RevOps</td><td>13</td><td>46%</td><td>31%</td></tr>
-          <tr><td>Growth Lead</td><td>18</td><td>39%</td><td>44%</td></tr>
-          <tr><td>Content Lead</td><td>12</td><td>33%</td><td>58%</td></tr>
-          <tr><td>Founder / CEO</td><td>21</td><td>24%</td><td>43%</td></tr>
+          <tr><td><strong>VP of Marketing</strong></td><td>49</td><td><strong>63%</strong></td><td>24%</td></tr>
+          <tr><td>Growth Lead</td><td>32</td><td>53%</td><td>38%</td></tr>
+          <tr><td>Marketing Ops / RevOps</td><td>26</td><td>38%</td><td>35%</td></tr>
+          <tr><td>Content Lead</td><td>25</td><td>32%</td><td>56%</td></tr>
+          <tr><td>Founder / CEO</td><td>30</td><td>27%</td><td>50%</td></tr>
+          <tr><td>Other</td><td>19</td><td>21%</td><td>53%</td></tr>
         </tbody>
       </table>
-      <p><strong>Read:</strong> VPs of Marketing are the most strategy-mature and the most tool-ready — that's the primary ICP. Founders are least mature; they need education before tools. Content leads are the practitioners feeling the pain most acutely.</p>
+      <p><strong>Read:</strong> VPs of Marketing are the most strategy-mature and the most tool-ready — that's the primary ICP. Growth Leads come a clean second and are a cohort to court actively. Founders are least mature; they need education before tools. Content leads are the practitioners feeling the pain most acutely.</p>
 
       <h3>Content / SEO spend × AEO maturity (the buying-stage indicator)</h3>
       <table>
         <thead><tr><th>Monthly content / SEO spend</th><th>n</th><th>% with defined AEO strategy</th></tr></thead>
         <tbody>
-          <tr><td>$50K+</td><td>9</td><td><strong>78%</strong></td></tr>
-          <tr><td>$15–50K</td><td>23</td><td><strong>65%</strong></td></tr>
-          <tr><td>$5–15K</td><td>21</td><td>48%</td></tr>
-          <tr><td>Under $5K</td><td>35</td><td>17%</td></tr>
-          <tr><td>Don't track</td><td>12</td><td>17%</td></tr>
+          <tr><td>$50K+</td><td>20</td><td><strong>75%</strong></td></tr>
+          <tr><td>$15–50K</td><td>44</td><td><strong>66%</strong></td></tr>
+          <tr><td>$5–15K</td><td>42</td><td>50%</td></tr>
+          <tr><td>Under $5K</td><td>55</td><td>17%</td></tr>
+          <tr><td>Don't track</td><td>20</td><td>20%</td></tr>
         </tbody>
       </table>
       <p><strong>Read:</strong> AEO maturity scales directly with content spend. Companies already spending real money on content have already moved on AEO. The under-$5K cohort hasn't gotten there yet. Pricing tiers should reflect this distribution.</p>
@@ -1018,46 +1050,51 @@
       <table>
         <thead><tr><th>Stage</th><th>n</th><th>Modal monthly mkt budget</th></tr></thead>
         <tbody>
-          <tr><td>Bootstrapped</td><td>30</td><td>Under $10K (33%)</td></tr>
-          <tr><td>Seed</td><td>29</td><td>Under $10K (31%)</td></tr>
-          <tr><td><strong>Series A</strong></td><td>19</td><td><strong>$25–75K (58%)</strong></td></tr>
-          <tr><td>Series B-C</td><td>14</td><td>Mixed; 21% at $150K+</td></tr>
-          <tr><td>Series D+</td><td>8</td><td>$25–75K (38%)</td></tr>
+          <tr><td>Bootstrapped</td><td>45</td><td>Under $10K (31%)</td></tr>
+          <tr><td>Seed</td><td>51</td><td>Under $10K (33%), then $25-75K (29%)</td></tr>
+          <tr><td><strong>Series A</strong></td><td>44</td><td><strong>$25–75K (48%)</strong></td></tr>
+          <tr><td>Series B-C</td><td>24</td><td>$25–75K (38%)</td></tr>
+          <tr><td>Series D+</td><td>15</td><td>$25–75K (47%)</td></tr>
         </tbody>
       </table>
-      <p><strong>Read:</strong> Series A is the highest-density paying ICP. Past the figuring-it-out phase, has urgency, has budget concentration. Bootstrapped and seed are most numerous but lowest spend per company.</p>
+      <p><strong>Read:</strong> Series A is the highest-density paying ICP. Past the figuring-it-out phase, has urgency, has budget concentration. Series B-C and D+ also cluster cleanly at $25-75K. Bootstrapped and seed are most numerous but lowest spend per company — they're the report / community / playbook audience, not the immediate buyer.</p>
 
       <hr />
 
       <h2>Competitive landscape (from Q10 — "tools you're excited about")</h2>
       <div class="grid-2">
         <div>
-          <h3 style="margin-top:0;">Direct / adjacent competitors mentioned</h3>
+          <h3 style="margin-top:0;">Direct / adjacent tools mentioned (full 181)</h3>
           <ul>
-            <li><strong>AirOps</strong> — 2 mentions, one specifically for AEO workflow. Closest direct competitor in the data.</li>
-            <li><strong>Cassidy</strong> — 1 mention, agent/workflow builder</li>
-            <li><strong>HeyMarvin</strong> — 1 mention, research/analysis</li>
-            <li><strong>AnswerRank.ai</strong> — 1 mention, AEO-specific</li>
-            <li><strong>Granola</strong> — meeting notes / general AI assistant</li>
-            <li>Many generic mentions of <em>"AI-native GTM tools"</em>, <em>"agentic workflows"</em>, <em>"multi-agent orchestration"</em></li>
+            <li><strong>NotebookLM</strong> — 11 mentions. The clear plurality. Research and synthesis. Not a direct competitor but the workflow they're already using.</li>
+            <li><strong>Granola</strong> — 8 mentions. Meeting notes + early ABM lead scoring.</li>
+            <li><strong>AirOps</strong> — 4 mentions, one specifically for AEO workflow ("content review to ensure keywords are utilized to bolster our AEO strategy"). Closest direct competitor in the data.</li>
+            <li><strong>Cassidy</strong>, <strong>HeyMarvin</strong>, <strong>AnswerRank.ai</strong> — 1 mention each</li>
+            <li><strong>n8n, Zapier+AI, Clay, 11x.ai, Lindy</strong> — sporadic, workflow / automation adjacent</li>
+            <li>Many generic mentions of <em>"AI-native GTM tools"</em>, <em>"agentic workflows"</em>, <em>"end-to-end GTM execution"</em></li>
           </ul>
         </div>
         <div>
           <h3 style="margin-top:0;">Foundation tools dominating mindshare</h3>
           <div class="bar-list">
-            <div class="bar-row"><div class="bar-label">ChatGPT</div><div class="bar-track"><div class="bar-fill" style="width:74%"></div></div><div class="bar-value">74%</div></div>
-            <div class="bar-row"><div class="bar-label">Claude</div><div class="bar-track"><div class="bar-fill" style="width:65%"></div></div><div class="bar-value">65%</div></div>
+            <div class="bar-row"><div class="bar-label">ChatGPT</div><div class="bar-track"><div class="bar-fill" style="width:69%"></div></div><div class="bar-value">69%</div></div>
+            <div class="bar-row"><div class="bar-label">Claude</div><div class="bar-track"><div class="bar-fill" style="width:62%"></div></div><div class="bar-value">62%</div></div>
             <div class="bar-row"><div class="bar-label">Built into existing tools</div><div class="bar-track"><div class="bar-fill" style="width:46%"></div></div><div class="bar-value">46%</div></div>
-            <div class="bar-row"><div class="bar-label">Gemini</div><div class="bar-track"><div class="bar-fill" style="width:43%"></div></div><div class="bar-value">43%</div></div>
-            <div class="bar-row"><div class="bar-label">Cursor / coding assistants</div><div class="bar-track"><div class="bar-fill" style="width:25%"></div></div><div class="bar-value">25%</div></div>
+            <div class="bar-row"><div class="bar-label">Gemini</div><div class="bar-track"><div class="bar-fill" style="width:42%"></div></div><div class="bar-value">42%</div></div>
+            <div class="bar-row"><div class="bar-label">Cursor / coding assistants</div><div class="bar-track"><div class="bar-fill" style="width:28%"></div></div><div class="bar-value">28%</div></div>
             <div class="bar-row"><div class="bar-label">Perplexity</div><div class="bar-track"><div class="bar-fill" style="width:16%"></div></div><div class="bar-value">16%</div></div>
-            <div class="bar-row"><div class="bar-label">Jasper / Copy.ai</div><div class="bar-track"><div class="bar-fill" style="width:8%"></div></div><div class="bar-value">8%</div></div>
+            <div class="bar-row"><div class="bar-label">Jasper / Copy.ai</div><div class="bar-track"><div class="bar-fill" style="width:9%"></div></div><div class="bar-value">9%</div></div>
           </div>
         </div>
       </div>
-      <div class="callout danger">
-        <div class="callout-title">Mentions of GrowthOS, ContentOS, or CheckThat in this sample</div>
-        <p><strong>Zero.</strong> The launch is the awareness event. The market is hungry for what we describe and has not heard of us yet.</p>
+      <div class="callout warn">
+        <div class="callout-title">Mentions of the GrowthX ecosystem (full 181)</div>
+        <ul>
+          <li><strong>GrowthOS:</strong> 1 mention (named directly as a tool they're excited about)</li>
+          <li><strong>CheckThat:</strong> 1 mention (<em>"Do satellite tools by GrowthX count? I've found checkthat.ai and it's now in my research stack"</em>)</li>
+          <li><strong>ContentOS:</strong> 0</li>
+        </ul>
+        <p>That's it. <strong>The needle moved off zero but barely.</strong> The launch is still the awareness event — the market is hungry for what we describe and has effectively not heard of us yet.</p>
       </div>
 
       <hr />
@@ -1066,11 +1103,12 @@
       <div class="callout warn">
         <div class="callout-title">What to verify</div>
         <ol>
-          <li><strong>7 responses have clearly off-ICP position titles</strong> — "kennel attendant," "transmitter operator," "mail superintendent," "grain marketer," "cosmetics marketer," "farm and home management advisor," "food marketer." All passed honeypot. Could be panel responses, spam, or test data. Flagged with <code>off_icp_flag = review</code> in the leads CSV. Hand-vet before any sales outreach.</li>
-          <li><strong>Position field quality is mixed.</strong> Only 66/100 positions contain a marketing/growth/founder/CMO/VP marker. The rest may be valid but warrant review.</li>
-          <li><strong>Survey is live.</strong> Only 2 responses today (May 27). Re-run analysis weekly through launch — script is <code>analyze_survey.py</code> in this folder. Big spikes hit on May 25 (36) and May 26 (17); confirm what drove them.</li>
-          <li><strong>UTM coverage is poor.</strong> Only 21% have a known UTM source (all LinkedIn). Add UTM enforcement on all distribution links before launch week so the response wave is attributable.</li>
-          <li><strong>Composite signals include the off-ICP responses.</strong> 62%, 66%, 60% etc. may shift slightly after cleanup.</li>
+          <li><strong>7 responses still have clearly off-ICP position titles</strong> — "kennel attendant," "transmitter operator," "mail superintendent," "grain marketer," "cosmetics marketer," "farm and home management advisor," "food marketer." All passed honeypot. All opted in for advisor. None were added in the new 81 rows, suggesting they came in early — looks like panel sample contamination. Flagged with <code>off_icp_flag = review</code> in the leads CSV. <strong>Hand-vet before any sales outreach.</strong></li>
+          <li><strong>Position field quality is mixed.</strong> 124/181 (69%) positions contain a marketing/growth/founder/CMO/VP marker. The rest may be valid (founders use idiosyncratic titles) but warrant review.</li>
+          <li><strong>Templated / synthetic-looking Q21 answers appeared in the new batch.</strong> A handful of new responses have the smell of <em>"Here are several different natural responses for your reference: 1..."</em> — i.e. AI-generated answers from someone gaming a survey panel. Roughly 5-10 responses look this way. They don't materially move headline percentages, but worth noting before quoting any new Q21 line verbatim.</li>
+          <li><strong>The May 25 spike is now 65 responses (35% of total), May 26 added 38 (21%).</strong> Combined: 57% of the entire sample came in over two days. <strong>Find out what drove May 25</strong> — paid LinkedIn, a panel buy, an email blast, a viral post — before treating the headline numbers as representative of "organic" market sentiment. If it was a paid panel, the disenchantment / fragmentation numbers might be elevated by self-selection of the survey-taker audience.</li>
+          <li><strong>UTM coverage is poor.</strong> Only 22% (39/181) have a known UTM source (all LinkedIn). Add UTM enforcement on every distribution link before the launch wave.</li>
+          <li><strong>All composite signals include the off-ICP responses and the suspected-synthetic Q21 answers.</strong> Numbers may shift slightly after cleanup. Direction won't.</li>
           <li><strong>Sample is self-selected.</strong> Anyone who finished 27 questions about AI in GTM is more AI-engaged than the average marketer. Adjust read accordingly.</li>
         </ol>
       </div>
@@ -1081,21 +1119,22 @@
 
       <h3>This week (pre-launch)</h3>
       <ol>
-        <li><strong>Sales:</strong> contact the 16 high-intent leads with personalized intro referencing their survey answer. CSV: <code>Survey - High Intent Leads.csv</code>. Hand-vet the off-ICP-flagged rows first.</li>
-        <li><strong>Content:</strong> publish a teaser social post using one specific stat — <em>"62% of marketers we surveyed said they're losing core skills to AI tool sprawl. We don't think that's the future."</em> Pin as launch lead-in.</li>
+        <li><strong>Sales:</strong> contact the 23 high-intent leads with personalized intro referencing their survey answer. CSV: <code>Survey - High Intent Leads.csv</code>. Hand-vet the off-ICP-flagged rows first.</li>
+        <li><strong>Investigate the May 25 spike source.</strong> If it was paid LinkedIn or a panel buy, recalibrate the headline read. If it was organic / a viral post, double down on whoever posted.</li>
+        <li><strong>Content:</strong> publish a teaser social post using one specific stat — <em>"63% of marketers we surveyed said they're losing core skills to AI tool sprawl. We don't think marketers should have to become engineers."</em> Pin as launch lead-in.</li>
         <li><strong>Engineering / RevOps:</strong> add UTM enforcement on every distribution link so the launch-week response wave is attributable.</li>
       </ol>
 
       <h3>Launch week</h3>
-      <ol start="4">
-        <li><strong>Use the survey as the launch press hook.</strong> <em>"100 marketing leaders told us..."</em> is a stronger angle than <em>"we built a thing."</em></li>
-        <li><strong>Ship the AEO Playbook as the launch lead magnet.</strong> 32% have no playbook + 56% planning AEO investment + 21% don't know where to start = obvious download intent.</li>
-        <li><strong>Run the launch announcement through the known-LinkedIn sample first</strong> before paid amplification — they already raised their hand.</li>
+      <ol start="5">
+        <li><strong>Use the survey as the launch press hook.</strong> <em>"181 marketing leaders told us..."</em> is a stronger angle than <em>"we built a thing."</em> By Monday it'll likely be 200+; lead with the cleaner round number then.</li>
+        <li><strong>Ship the AEO Playbook as the launch lead magnet.</strong> 22% don't know where to start + 52% planning AEO investment + 25% have no tool to track it = obvious download intent.</li>
+        <li><strong>Run the launch announcement through the known-LinkedIn sample first</strong> before paid amplification — they already raised their hand. 39 known LinkedIn referrals × 144 report opt-ins overlap = warm sequence ready.</li>
       </ol>
 
       <h3>Post-launch</h3>
-      <ol start="7">
-        <li><strong>Re-run <code>analyze_survey.py</code> weekly</strong> through end of June. Watch whether the 16-lead cohort converts to demo or waitlist.</li>
+      <ol start="8">
+        <li><strong>Re-run <code>analyze_survey.py</code> weekly</strong> through end of June. Watch whether the 23-lead cohort converts to demo or waitlist.</li>
         <li><strong>Add 3-5 product-fit questions to Phase 2 of the survey.</strong> Current survey is rich on context but light on "would you buy this." Test a closing question like <em>"If a tool did [GrowthOS pitch], would you take a demo this quarter?"</em></li>
       </ol>
 
@@ -1106,7 +1145,7 @@
         <thead><tr><th>File</th><th>What it is</th></tr></thead>
         <tbody>
           <tr><td><code>Survey Insights - GrowthOS Launch.md</code></td><td>This page in markdown form — Notion-ready</td></tr>
-          <tr><td><code>Survey - High Intent Leads.csv</code></td><td>16 advisor-opted-in high-intent leads with off-ICP-flag column for sales</td></tr>
+          <tr><td><code>Survey - High Intent Leads.csv</code></td><td>23 advisor-opted-in high-intent leads with off-ICP-flag column for sales (kept out of git; PII)</td></tr>
           <tr><td><code>analyze_survey.py</code></td><td>Reproducible analysis script. Run <code>python3 analyze_survey.py</code> from this folder to refresh.</td></tr>
         </tbody>
       </table>

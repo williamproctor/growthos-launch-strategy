@@ -19,7 +19,7 @@ python3 -m http.server 8000
 | `Launch Video - 90s Script - Marcel V1.md` | Prior draft (kept for diff) |
 | `Episode 1 - Surrogate Card.md` | One-page handout for the Whiteboard Sessions surrogate |
 | `Will - Video Content Expansion Notes.md` | Will's expansion proposals — Whiteboard Sessions + Charlie |
-| `Survey Insights - GrowthOS Launch.md` | N=100 survey insights for the launch |
+| `Survey Insights - GrowthOS Launch.md` | N=181 survey insights for the launch |
 | `analyze_survey.py` | Reproducible analysis script — re-run as more responses come in |
 | `render_charlie.py` | Charlie character render pipeline (gpt-image-2) |
 | `assets/` | Charlie character renders (10 style variants + prototypes) |
