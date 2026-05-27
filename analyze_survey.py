@@ -111,6 +111,13 @@ def crosstab(rows, field_a, field_b) -> dict[str, Counter]:
     return out
 
 
+def _has(v, target) -> bool:
+    """Multi-select fields can store as a list OR a single string. Handle both."""
+    if isinstance(v, list):
+        return target in v
+    return v == target
+
+
 def write_high_intent_csv(rows: list[dict], out_path: str) -> int:
     """Write the high-intent lead list.
 
@@ -127,7 +134,7 @@ def write_high_intent_csv(rows: list[dict], out_path: str) -> int:
         w.writeheader()
         for r in rows:
             a = r["_a"]
-            investing = isinstance(a.get("q25"), list) and "ai-visibility" in a["q25"]
+            investing = _has(a.get("q25"), "ai-visibility")
             not_tracking = a.get("q22") in {"know-should", "checked-few", "not-priority"}
             if not (investing and not_tracking and r.get("optin_advisor")):
                 continue
@@ -194,8 +201,7 @@ def main() -> None:
     )
     high_intent_gap = sum(
         1 for r in rows
-        if isinstance(r["_a"].get("q25"), list)
-        and "ai-visibility" in r["_a"]["q25"]
+        if _has(r["_a"].get("q25"), "ai-visibility")
         and r["_a"].get("q22") in {"know-should", "checked-few", "not-priority"}
     )
     advisor_optin = sum(1 for r in rows if r.get("optin_advisor"))

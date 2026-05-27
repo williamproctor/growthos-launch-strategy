@@ -1,17 +1,83 @@
 # Survey Insights · GrowthOS Launch
 
-*181 responses · Live · Window: May 12–27, 2026 · LinkedIn 22% known UTM, rest direct/unknown · Honeypot 100% pass · Generated Wed May 27 by `analyze_survey.py`*
+*181 responses · Live · Window: May 12–27, 2026 · LinkedIn 22% known UTM, rest direct/unknown · Honeypot 100% pass (but see Response Quality Audit) · Generated Wed May 27 by `analyze_survey.py` + `validate_responses.py`*
 
-This is the strategic read on the survey for launch. Three bottom-line points up top, then narrative validation, then the lead list.
+This is the strategic read on the survey for launch. **Read the Response Quality Audit section first** — it changes how every number below should be interpreted.
 
-> **Updated May 27 PM:** previous analysis ran on a paginated 100-row export. This is the full 181-response dataset. Headline percentages stayed within 5pp of the prior read — narrative is intact — but the **opt-in volumes nearly doubled** and the high-intent lead list grew from 16 to 23.
+> **Updated May 27 PM (v3):** previous analysis ran on a paginated 100-row export. This is the full 181-response dataset, with a new authenticity audit pass on top. Headline percentages stay within 5pp of the prior read — narrative is intact and actually **gets stronger** when you drop the suspect rows — but the advisor opt-in pool shrinks materially and the high-intent lead list drops from 26 to 12 confirmed-real leads.
+
+---
+
+## ⚠ Response Quality Audit — read this before sharing any number
+
+After looking at the data row by row, **41% of the 181 responses (75 rows) are either confirmed spam or highly suspicious**. The honeypot caught zero of them — these are sophisticated panel / synthetic submissions that pass naive bot checks.
+
+### The breakdown
+
+| Category | Count | % | What it means |
+|---|---|---|---|
+| **LIKELY_REAL** | 92 | **51%** | Trust these for the narrative read |
+| UNCERTAIN | 14 | 8% | Sparse profile, no smoking gun. Review optional. |
+| **SUSPICIOUS** | 28 | **15%** | Multiple red flags. Drop from sales outreach. |
+| **CONFIRMED_SPAM** | 47 | **26%** | Domain farm + IP cluster + templated text. Drop entirely. |
+
+### What the spam looked like
+
+Four clear contamination sources, all clustered on May 25 (the day of the 65-response spike):
+
+1. **Email domain farms.** 48 responses came from disposable / generated email domains: `zz.rehearsalk.com` (10), `*.xintaitong.com` (16 across 5 subdomains), `huhutu.cloud` (4), `tiankaixin77.xyz` (5), `lingeringp.com` (3), `youngestsd.com` (2), `vnaikai.life` (2). These have a tell: short 2-3 letter random subdomain on a meaningless parent domain. All passed honeypot.
+
+2. **IP-cluster spam ring #1 (9 responses in 72 minutes, May 25, 5:54-7:06pm UTC).** Single IP hash `68dd86…` submitted 9 responses with @gmail.com addresses following a `firstname{digits}@gmail.com` pattern (`pabdullahi251`, `rebeccapaul0102`, `tiipantoo`, `juliyawilliansom`, etc.). All position = "Director" or "Manager". All advisor-opted-in. All templated Q21 answers.
+
+3. **IP-cluster spam ring #2 (8 responses, May 25-26).** Single IP hash `77b74962…` cycling through @proton.me / @tuta.io / @tutamail.com addresses with varied stolen-sounding names ("Susan Harris", "Megan Sullivan", "G Patterson Jr") and gaming the role multiple-choice (CEO, VP, Team Lead, Director, Manager, Growth Lead — all from one IP).
+
+4. **IP-cluster spam ring #3 (7 responses in 27 minutes, May 25, 7:59-8:26pm UTC).** Single IP hash `42a228…` recombining a pool of ~5 first names (Mason, James, Harry, Nico, John, Jordan) into seven different `name{digits}@gmail.com` accounts, each picking a different role (Ceo, Marketing, Director, Content lead, Marketing ops, Head of growth, etc.) — a clear attempt to look like a varied sample from one operator.
+
+5. **Templated Q21 answers** that smell of one person running responses through a templated prompt: variations of *"Our team is most excited about AI-powered…"* and *"We wish AI could move from being a 'helper' in GTM to…"* etc. One response literally opened with *"Here are several different natural responses for your reference: 1…"* — a model output left in by accident.
+
+### What changes when you drop the suspect rows
+
+This is the most important table in the doc:
+
+| Metric | Full 181 | Clean 92 (LIKELY_REAL) | Junk 75 |
+|---|---|---|---|
+| Engineer disenchantment | 63% | **65%** | 57% |
+| Fragmentation pain | 64% | **77%** | 43% |
+| Attribution pain | 56% | **71%** | 33% |
+| AEO investment (top-2) | 52% | **57%** | 45% |
+| Advisor opt-ins | 72% (130) | 60% (55) | **91% (68)** |
+| Report opt-ins | 80% (144) | 86% (79) | 71% |
+| **High-intent leads** | **26** | **12** | 14 |
+| ICP fit composite | 50% | 35% | **73%** |
+
+**Three things to internalize:**
+
+- **The narrative gets STRONGER on the clean set.** Fragmentation pain jumps from 64% to 77%. Attribution pain from 56% to 71%. AEO investment from 52% to 57%. **Spam was DILUTING the pain signal** — real marketers complain more than paid panel-takers.
+- **The advisor pipeline is materially smaller than it looked.** Junk respondents opt-in at 91% (because the panel reward is "yes please contact me"). Clean respondents opt-in at 60%. **Use 55, not 130, as the real opt-in pool.** 60% is still an excellent rate.
+- **The ICP fit composite is the metric that lies hardest.** Junk respondents claim "VP Marketing / Series A / $25-75K" at 73% because they're optimizing for what the panel thinks is the desirable profile. Real ICP fit is **35%, not 50%**. Sales targeting needs to be tighter than the raw number suggests.
+
+### What to do about it
+
+1. **Sales:** call only the **12 LIKELY_REAL high-intent leads**, not the full 26 from the raw CSV. The clean subset has an `LR` flag in `Survey - Flagged Responses.csv`.
+2. **Headline messaging for the launch:** lead with the **CLEAN numbers** (77% fragmentation pain, 71% attribution pain, 60% advisor opt-in rate on real respondents). They tell a more honest, more compelling story.
+3. **Operations:** the honeypot alone is not enough. Recommend adding:
+   - Email-domain block list (the parents we saw: `xintaitong.com`, `rehearsalk.com`, `lingeringp.com`, `youngestsd.com`, `huhutu.cloud`, `tiankaixin77.xyz`, `vnaikai.life`)
+   - Rate-limit by IP hash (max 1 response per IP per 24h, or require a captcha after the 2nd)
+   - Optional secondary verification: magic-link email confirmation before counting an opt-in as a "lead"
+4. **For the post-mortem:** find out what drove May 25 traffic. The day was 65 responses; **at least 40 of them appear to be panel/spam**. If it was a paid LinkedIn campaign that got pasted into a survey-completion farm, we've effectively been paying for spam. Worth understanding before the launch wave hits.
+
+The flagged-row CSV (`Survey - Flagged Responses.csv`) has every row scored 0-100 with the specific flags that fired, sortable for manual review. Re-run `python3 validate_responses.py` after each new export.
+
+---
+
+## Bottom line
 
 ---
 
 ## Bottom line
 
 1. **The survey validates the entire narrative spine.** 63% of respondents show signs of "Marketing Engineer" disenchantment (skill loss, tool churn, can't hire AI talent). 64% have fragmentation pain. 52% plan to invest in AI Visibility / AEO in the next 12 months — the **#1 investment category**, tied with marketing ops (50%) and content production at scale (49%), beating outbound (41%) and strategy (20%).
-2. **There is a 72% opt-in rate for an advisor session — 130 names.** That is not a survey, that is a pipeline event. **23 respondents** directly fit the highest-intent profile (planning AEO + not currently tracking + opted in for advisor). The vetted list is `Survey - High Intent Leads.csv` in this folder — 7 need a manual ICP review before outreach (see Data Quality).
+2. **There is a 72% opt-in rate for an advisor session — 130 names — BUT see the Quality Audit above.** On the clean LIKELY_REAL subset the rate is 60% (55 names). 26 respondents in the raw set directly fit the highest-intent profile (planning AEO + not currently tracking + opted in for advisor); **only 12 of those survive the authenticity audit**. Those 12 are the ones sales should actually call this week. The full vetted list is `Survey - High Intent Leads.csv`; cross-reference with `Survey - Flagged Responses.csv` to filter to LIKELY_REAL only.
 3. **The awareness needle is moving — but barely.** In the previous 100-row sample, zero respondents had mentioned GrowthOS or anything in the GrowthX ecosystem. In the full 181, **one respondent named "GrowthOS"** and **one specifically called out "checkthat.ai"** as part of their research stack (literally asking *"Do satellite tools by GrowthX count?"*). Direct competitors mentioned: NotebookLM (11), Granola (8), AirOps (4), Cassidy, HeyMarvin, AnswerRank.ai. **The launch is still the awareness event.**
 
 ---
@@ -27,7 +93,8 @@ This is the strategic read on the survey for launch. Three bottom-line points up
 | Advisor opt-ins (count) | 73 | **130** | **+78%** |
 | Report opt-ins (count) | 85 | **144** | **+69%** |
 | ICP fit (role + stage + budget) | 50 | 91 | proportional |
-| High-intent leads | 16 | **23** | **+44%** |
+| High-intent leads (raw) | 16 | **26** | **+63%** |
+| High-intent leads (audited LIKELY_REAL only) | n/a | **12** | new with v3 |
 | Brand mentions (GrowthOS / CheckThat) | 0 | **2** | **off zero** |
 
 The pattern: percentages held, absolute volumes roughly doubled. That's the right shape — it means the prior sample wasn't biased, just incomplete.
@@ -99,7 +166,8 @@ The pattern: percentages held, absolute volumes roughly doubled. That's the righ
 | Opted in for advisor session | **130 / 181** | Genuine sales-call intent |
 | Opted in for the report | 144 / 181 | Nurture pool for launch sequence |
 | ICP fit (role + stage + budget $10k+) | 91 / 181 | Solid sample fit; refine with manual review |
-| **High-intent leads** (advisor opt-in + planning AEO + not tracking) | **23** | Direct sales outreach list — see CSV |
+| **High-intent leads (raw)** | **26** | Advisor opt-in + planning AEO + not tracking |
+| **High-intent leads (audited LIKELY_REAL)** | **12** | The list sales should actually call this week |
 | Critical buying signal cohort | 39 / 181 | Planning AEO but not yet tracking — focused launch nurture |
 
 ---
@@ -225,20 +293,20 @@ That's it. **The needle moved off zero but barely.** The launch is still the awa
 
 ## Data quality caveats (read before sharing any number)
 
-1. **7 responses still have clearly off-ICP position titles** — "kennel attendant", "transmitter operator", "mail superintendent", "grain marketer", "cosmetics marketer", "farm and home management advisor", "food marketer". All passed honeypot. All opted in for advisor. They look like a panel sample contamination — none were added in the new 81 rows, suggesting they came in early. They are flagged with `off_icp_flag = review` in the leads CSV. **Hand-vet before any sales outreach.**
-2. **Position field quality is mixed.** 124/181 (69%) positions contain a marketing/growth/founder/CMO/VP marker. The rest may be valid (founders use idiosyncratic titles) but warrant review.
-3. **Templated/synthetic-looking Q21 answers appeared in the new batch.** A handful of new responses have the smell of "Here are several different natural responses for your reference: 1..." — i.e. AI-generated answers from someone gaming a survey panel. Roughly 5-10 responses look this way. They don't materially move the headline percentages, but they're worth noting before quoting any new Q21 line verbatim.
-4. **The May 25 spike is now 65 responses (35% of total), May 26 added another 38 (21%).** Combined: 57% of the entire sample came in over two days. **Find out what drove May 25** — paid LinkedIn, a panel buy, an email blast, a viral post — before treating the headline numbers as representative of "organic" GTM market sentiment. If it was a paid panel, the disenchantment / fragmentation numbers might be elevated by self-selection of the survey-taker audience.
-5. **UTM coverage is poor.** Only 22% (39/181) have a known UTM source (all LinkedIn). The other 78% lack source attribution. Add UTM enforcement on all distribution links before the launch wave.
-6. **All composite signals (64% fragmentation, 63% disenchantment, etc.) include the off-ICP responses and the suspected-synthetic Q21 answers.** Numbers may shift slightly after cleanup. Direction won't.
-7. **The sample is self-selected.** People who took a 27-question survey about AI in GTM are more AI-engaged than the average marketer. Adjust accordingly.
+**See the Response Quality Audit at the top of this doc — that supersedes the previous "off-ICP" and "templated Q21" caveats.** Summary of what survived as relevant caveats after the audit:
+
+1. **The audit is heuristic, not perfect.** The 92 LIKELY_REAL rows are conservative — a few of them are probably also panel-spam I haven't yet caught (and a few of the 14 UNCERTAIN rows are probably legit but incomplete). Treat the audit categories as a strong prior, not a final answer. Spot-check the lead CSV manually before any individual outreach.
+2. **UTM coverage is poor.** Only 22% (39/181) have a known UTM source (all LinkedIn). The other 78% lack source attribution. Add UTM enforcement on all distribution links before the launch wave.
+3. **The May 25 spike is 65 responses (35% of total), May 26 added another 38 (21%).** Combined: 57% of the entire sample came in over those two days. The audit shows that at least 40 of those 103 are panel/spam contamination. **Find out what drove the May 25 traffic** — paid LinkedIn, panel buy, scraped email blast, viral post. If we're paying for spam, kill that channel before the launch wave.
+4. **The sample is self-selected.** People who finish a 27-question survey about AI in GTM are more AI-engaged than the average marketer. Adjust the absolute pain percentages downward when generalizing to "all marketers."
+5. **Honeypot caught nothing.** 100% pass rate but 26% of the responses are confirmed spam. The current bot detection on the survey form is not effective against panel/operator-driven submissions. Recommended hardening is in the audit section above.
 
 ---
 
 ## Recommended actions for launch
 
 ### This week (pre-launch)
-1. **Sales: contact the 23 high-intent leads** with a personalized intro referencing what they said in the survey. (CSV in this folder.) Hand-vet the off-ICP-flagged rows first.
+1. **Sales: contact the 12 LIKELY_REAL high-intent leads** with a personalized intro referencing what they said in the survey. (Filter `Survey - High Intent Leads.csv` against the LIKELY_REAL category in `Survey - Flagged Responses.csv`.) Do not call any of the SUSPICIOUS or CONFIRMED_SPAM rows.
 2. **Investigate the May 25 spike source.** If it was paid LinkedIn or a panel buy, recalibrate the headline read. If it was organic / a viral post, double down on whoever posted.
 3. **Content: publish a teaser social post using one specific stat** — *"63% of marketers we surveyed said they're losing core skills to AI tool sprawl. We don't think marketers should have to become engineers."* — and pin it as the lead-in to launch.
 4. **Get UTMs on every distribution link** so the launch-week response wave is attributable.
@@ -249,7 +317,7 @@ That's it. **The needle moved off zero but barely.** The launch is still the awa
 7. **Run the launch announcement through the LinkedIn-known sample first** before paid amplification — they already raised their hand. 39 known LinkedIn referrals × 144 report opt-ins overlap = warm sequence ready.
 
 ### Post-launch
-8. **Re-run `analyze_survey.py` weekly** through end of June and watch for shifts in the 23-lead cohort (whether they convert to demo / waitlist).
+8. **Re-run `analyze_survey.py` AND `validate_responses.py` weekly** through end of June and watch for shifts in the LIKELY_REAL lead cohort (whether they convert to demo / waitlist).
 9. **Add 3-5 product-fit questions to the survey for Phase 2.** The current survey is great on context but light on "would you buy this." Worth A/B-testing a closing question like *"If a tool did [closed-loop ContentOS pitch], would you take a demo this quarter?"*
 
 ---
@@ -257,5 +325,7 @@ That's it. **The needle moved off zero but barely.** The launch is still the awa
 ## Files in this analysis bundle
 
 - `Survey Insights - GrowthOS Launch.md` — this doc
-- `Survey - High Intent Leads.csv` — 23 advisor-opted-in high-intent leads, with off-ICP-flag column (kept out of git; PII)
+- `Survey - High Intent Leads.csv` — 26 advisor-opted-in high-intent leads, with off-ICP-flag column (kept out of git; PII). 12 are LIKELY_REAL per the audit.
+- `Survey - Flagged Responses.csv` — all 89 non-LIKELY_REAL rows from the audit, sorted by suspicion score, with the specific flags that fired (kept out of git; PII)
 - `analyze_survey.py` — reproducible analysis script. Run `python3 analyze_survey.py` from this folder to refresh all numbers when more responses come in.
+- `validate_responses.py` — authenticity audit. Run after every fresh export.

@@ -21,6 +21,7 @@ python3 -m http.server 8000
 | `Will - Video Content Expansion Notes.md` | Will's expansion proposals — Whiteboard Sessions + Charlie |
 | `Survey Insights - GrowthOS Launch.md` | N=181 survey insights for the launch |
 | `analyze_survey.py` | Reproducible analysis script — re-run as more responses come in |
+| `validate_responses.py` | Response authenticity / spam audit — scores each response 0-100 across 7 signal categories and writes a flagged-rows CSV |
 | `render_charlie.py` | Charlie character render pipeline (gpt-image-2) |
 | `assets/` | Charlie character renders (10 style variants + prototypes) |
 | `🎬 GrowthOS Marketing Week ... .md` | Source Notion export — Marketing Week plan |
@@ -29,6 +30,7 @@ python3 -m http.server 8000
 
 - `.env` — OpenAI API key
 - `Survey - High Intent Leads.csv` — contains PII (real names + emails)
+- `Survey - Flagged Responses.csv` — output of `validate_responses.py`, also contains PII
 - `.venv/` — local Python environment
 - `.DS_Store`, IDE caches
 
@@ -36,10 +38,13 @@ python3 -m http.server 8000
 
 ```bash
 # Drop a fresh export at ~/Downloads/responses_rows.json, then:
-python3 analyze_survey.py
+python3 analyze_survey.py        # headline stats + leads CSV
+python3 validate_responses.py    # spam / authenticity audit + flagged CSV
 ```
 
-This regenerates the leads CSV in this folder and prints all distributions and composite signals.
+`analyze_survey.py` regenerates the leads CSV in this folder and prints all distributions and composite signals.
+
+`validate_responses.py` scores every response 0-100 across 7 signal categories (email domain, name, position, free-text, internal consistency, IP-cluster, repetition) and writes `Survey - Flagged Responses.csv` for manual review. Run after every fresh export.
 
 ## Re-rendering Charlie style variants
 

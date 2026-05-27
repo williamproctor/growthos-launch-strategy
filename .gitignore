@@ -8,6 +8,7 @@ credentials.json
 
 # PII — survey contains real names + emails
 Survey - High Intent Leads.csv
+Survey - Flagged Responses.csv
 
 # Python environment
 .venv/
