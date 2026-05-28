@@ -1,6 +1,6 @@
 # Content & Video Planning — Proposals
 
-*For Harmony's "Content & Video Planning" checklist · Drafted Thu, May 28, 2026 AM*
+*For Harmony's "Content & Video Planning" checklist*
 
 Each to-do gets a concrete, opinionated recommendation grounded in what we learned yesterday: the cleaned survey insights (n=92 LIKELY_REAL), the Marcel monologue Quotes Bank, the four-beat narrative spine, the launch V2 script, and the competitive landscape ("zero GrowthOS mentions" + AirOps/NotebookLM as the loudest names in our space).
 
@@ -9,57 +9,76 @@ The five to-dos, in checklist order:
 1. AI-Led Growth Workshop
 2. Podcast / Long-Form Video
 3. OS Demos
-4. Short-Form Video — June/July
+4. Short-Form Video
 5. Other long-form content
 
 ---
 
 ## 1. AI-Led Growth Workshop
 
-> **Recommendation: Live workshop with recording, June 12 (10 days post-launch). Gated registration with ICP-matching questions mirroring the survey. Cap at 50 attendees.**
+> **Recommendation: Live workshop with recording. Position it as a *platform argument*, not a how-to — we are NOT teaching the closed-loop IP. Include a demo of what a fully-loaded content pipeline COULD look like in GrowthOS. Cap at 50 attendees.**
+
+### The reframe (important)
+
+The first draft of this proposal had the workshop titled *"How to Build a Closed-Loop Content System."* That gives away the IP and trains attendees to compete with us. The corrected framing:
+
+- **Diagnose** the trap publicly — the "Marketing Engineer / GTM Engineer / Growth Engineer" pressure, dashboard fatigue, blank-canvas builder sprawl
+- **Argue** that a platform is the right shape of solution for the moment — conceptual, not implementation-specific
+- **Show**, via a demo, what a scaled content pipeline could look like running on GrowthOS — output, not internals
+
+That's the workshop. We never teach how the loop closes; we argue why a platform that closes it is the answer, and we let the product speak for itself in the demo.
 
 ### Why this shape
 
-- The survey's three loudest AEO barriers are "no tool" (25%), "don't know where to start" (22%), and "budget" (21%). A workshop solves #2 directly, weakens #3 (free, but valuable), and de-risks #1 (you don't need a tool to start — you need a system).
-- Clean-set report opt-in rate is 86% and advisor opt-in is 60%. Engagement appetite is there; we have 79 clean report opt-ins + 55 advisor opt-ins to seed the invite list.
-- Marcel has the authority to teach this — 15 years across IBM, HashiCorp, Scale AI, Deepgram, ServiceTitan ([00:00:00] in the transcript). The workshop is the most concentrated way to *spend* that authority during launch month.
-- Live > recorded for the first one. Q&A captures intent signals we can route to sales — same way we used the advisor opt-in field.
+- Survey's three loudest AEO barriers are **"no tool" (25%)**, **"don't know where to start" (22%)**, and **"budget" (21%)**. The workshop addresses #2 by reframing the problem (you don't need to figure out a build, you need a platform), and weakens #1 and #3 by letting attendees *see* what a fully-loaded pipeline does.
+- **65%** of the clean set said they're losing core skills to AI tool sprawl. The "Marketing Engineer" framing currently saturating LinkedIn is the noise we're naming directly — the workshop is the most concentrated forum to do that.
+- Marcel's own language [00:18:34] already gives us the argument: AirOps-style stitching and AEO-probe dashboards are *"borderline intellectually dishonest."* The workshop says that publicly, with proof, without revealing the inside of our system.
+- Clean-set report opt-in is 86% and advisor opt-in is 60%. We have **79 clean report opt-ins + 55 advisor opt-ins** to seed the invite list.
+- Live > recorded for the first one. Q&A captures intent signals we route to sales.
 
 ### Format
 
-- **Title (proposed):** *"How to Build a Closed-Loop Content System (Without Becoming a Marketing Engineer)"*
-- **60 minutes** — 45 min content + 15 min Q&A
+- **Title (proposed):** *"The Marketing Engineer Trap: Why You Can't Build Your Way Out of AEO Chaos"*
+  - Alt: *"Why Marketers Don't Need to Become Engineers — A Platform Argument"*
+- **60 minutes** — 35 min argument + 15 min demo + 10 min Q&A
 - **Zoom Webinar**, registration-required
-- **Speaker:** Marcel solo for first one. (Harmony as co-host for second — keep the structural option to add a customer voice later.)
-- **Structure:** mirrors the four-beat narrative spine, but operationalized into steps the audience can take home
-- **Recording:** posted as gated long-form 7 days later → lead magnet for the nurture sequence
-- **Workshop attendees get a 1:1 advisor session offer** (the 60% opt-in rate suggests ~30 of the 50 attendees will take it)
+- **Speaker:** Marcel solo. Keep the structural option to add a customer voice in later sessions.
+- Recording posted as gated long-form afterward → lead magnet for nurture
+- Workshop attendees get a 1:1 advisor session offer (60% historic opt-in rate suggests ~30 of the 50 will take it)
+
+### Content arc (the platform argument, not the how-to)
+
+| Min | Section | What happens |
+|---|---|---|
+| **0-10** | **Diagnose the trap** | Survey data on the table. Marketing Engineer / GTM Engineer / Growth Engineer pressure. Dashboard fatigue. *"This isn't your fault — here's why the market is fragmenting."* |
+| **10-20** | **Why building doesn't scale** | Blank-canvas tools (AirOps-style stitching, Zapier sprawl, in-house glue) require engineers you don't have AND produce one-off pipelines that don't learn. Named with examples. |
+| **20-35** | **The platform argument** | *Why* a single platform with closed-loop properties is the right shape of solution. Conceptual only. No teaching of HOW to build it. |
+| **35-50** | **Demo: what a scaled pipeline could look like in GrowthOS** | Marcel walks through 2 workflows from the OS Demos prioritization — recommended: Workflow #1 (auto-publish brand-voiced page) + Workflow #3 (decay detection at scale). Shows OUTPUT, not internals. |
+| **50-60** | **Q&A** | Captures intent, surfaces objections that feed sales. |
 
 ### Audience / registration
 
-- **Open registration** with 3 qualifying questions (role, team size, AEO maturity) — same schema as the GTM-AI survey so we can append answers to the same Supabase table
-- **Cap at 50** to keep Q&A intimate. If demand exceeds, run a second session the following week, don't expand the cap.
-- **Promotion targets:**
-  - 79 clean report opt-ins (warmest)
-  - 55 clean advisor opt-ins (warmest+)
-  - LinkedIn organic from Marcel + Harmony
-  - 39 known LinkedIn-UTM respondents (sequence pre-registered)
+- Open registration with 3 qualifying questions (role, team size, AEO maturity) — same schema as the GTM-AI survey so we can append to the same Supabase table
+- **Cap at 50** to keep Q&A intimate. If demand exceeds, run a second session, don't expand the cap.
+- **Promotion targets:** 79 clean report opt-ins (warmest), 55 advisor opt-ins (warmest+), LinkedIn organic from Marcel + Harmony, 39 known-LinkedIn-UTM respondents
 
 ### Open questions
 
-- **Date:** June 12 vs. June 19? June 12 lets us announce in launch week and ride momentum. June 19 gives us more runway to fill the seats.
-- **Pricing:** free vs. token $25? A small fee filters tire-kickers and raises perceived value, but creates payment friction and contradicts the "we're giving away the playbook" positioning. **My lean: free.**
-- **Add a customer voice?** If we have one high-intent lead who'd do a 5-minute "here's what we did" story, that's the strongest social proof we could ship. Worth the ask.
+- **Pricing:** free vs. token $25? Lean: **free** — fits the "we're naming the trap and showing you out of it" positioning.
+- **Customer voice?** If one of the 12 verified high-intent leads would share a 5-minute "here's our content pain" story, it strengthens the diagnose phase without us claiming wins we haven't earned yet.
+- **Recording release:** post the recording as gated long-form, or keep the demo portion behind a stricter wall (since it's product footage)?
+- **Demo depth:** show real GrowthOS UI, or a polished narrated walkthrough? Real UI is more honest; narrated is safer if anything in product is mid-build.
+- **What we explicitly DO NOT cover:** the implementation of the loop, the model orchestration, the brand-voice ingestion mechanism, the citation-detection signal pipeline. These are the IP — they appear as *capabilities visible in the demo*, never as *how-to instructions*.
 
 ### First action
 
-Lock topic + date by EOD Friday so the registration page can ship Monday for a 10-day promotion window. Workshop date assumed: June 12.
+Lock the framing and the two demo workflows with Marcel. Registration page can ship once topic + speaker are confirmed.
 
 ---
 
 ## 2. Podcast / Long-Form Video
 
-> **Recommendation: YES. Ship as "Whiteboard Sessions with Marcel" — biweekly, video-first, surrogate format. George as surrogate (not Harmony). Episode 1 ships June 9.**
+> **Recommendation: YES. Ship as "Whiteboard Sessions with Marcel" — biweekly cadence, video-first, surrogate format. George as surrogate (not Harmony).**
 
 ### Why YES
 
@@ -111,7 +130,7 @@ Reason: VPs of Marketing — our primary ICP per the survey — consume long-for
 
 ### First action
 
-Lock surrogate (George) by EOD today. Book whiteboard production day for Thu Jun 4. Episode 1 ships Mon Jun 9.
+Lock the surrogate (George recommended). Once the four-beat narrative is locked, book a whiteboard production day so Episode 1 can be in the can ahead of post-launch promotion.
 
 ---
 
@@ -143,7 +162,7 @@ Plus the awareness baseline: zero GrowthOS mentions in the survey. Cold demos ar
 
 ### For Katia (per the checklist sub-bullet)
 
-- **Capture priority:** get Marcel or product to record raw screen captures of Workflows #1-#3 by EOD Friday so Katia can begin abstract-animation work Monday. Animation has the longest lead time of any asset on this list.
+- **Capture priority:** raw screen captures of Workflows #1-#3 are the first thing to record once the workflows are locked. Animation has the longest lead time of any asset on this list, so Katia is unblocked the moment captures land.
 - **Format per cold demo:** **both** 9:16 vertical AND 16:9 horizontal exports. Vertical for Instagram/TikTok/LinkedIn-mobile, horizontal for YouTube Shorts/embedded on the marketing site.
 - **Captions baked in, no voiceover** for cold demos. VPs of Marketing watch on mute in meetings. Forcing text + motion only also drives scroll-stop on social where audio defaults off.
 - **Hot demos:** Marcel's actual VO (real-time, founder voice). That authenticity is the differentiator. Don't over-produce.
@@ -166,13 +185,13 @@ Minimal / abstract, in the spirit of **Linear** or **Stripe** product motion —
 
 ### First action
 
-Marcel + Katia + Will 30-min sync today to confirm the 5 workflows and start raw screen capture for Workflows #1-3.
+Marcel + Katia + Will 30-min sync to confirm the 5 workflows and start raw screen capture for Workflows #1-3.
 
 ---
 
-## 4. Short-Form Video — June / July
+## 4. Short-Form Video
 
-> **Recommendation: 12 pieces total over 8 weeks (≈1.5/week), split across four content lanes that ladder to specific launch goals. Charlie content does NOT ship in launch week.**
+> **Recommendation: ~12 pieces across the launch + follow-on windows (target ~1.5/week), split across four content lanes that ladder to specific launch goals. Charlie content does NOT ship in launch week.**
 
 ### The four lanes
 
@@ -219,11 +238,11 @@ Caption template: *"What [pain from survey] looks like in GrowthOS."*
 
 ### Posting cadence
 
-| Period | Lanes active |
+| Phase | Lanes active |
 |---|---|
-| **Launch week (Jun 2-8)** | Lanes **A + B only**. No demos, no Charlie. Message saturation, founder voice, survey credibility. |
-| **Jun 9-22 (post-launch fortnight)** | Add **Lane D** (OS demos). Whiteboard Sessions Ep 1 also lands in this window. |
-| **Jul** | Add **Lane C** (Charlie). All four lanes running. Stat-shots cycle to "updated stats" if we re-run the survey audit. |
+| **Launch week** | Lanes **A + B only**. No demos, no Charlie. Message saturation, founder voice, survey credibility. |
+| **Post-launch fortnight** | Add **Lane D** (OS demos). Whiteboard Sessions Ep 1 also lands in this window. |
+| **Ongoing follow-on** | Add **Lane C** (Charlie). All four lanes running. Stat-shots cycle to "updated stats" if we re-run the survey audit. |
 
 ### Best hooks (specific, ready to use)
 
@@ -247,7 +266,7 @@ Caption template: *"What [pain from survey] looks like in GrowthOS."*
 
 ### First action
 
-Cut the 4 Lane B sound-bite shorts **this week** from existing Marcel footage. Zero new production. They're our Day-1-of-launch posts.
+Cut the 4 Lane B sound-bite shorts from existing Marcel footage. Zero new production cost. These should be in the can ahead of launch so they can drop on Day 1.
 
 ---
 
@@ -276,11 +295,11 @@ Cut the 4 Lane B sound-bite shorts **this week** from existing Marcel footage. Z
 
 #### Ship
 
-- **Launch week.** Day 1 email to 79 clean report opt-ins. Gated download on marketing site by Day 2.
+- **Launch week.** Day 1 email to 79 clean report opt-ins. Gated download on the marketing site available at launch.
 
 #### Owner
 
-- I can produce the writing draft + page-design brief by EOW. Needs designer + Harmony review.
+- Will produces the writing draft + page-design brief. Needs designer + Harmony review.
 
 ### Practical guide: *"The AEO Playbook: A 4-Step System Without 12 Tools"*
 
@@ -300,7 +319,7 @@ Cut the 4 Lane B sound-bite shorts **this week** from existing Marcel footage. Z
 
 #### Ship
 
-- **2 weeks post-launch** (Jun 16). The State of AEO report does the awareness lift first; the playbook converts the audience that lands from it.
+- **Follow-on, after the report has done the awareness lift.** The State of AEO report runs first; the playbook converts the audience that lands from it.
 
 ### What NOT to ship (deliberate cuts)
 
@@ -319,19 +338,19 @@ I'd actively recommend AGAINST these even if they come up in the meeting:
 
 ### First action
 
-Confirm the State of AEO report scope by EOD Friday so a writing brief can land Monday.
+Confirm the State of AEO report scope so a writing brief can land.
 
 ---
 
 ## Summary table — what I'm asking the team to decide
 
-| To-do | Recommendation | First-action owner | By when |
-|---|---|---|---|
-| **Workshop** | Live + recording, Jun 12, capped at 50, ICP-gated registration, Marcel solo | Harmony (date/topic lock) | Fri May 29 |
-| **Podcast** | Yes. *Whiteboard Sessions with Marcel*, biweekly, George as surrogate, Ep 1 Jun 9 | Will + George (lock + production day) | Today |
-| **OS Demos** | Two tracks (cold animated + hot screen). 5 workflows prioritized. Linear-style minimal animation. | Marcel + Katia + Will (sync today) | Fri May 29 raw captures done |
-| **Short-form** | 12 pieces, 4 lanes (Stats / Marcel quotes / Charlie / Demo cuts). Charlie holds for week 2. | Will (cut Lane B from existing footage) | Mon Jun 2 launch-day posts ready |
-| **Long-form** | One flagship report (*State of AEO*) + one practical guide (*AEO Playbook*). No third thing. | Will (writing draft) + Harmony (scope lock) | Fri May 29 scope lock |
+| To-do | Recommendation | First-action owner |
+|---|---|---|
+| **Workshop** | Live + recording, *platform argument* framing (not how-to), demo of scaled GrowthOS pipeline output, capped at 50, ICP-gated registration, Marcel solo | Harmony (framing + topic lock) |
+| **Podcast** | Yes. *Whiteboard Sessions with Marcel*, biweekly cadence, George as surrogate | Will + George (lock + production day) |
+| **OS Demos** | Two tracks (cold animated + hot screen). 5 workflows prioritized. Linear-style minimal animation. | Marcel + Katia + Will (sync + raw captures) |
+| **Short-form** | ~12 pieces, 4 lanes (Stats / Marcel quotes / Charlie / Demo cuts). Charlie holds for post-launch. | Will (cut Lane B from existing footage) |
+| **Long-form** | One flagship report (*State of AEO*) + one practical guide (*AEO Playbook*). No third thing. | Will (writing draft) + Harmony (scope lock) |
 
 ## The throughline
 
