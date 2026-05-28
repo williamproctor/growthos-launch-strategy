@@ -390,7 +390,7 @@ I'd actively recommend AGAINST these even if they come up in the meeting:
 
 - ❌ **A "future of marketing" essay or manifesto** — already covered by the launch video itself; would dilute Marcel's positioning shot
 - ❌ **A multi-author "industry roundtable" piece** — dilutes Marcel as category-definer
-- ❌ **A 50-page ContentOS user manual / docs PDF** — should live in the product, not in marketing
+- ❌ **A 50-page GrowthOS user manual / docs PDF** — should live in the product, not in marketing
 - ❌ **An "Ultimate Guide to AI Marketing"** — generic, undifferentiated, signals desperation for SEO traffic
 
 ### Open questions

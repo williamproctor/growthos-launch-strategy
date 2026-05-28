@@ -84,4 +84,4 @@ It's a positioning shot — *name the wave, plant the flag.*
 - **This narrative:** captured Wed May 27 from Marcel + Harmony meeting
 - **Storyboard / shooting outline:** Will to draft once 4 open questions are answered
 - **Shoot:** target Wed/Thu of next week, pending lock on the four open questions
-- **Launch:** Jun 2, 2026
+- **Launch:** Jun 9, 2026

@@ -72,17 +72,18 @@ The flagged-row CSV (`Survey - Flagged Responses.csv`) has every row scored 0-10
 
 ## Bottom line
 
----
+*Lead with the **clean-set (92 LIKELY_REAL)** numbers — raw-181 figures run lower because spam diluted the pain signal. The audit table above has the side-by-side.*
 
-## Bottom line
-
-1. **The survey validates the entire narrative spine.** 63% of respondents show signs of "Marketing Engineer" disenchantment (skill loss, tool churn, can't hire AI talent). 64% have fragmentation pain. 52% plan to invest in AI Visibility / AEO in the next 12 months — the **#1 investment category**, tied with marketing ops (50%) and content production at scale (49%), beating outbound (41%) and strategy (20%).
-2. **There is a 72% opt-in rate for an advisor session — 130 names — BUT see the Quality Audit above.** On the clean LIKELY_REAL subset the rate is 60% (55 names). 26 respondents in the raw set directly fit the highest-intent profile (planning AEO + not currently tracking + opted in for advisor); **only 12 of those survive the authenticity audit**. Those 12 are the ones sales should actually call this week. The full vetted list is `Survey - High Intent Leads.csv`; cross-reference with `Survey - Flagged Responses.csv` to filter to LIKELY_REAL only.
-3. **The awareness needle is moving — but barely.** In the previous 100-row sample, zero respondents had mentioned GrowthOS or anything in the GrowthX ecosystem. In the full 181, **one respondent named "GrowthOS"** and **one specifically called out "checkthat.ai"** as part of their research stack (literally asking *"Do satellite tools by GrowthX count?"*). Direct competitors mentioned: NotebookLM (11), Granola (8), AirOps (4), Cassidy, HeyMarvin, AnswerRank.ai. **The launch is still the awareness event.**
+1. **The survey validates the entire narrative spine — and validates it harder on the clean set.** 65% of clean respondents show "Marketing Engineer" disenchantment, **77% have fragmentation pain, 71% can't attribute content to revenue**, and 57% plan to invest in AI Visibility / AEO this year (the #1 investment category). That is the GrowthOS thesis confirmed before we've shipped the message.
+2. **The advisor pipeline is real but smaller than the raw number suggested.** Use **55 clean opt-ins (60% of the clean set)**, not 130. 26 respondents in the raw set fit the highest-intent profile (planning AEO + not currently tracking + opted in for advisor); **only 12 survive the authenticity audit** — those 12 are who sales calls this week. Full list in `Survey - High Intent Leads.csv`; cross-reference `Survey - Flagged Responses.csv` to filter to LIKELY_REAL.
+3. **The awareness needle is moving — but barely.** In the full 181, exactly **one respondent named "GrowthOS"** and **one named "checkthat.ai"** (*"Do satellite tools by GrowthX count?"*). The names with mindshare are NotebookLM (11), Granola (8), AirOps (4). **The launch is still the awareness event — nobody knows us yet.**
 
 ---
 
-## What changed from the 100-row read
+<details>
+<summary>Historical: how the read evolved (100 rows → 181 raw → 92 clean)</summary>
+
+The analysis ran three times as data arrived. The 100-row and 181-row reads were both pre-audit, and the headline percentages held steady as volume grew — proof the early sample wasn't biased, just incomplete. The audit then reset the trustworthy base to 92.
 
 | Metric | 100-row | 181-row | Direction |
 |---|---|---|---|
@@ -97,7 +98,9 @@ The flagged-row CSV (`Survey - Flagged Responses.csv`) has every row scored 0-10
 | High-intent leads (audited LIKELY_REAL only) | n/a | **12** | new with v3 |
 | Brand mentions (GrowthOS / CheckThat) | 0 | **2** | **off zero** |
 
-The pattern: percentages held, absolute volumes roughly doubled. That's the right shape — it means the prior sample wasn't biased, just incomplete.
+Net lead-count journey: **16 → 26 → 12**. The current takeaway lives in the audit table above; this log is kept only for traceability.
+
+</details>
 
 ---
 
@@ -262,7 +265,7 @@ The Q21 free-text ("what do you wish AI could do that it can't today") is the mo
 | Under $5K/mo | 55 | 17% |
 | Don't track | 20 | 20% |
 
-**Read:** clean signal — *AEO maturity scales directly with content spend.* The companies already spending real money on content have already moved on AEO. The under-$5K cohort hasn't gotten there yet. ContentOS pricing tiers should reflect this distribution.
+**Read:** clean signal — *AEO maturity scales directly with content spend.* The companies already spending real money on content have already moved on AEO. The under-$5K cohort hasn't gotten there yet. GrowthOS pricing tiers should reflect this distribution.
 
 ---
 
@@ -285,8 +288,6 @@ The Q21 free-text ("what do you wish AI could do that it can't today") is the mo
 
 - **GrowthOS:** 1 mention (named directly as a tool they're excited about)
 - **CheckThat:** 1 mention (*"Do satellite tools by GrowthX count? I've found checkthat.ai and it's now in my research stack"*)
-- **ContentOS:** 0
-
 That's it. **The needle moved off zero but barely.** The launch is still the awareness event — the market is hungry for what we describe and has effectively not heard of us yet.
 
 ---
@@ -308,7 +309,7 @@ That's it. **The needle moved off zero but barely.** The launch is still the awa
 ### This week (pre-launch)
 1. **Sales: contact the 12 LIKELY_REAL high-intent leads** with a personalized intro referencing what they said in the survey. (Filter `Survey - High Intent Leads.csv` against the LIKELY_REAL category in `Survey - Flagged Responses.csv`.) Do not call any of the SUSPICIOUS or CONFIRMED_SPAM rows.
 2. **Investigate the May 25 spike source.** If it was paid LinkedIn or a panel buy, recalibrate the headline read. If it was organic / a viral post, double down on whoever posted.
-3. **Content: publish a teaser social post using one specific stat** — *"63% of marketers we surveyed said they're losing core skills to AI tool sprawl. We don't think marketers should have to become engineers."* — and pin it as the lead-in to launch.
+3. **Content: publish a teaser social post using one specific clean-set stat** — *"65% of marketers we surveyed said they're losing core skills to AI tool sprawl. Stop buying tools that hand marketers more work. Start marketing again."* (Harmony's locked POV line.) Pin it as the lead-in to launch.
 4. **Get UTMs on every distribution link** so the launch-week response wave is attributable.
 
 ### Launch week
@@ -318,7 +319,7 @@ That's it. **The needle moved off zero but barely.** The launch is still the awa
 
 ### Post-launch
 8. **Re-run `analyze_survey.py` AND `validate_responses.py` weekly** through end of June and watch for shifts in the LIKELY_REAL lead cohort (whether they convert to demo / waitlist).
-9. **Add 3-5 product-fit questions to the survey for Phase 2.** The current survey is great on context but light on "would you buy this." Worth A/B-testing a closing question like *"If a tool did [closed-loop ContentOS pitch], would you take a demo this quarter?"*
+9. **Add 3-5 product-fit questions to the survey for Phase 2.** The current survey is great on context but light on "would you buy this." Worth A/B-testing a closing question like *"If a tool did [closed-loop GrowthOS pitch], would you take a demo this quarter?"*
 
 ---
 

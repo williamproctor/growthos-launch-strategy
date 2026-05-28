@@ -25,7 +25,7 @@
 
 > **[BEAT 3 — DIFFERENT BET · ~26 sec · 72 words]**
 >
-> That's why we built ContentOS.
+> That's why we built GrowthOS.
 >
 > It's a closed-loop system. The frontier AI work — context, research, planning, writing, optimization — all happens *inside* the platform, end to end. You bring the strategy and the taste. We do the engineering for you.
 >
@@ -39,7 +39,7 @@
 
 > **[CTA · ~6 sec · 11 words]**
 >
-> That's ContentOS. Drop a comment for early access. Talk soon.
+> That's GrowthOS. Drop a comment for early access. Talk soon.
 
 **Total:** ~239 words · ~90 seconds at Marcel's typical pace
 
@@ -63,13 +63,13 @@ Marcel typically does 4–6 takes of the opener. Here are three to pick from:
 ## Alternate closes
 
 1. **Soft offer** *(in the draft above)*
-   > "That's ContentOS. Drop a comment for early access. Talk soon."
+   > "That's GrowthOS. Drop a comment for early access. Talk soon."
 
 2. **Stakes-first close** (drop CTA, end on the line)
-   > "Scale or disappear. That's ContentOS. Link in the comments."
+   > "Scale or disappear. That's GrowthOS. Link in the comments."
 
 3. **Generosity move** (Marcel's CheckThat pattern)
-   > "That's ContentOS. Comment below and I'll get you in early. First come, first serve. Talk soon."
+   > "That's GrowthOS. Comment below and I'll get you in early. First come, first serve. Talk soon."
 
 ---
 
@@ -80,7 +80,7 @@ Marcel typically does 4–6 takes of the opener. Here are three to pick from:
 | 1 — Setup | Medium-fast | Air-quotes on *Marketing Engineer*. Slight smirk on "Get technical or get replaced." | Don't speed through "I think that's wrong." Let it land. ~1 sec of silence before Beat 2. |
 | 2 — Refusal | Medium | List of brands gets a small acceleration — they're proof, not a brag. Pause before "side career in engineering." | The customer names are receipts. Marcel says them naturally in the CheckThat transcript — don't over-rehearse. |
 | 3 — Different bet | Medium-slow | *Hard* emphasis on "*inside* the platform." Slow on "strategy and the taste." | This is the longest beat — give it room. The flip ("we do the engineering for you") is the punchline of the whole video. |
-| 4 — New stakes | Builds | Build pace through "agents are reading the web on their behalf." Land hard on "disappear." | This is where the video earns its CTA. End on the stakes line with a beat of silence before "That's ContentOS." |
+| 4 — New stakes | Builds | Build pace through "agents are reading the web on their behalf." Land hard on "disappear." | This is where the video earns its CTA. End on the stakes line with a beat of silence before "That's GrowthOS." |
 | CTA | Casual | Conversational, almost thrown away. Marcel's CheckThat CTAs are always low-pressure. | Don't push. |
 
 ---
@@ -91,7 +91,7 @@ Marcel typically does 4–6 takes of the opener. Here are three to pick from:
 |------|-----------|------------------|
 | 1 | Marcel mid-shot, neutral background | Cuts of real "Marketing Engineer" job postings, "AI Stack" diagrams, screenshots of stack-architecture tweets. Receipts. |
 | 2 | Marcel mid-shot | Cuts of customer logos (Lovable, Webflow, Ramp, Brex, Sentinel One) — clean, premium |
-| 3 | Marcel + lower-third "ContentOS" | Tight product UI shots, the closed-loop diagram (if we lock one), animated "context → research → plan → write → ship" loop |
+| 3 | Marcel + lower-third "GrowthOS" | Tight product UI shots, the closed-loop diagram (if we lock one), animated "context → research → plan → write → ship" loop |
 | 4 | Marcel close-up | Quick cuts: ChatGPT answering a buying question, Perplexity citation, an agent browsing. Last beat back on Marcel for "disappear." |
 | CTA | Marcel + endcard | Endcard with logo + URL |
 

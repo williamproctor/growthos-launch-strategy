@@ -9,6 +9,16 @@
 
 ---
 
+## Alignment pass before the shoot (added 5/28)
+
+V2 holds. Three surgical changes bring it in line with what got locked *after* it was written (Harmony's CMO update + the four-systems framework). Make these on set — not a rewrite:
+
+1. **Land the close on Harmony's locked POV.** After "Everyone else disappears," before the offer, add: *"Stop over-engineering. Stop buying tools that hand marketers more work. Start marketing again."* It's the exact relief the flip beat promises.
+2. **Let the flip seed the four systems.** "Research, planning, drafting, optimization — end to end" can become the four systems said plainly: *"It records what's working, makes sense of it, acts on it, and learns — end to end."* Optional, but it makes the workshop, demos, and podcast inherit the video's vocabulary.
+3. **Name is locked to GrowthOS.** This script has been updated from the old "ContentOS" working title — the reveal and CTA below now say **GrowthOS**.
+
+---
+
 ## V2 — The clean script
 
 > **[OPENER · SCENE · ~17 sec · 47 words]**
@@ -29,7 +39,7 @@
 >
 > Marketers shouldn't have to become engineers. They should have a system that already DID the engineering.
 >
-> That's what we built. ContentOS. We wired the best frontier AI into a closed-loop content system. Research, planning, drafting, optimization — end to end. You bring the strategy. You bring the taste. The system does the rest.
+> That's what we built. GrowthOS. We wired the best frontier AI into a closed-loop content system. Research, planning, drafting, optimization — end to end. You bring the strategy. You bring the taste. The system does the rest.
 
 > **[STAKES · ~23 sec · 65 words]**
 >
@@ -39,7 +49,7 @@
 
 > **[OFFER · ~7 sec · 21 words]**
 >
-> I'm letting a small group into ContentOS early. Comment "OS" below and I'll DM you personally. Talk soon.
+> I'm letting a small group into GrowthOS early. Comment "OS" below and I'll DM you personally. Talk soon.
 
 **Total:** 227 words · ~83–90 seconds depending on pause placement
 
@@ -55,7 +65,7 @@ I want to be honest about the diagnosis, because the pattern matters more than t
 4. **Used "leverage" as a verb.** I explicitly flagged in my V1 voice analysis that Marcel doesn't use that word, then put it in the script. Caught.
 5. **The inversion got buried.** "We do the engineering for you" is the entire thesis of the launch. V1 made it the third sentence of Beat 3. V2 makes it the headline of the flip: *"Marketers shouldn't have to become engineers. They should have a system that already DID the engineering."*
 6. **Stakes got over-orchestrated.** V1 escalated three times in Beat 4 (biggest shift → agents reading → scale or disappear). Real Marcel says a thing and tells you why it matters once. V2 has one picture (the agent building shortlists), one rhetorical move (your homepage isn't your homepage), one stakes line.
-7. **AI transition phrases.** V1 had "And here's why this matters right now" and "That's why we built ContentOS." These are AI stitching phrases. Marcel just starts new thoughts. V2 cuts them entirely — the junction cuts in the video do the transition work.
+7. **AI transition phrases.** V1 had "And here's why this matters right now" and "That's why we built GrowthOS." These are AI stitching phrases. Marcel just starts new thoughts. V2 cuts them entirely — the junction cuts in the video do the transition work.
 8. **Template-y CTA.** "Drop a comment for early access" could be any SaaS launch. V2 borrows Marcel's actual CheckThat CTA structure: personal offer ("I'll DM you personally"), low-friction trigger ("comment 'OS'"), warm close ("Talk soon").
 9. **No texture.** V1 was all argument, no human edges. V2 has *"She just laughed."* That single line — a specific tactile detail — does more work than any of V1's claims.
 
@@ -111,7 +121,7 @@ I want to be honest about the diagnosis, because the pattern matters more than t
 → This is THE LINE. Every other line in the script exists to set this up and pay it off. Slow. Let it breathe. Eye contact. This is the screenshot.
 → Emphasis on **DID** — past tense, deliberate. The engineering is *done.*
 
-> "That's what we built. ContentOS."
+> "That's what we built. GrowthOS."
 
 → Reveal cleanly. No "introducing," no "we're excited to launch." Just: that's what we built. Name. Move on.
 
@@ -145,7 +155,7 @@ I want to be honest about the diagnosis, because the pattern matters more than t
 
 ### OFFER
 
-> "I'm letting a small group into ContentOS early. Comment 'OS' below and I'll DM you personally. Talk soon."
+> "I'm letting a small group into GrowthOS early. Comment 'OS' below and I'll DM you personally. Talk soon."
 
 → Marcel's CheckThat-style CTA: scarcity ("small group") + low-friction trigger ("comment OS") + personal touch ("I'll DM you personally") + warm close ("Talk soon").
 → Don't push. Marcel's CTAs are always conversational, never sales-y. Almost throw it away.
@@ -170,13 +180,13 @@ He typically does 4–6 takes per opener — pick the one that sits best in his 
 ## Alternate closes
 
 1. **Personal offer** *(in the V2 draft above)*
-   > "I'm letting a small group into ContentOS early. Comment 'OS' below and I'll DM you personally. Talk soon."
+   > "I'm letting a small group into GrowthOS early. Comment 'OS' below and I'll DM you personally. Talk soon."
 
 2. **Stakes-first, drop the CTA** *(more confident, more Linear/Stripe-style)*
-   > "Either you publish trustworthy content at scale, or you don't exist. That's the choice. ContentOS. Link in the comments."
+   > "Either you publish trustworthy content at scale, or you don't exist. That's the choice. GrowthOS. Link in the comments."
 
 3. **Free strategy session** *(direct lift of Marcel's CheckThat pattern)*
-   > "I'm letting a small group into ContentOS early. Comment 'OS' below — and if you work at a legit company, I'll personally do a 30-minute strategy session with you. First come, first serve. Talk soon."
+   > "I'm letting a small group into GrowthOS early. Comment 'OS' below — and if you work at a legit company, I'll personally do a 30-minute strategy session with you. First come, first serve. Talk soon."
 
 ---
 
@@ -188,7 +198,7 @@ He typically does 4–6 takes per opener — pick the one that sits best in his 
 | Consensus | Marcel mid-shot | Hard cuts of receipts on screen: a real "Marketing Engineer" job posting, a real "my AI marketing stack" tweet, a real stack-architecture diagram. Land back on Marcel for "dumbest pitch in B2B right now." |
 | Flip / Product reveal | Marcel close-up for the headline line, then pull to mid-shot for the product description | Headline beat: text overlay only — *"A system that already did the engineering."* Then a single clean animated loop graphic for "closed-loop content system" (research → planning → drafting → optimization → repeat). UI shots optional and brief. |
 | Stakes | Marcel close-up, slight lean | Cut to: someone asking ChatGPT a buying question, an AI agent visibly browsing a competitor's site, a Perplexity citation block. Back to Marcel for "your homepage isn't your homepage anymore." Hold on Marcel for "Everyone else disappears." |
-| Offer | Marcel mid-shot, endcard | Lower-third with "ContentOS" + URL. Endcard with the same. |
+| Offer | Marcel mid-shot, endcard | Lower-third with "GrowthOS" + URL. Endcard with the same. |
 
 **Audio note:** Prioritize crisp audio over fancy visuals. The single most-cited research finding: viewers tolerate lo-fi visuals but bail on bad sound. Lav mic + clean room beats studio camera + tinny audio every time.
 
@@ -212,10 +222,10 @@ He typically does 4–6 takes per opener — pick the one that sits best in his 
 - **V2 script:** Ready for Marcel + Harmony review
 - **Open decisions remaining:** opener choice (3 options), close choice (3 options), receipts call (real screenshots vs. paraphrase)
 - **Shoot:** Wed/Thu next week once Marcel signs off
-- **Launch:** Jun 2, 2026
+- **Launch:** Jun 9, 2026
 
 ---
 
 ## Confirm before shoot
 
-- **Product name:** V2 uses *ContentOS* per the latest instruction. Source docs from earlier in the launch planning use *GrowthOS*. Confirm the final name and find/replace before recording.
+- **Product name:** Locked to **GrowthOS**. Earlier drafts used the "ContentOS" working title; it's been retired across the project.

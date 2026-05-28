@@ -1,6 +1,6 @@
 # GrowthOS Launch — Strategy Browser
 
-Internal strategy & planning archive for the GrowthOS launch (Jun 2, 2026).
+Internal strategy & planning archive for the GrowthOS launch (Jun 9, 2026).
 
 The live site is `index.html` — hosted via GitHub Pages, or open it locally with any browser, or run a quick local server:
 
