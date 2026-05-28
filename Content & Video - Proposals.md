@@ -1,6 +1,17 @@
 # Content & Video Planning — Proposals
 
-*For Harmony's "Content & Video Planning" checklist*
+*For Harmony's "Content & Video Planning" checklist · Revised against the CMO Marketing OS Week TL;DR (5/27)*
+
+---
+
+## Updated against Harmony's TL;DR
+
+This doc has been revised after Harmony's Marketing OS Week update. Two structural changes:
+
+1. **The product is now a closed-loop growth system with four parts** — *System of Record · System of Intelligence · System of Action · System of Learning*. This is the framework that ties everything below together.
+2. **OS Demos go from 5 → 4**, mapped one-to-one to the four systems.
+
+Sharper POV inherited from the TL;DR and now used verbatim in hooks: *"Stop over-engineering. Stop buying tools that hand marketers more work. Start marketing again."*
 
 Each to-do gets a concrete, opinionated recommendation grounded in what we learned yesterday: the cleaned survey insights (n=92 LIKELY_REAL), the Marcel monologue Quotes Bank, the four-beat narrative spine, the launch V2 script, and the competitive landscape ("zero GrowthOS mentions" + AirOps/NotebookLM as the loudest names in our space).
 
@@ -53,7 +64,7 @@ That's the workshop. We never teach how the loop closes; we argue why a platform
 | **0-10** | **Diagnose the trap** | Survey data on the table. Marketing Engineer / GTM Engineer / Growth Engineer pressure. Dashboard fatigue. *"This isn't your fault — here's why the market is fragmenting."* |
 | **10-20** | **Why building doesn't scale** | Blank-canvas tools (AirOps-style stitching, Zapier sprawl, in-house glue) require engineers you don't have AND produce one-off pipelines that don't learn. Named with examples. |
 | **20-35** | **The platform argument** | *Why* a single platform with closed-loop properties is the right shape of solution. Conceptual only. No teaching of HOW to build it. |
-| **35-50** | **Demo: what a scaled pipeline could look like in GrowthOS** | Marcel walks through 2 workflows from the OS Demos prioritization — recommended: Workflow #1 (auto-publish brand-voiced page) + Workflow #3 (decay detection at scale). Shows OUTPUT, not internals. |
+| **35-50** | **Demo: what a scaled pipeline could look like in GrowthOS** | Marcel walks the full closed loop using the four-system framework: *Record → Intelligence → Action → Learning*. Either show all four briefly (~3 min each) to make the framework concrete, or go deep on two — recommended pairing is **Action** + **Learning**. Either way: shows OUTPUT, not internals. |
 | **50-60** | **Q&A** | Captures intent, surfaces objections that feed sales. |
 
 ### Audience / registration
@@ -110,13 +121,15 @@ Lock the framing and the two demo workflows with Marcel. Registration page can s
 - Differentiation language is already locked in Marcel's own words: closed-loop vs. dashboards ([00:18:34] — *"borderline intellectually dishonest"*), closed-loop vs. blank-canvas builders ([00:18:42] — *"200 nodes, go stitch those nodes together"*), closed-loop vs. AEO-probe tools ([00:17:45]).
 - **Risk to avoid:** turning the podcast into a 30-minute feature reel. That's what kills founder-led shows. Marcel teaches a worldview; the worldview makes the product obvious.
 
-### First 3 episode topics (concrete)
+### First 3 episode topics (revised to fold in Harmony's TL;DR)
 
 | # | Title | Why this one |
 |---|---|---|
-| **1** | **"Why your AEO dashboard is lying to you"** | Beat 4 stakes + competitive frame. Weaponizes the survey's 25% "no tool" + 11% "no ownership" findings. Names AirOps/AnswerRank as category before they get to define us. |
-| **2** | **"The Waymo analogy: why your content engine isn't an LLM"** | Uses Marcel's strongest analogy verbatim. Becomes the canonical "what is a closed loop" explainer — linkable from the homepage hero, sendable in every sales reply. |
-| **3** | **"From 40,000 MarTech tools to one harness"** | Beat 1 setup → Beat 3 payoff. Makes the Marketing-Engineer critique explicit. Pairs perfectly with the Charlie "drowning in tools" content the following week. |
+| **1** | **"The four systems every marketing team is missing"** | Introduces the *Record → Intelligence → Action → Learning* framework. Marcel draws the loop on the whiteboard. The canonical explainer that every other piece of content references. Replaces the prior "AEO dashboard is lying to you" topic — that critique now lives *inside* this episode under "Intelligence". |
+| **2** | **"Stop buying tools that hand marketers more work"** | Lifts Harmony's exact language. Makes the Marketing-Engineer critique explicit. Blank-canvas builders, disconnected workflow tools, and AI-visibility dashboards all hand marketers MORE work — the platform argument is the answer. Pairs with the Charlie "drowning in tools" content. |
+| **3** | **"Your website is what the agent reads"** | Anchors on the new CMO message: website + content system is the core growth engine, and it now performs for both human buyers AND AI agents. Marcel uses the Waymo analogy [00:22:52] as the teaching moment inside the episode. |
+
+*The Waymo analogy and the "AEO dashboard is lying to you" critique haven't been cut — they've been re-housed inside the new episodes, which is the right move now that the four-systems framework is the spine.*
 
 ### Cadence: biweekly (not weekly)
 
@@ -136,36 +149,30 @@ Lock the surrogate (George recommended). Once the four-beat narrative is locked,
 
 ## 3. OS Demos
 
-> **Recommendation: Two tracks. "Cold Demos" (45-second animated workflow vignettes for top-of-funnel) and "Hot Demos" (3-5 minute real-screen captures for mid-funnel + sales).**
+> **Recommendation (revised after Harmony's TL;DR): Four demos, one per system.** The four demos collectively walk the viewer around the closed loop in order: *Record → Intelligence → Action → Learning*. Two production tracks: **Cold Demos** (45s animated, top-of-funnel) and **Hot Demos** (3-5 min real screen, mid-funnel + sales). Same four workflows in both tracks; just different fidelities.
 
-### Why two tracks
+### What changed from the prior 5-workflow list
 
-The survey gave us three distinct objections, and one demo format can't hit all three:
+The original 5-workflow list was prioritized against survey pain points. The new list is organized around the four-systems framework Harmony locked in. The cut: prior Workflows #3 (decay detection) and #5 (human-in-the-loop review) collapsed into a single "System of Learning" demo, because they're both the same closed-loop-correction story shown from two angles. Net: 5 → 4, with no real coverage lost.
 
-| Objection | % of clean set | Demo type that addresses it |
-|---|---|---|
-| "Don't have a tool to track it" (no tool) | 25% | Cold demo — show the tool exists, in motion, in 30 seconds |
-| "Don't know where to start" | 22% | Hot demo — walk through a real workflow, narrated by Marcel |
-| "Budget" | 21% | Both — cold creates demand, hot proves the time saved is worth the spend |
+### The four demos
 
-Plus the awareness baseline: zero GrowthOS mentions in the survey. Cold demos are the awareness lever. Hot demos are the conviction lever.
+| # | System | Workflow | What viewer takes away | Survey pain it addresses |
+|---|---|---|---|---|
+| **1** | **System of Record** | **Brand-context ingestion — one truth source for all agents** | "Set your brand truth once. Every downstream action — AI or human — reads from it. No more drift across channels." | 49% "AI creates inconsistency across assets" + 52% brand-voice pain |
+| **2** | **System of Intelligence** | **AEO signal capture — see which agents cite your pages and why** | "Your website is what the agent reads. Here's exactly which agents are reading it, what they're quoting, and what they're missing." | 25% "don't have a tool to track it" + 13% "know we should, haven't" |
+| **3** | **System of Action** | **Auto-publish a researched, brand-voiced page in 30 min** | "This is what scaled content looks like when the system already knows your brand and what the market needs. You direct the strategy; the platform executes." | 49% strategic-thinking decline + 28% "budget" (proves leverage) |
+| **4** | **System of Learning** | **Decay detection + human-in-the-loop correction** | "Pages decay. Signals come back. The system flags what needs refresh, you confirm, and the next 100 pages get better. The loop closes." | 58% attribution pain + Waymo analogy made concrete |
 
-### Workflows to demo — priority order
-
-| # | Workflow | Maps to which survey pain | Maps to which beat |
-|---|---|---|---|
-| **1** | **Auto-publish a researched, brand-voiced page in 30 min** | 52% brand-voice pain + 49% strategic-thinking decline | Beat 3 (closed loop in action) |
-| **2** | **AEO signal: see which agents cite your pages and why** | 25% no-tool barrier + 13% "know we should, haven't" | Beat 4 (new stakes, concrete) |
-| **3** | **Decay detection: which of your 100 pages need refresh** | 58% attribution pain | Beat 3 (closed loop = system that learns) |
-| **4** | **Brand-context ingestion: one truth source for all agents** | 49% "AI creates inconsistency" + Marcel's ICP/positioning quote [00:13:00] | Beat 3 + Beat 2 (relief — "set context once") |
-| **5** | **Human-in-the-loop review and learning loop** | Marcel's Waymo analogy made concrete — corrections improve next runs | Beat 3 (the learning part) |
+**Sequence matters:** always Record → Intelligence → Action → Learning. That ordering is the loop direction, and presenting them in any other order breaks the conceptual story.
 
 ### For Katia (per the checklist sub-bullet)
 
-- **Capture priority:** raw screen captures of Workflows #1-#3 are the first thing to record once the workflows are locked. Animation has the longest lead time of any asset on this list, so Katia is unblocked the moment captures land.
+- **Capture priority:** raw screen captures of all four are needed, but the first two to lock should be **Demo 3 (Action)** and **Demo 2 (Intelligence)** — these have the most "watch me do the thing" energy and are the strongest standalone shorts if we need to launch with fewer than four.
 - **Format per cold demo:** **both** 9:16 vertical AND 16:9 horizontal exports. Vertical for Instagram/TikTok/LinkedIn-mobile, horizontal for YouTube Shorts/embedded on the marketing site.
+- **Title-card convention:** each cold demo opens with the system name as the first title card — *"System of Record"*, *"System of Intelligence"*, etc. — followed by the one-line takeaway. This is how viewers learn the framework **at the same time** they learn the product.
 - **Captions baked in, no voiceover** for cold demos. VPs of Marketing watch on mute in meetings. Forcing text + motion only also drives scroll-stop on social where audio defaults off.
-- **Hot demos:** Marcel's actual VO (real-time, founder voice). That authenticity is the differentiator. Don't over-produce.
+- **Hot demos:** Marcel's actual VO. He should use the four-system terms verbatim — that vocabulary alignment between the launch video, the workshop, and the hot demos is what makes the framework stick as category-defining language.
 - **Music:** library track for cold demos; no music for hot demos.
 
 ### Animation style recommendation
@@ -174,18 +181,25 @@ Minimal / abstract, in the spirit of **Linear** or **Stripe** product motion —
 
 - Matches the closed-loop narrative (visual: nodes connecting, signals flowing in/out, loop completing)
 - Reads as "modern category-defining product" not "AI gadget toy"
-- Reuses well across all 4 cold demos with consistent visual grammar
+- Reuses well across all 4 cold demos with consistent visual grammar — same shape vocabulary across all four systems
 - Doesn't compete with the upcoming Charlie content for "fun" — keeps the product surface serious
 
-### Open questions
+### Bonus opportunity: the meta-demo
 
-- Should we lock the 5 workflows above as-is, or run a 30-min Marcel + product sign-off before Katia starts?
-- Are we comfortable showing competitor names (AirOps, NotebookLM) in cold demos to anchor positioning, or do we stay general?
-- Cold demo durations: hard cap at 30s or allow up to 60s for Workflow #1?
+Because all four demos use the same shape vocabulary and explicitly carry their system label, there's an obvious 5th piece worth considering: a **~60-second loop animation that shows all four systems connecting in sequence** — Record feeds Intelligence feeds Action feeds Learning feeds back into Record. No product UI; pure framework explainer. This becomes the homepage hero video and the slide that opens every sales deck. Low cost if Katia's already built the shape vocabulary for the four demos.
+
+### Open questions (please flag, especially Harmony)
+
+- **Does the prior #5 workflow ("Human-in-the-loop review") get fully collapsed into Demo 4**, or does it deserve its own short? Recommendation: collapse, but sanity-check needed.
+- **The meta-demo (all four systems looped together)** — green light, or scope creep?
+- **Are the four-system names final?** Specifically "System of Record" — that term has prior meaning in MarTech (Salesforce/HubSpot positioning). Is that overlap intentional ("we're the system of record for content + AEO") or do we want a different word?
+- **Comfortable showing competitor names** (AirOps, NotebookLM, the "AI visibility dashboard" category) in cold demos to anchor positioning, or stay general? Harmony's TL;DR called them out explicitly so it would be consistent to name them.
+- **Cold demo durations:** hard cap at 30s, or allow up to 60s for Demo 3 (Action) where the "publish a real page" visual needs breathing room?
+- **Does Marcel currently have verbatim language for each of the four systems?** The Quotes Bank from yesterday is organized around the four narrative *beats*, not the four *systems*. If Marcel didn't say "system of record / intelligence / action / learning" verbatim in the monologue, we'll need a pickup recording so the workshop, podcast, and hot demos all use the same vocabulary as the cold demos.
 
 ### First action
 
-Marcel + Katia + Will 30-min sync to confirm the 5 workflows and start raw screen capture for Workflows #1-3.
+Marcel + Katia + Will 30-min sync to confirm the four-system mapping (and that the collapsed #5 doesn't lose a story we'll regret). Then raw screen captures begin for Demo 3 (Action) and Demo 2 (Intelligence) first.
 
 ---
 
@@ -206,7 +220,7 @@ Single-stat from the cleaned data + Marcel reaction. Format: 30-45s talking-head
 - **71%** can't cleanly tie content to revenue
 - **57%** are planning to invest in AI Visibility / AEO this year — the #1 category
 
-Sample hook: *"65% of marketers we surveyed said they're losing core skills to AI tool sprawl. We don't think marketers should have to become engineers."*
+Sample hook (using Harmony's locked POV verbatim): *"65% of marketers we surveyed said they're losing core skills to AI tool sprawl. Stop buying tools that hand marketers more work. Start marketing again."*
 
 #### Lane B — Verbatim Marcel sound bites (4 posts)
 
@@ -246,10 +260,12 @@ Caption template: *"What [pain from survey] looks like in GrowthOS."*
 
 ### Best hooks (specific, ready to use)
 
+- *"Stop over-engineering. Stop buying tools that hand marketers more work. Start marketing again."* (Harmony's verbatim POV — the loudest hook we have)
+- *"Your website is what the agent reads."* (Now CMO-anchored — the website is the core growth engine)
 - *"It doesn't matter how many AI tools you bought."* (Beat 1 — pattern interrupt)
-- *"Your website is what the agent reads."* (Beat 4 — picture-first)
 - *"I don't know what a system prompt is. Why are you asking me?"* (Marcel verbatim, Beat 1 — strongest engagement bait we have)
 - *"77% of marketing teams can't see their own content performance."* (Lane A stat hook)
+- *"Record. Intelligence. Action. Learning. That's what a growth engine looks like."* (Framework hook — uses the four systems as a payoff line)
 
 ### Distribution
 
@@ -346,10 +362,10 @@ Confirm the State of AEO report scope so a writing brief can land.
 
 | To-do | Recommendation | First-action owner |
 |---|---|---|
-| **Workshop** | Live + recording, *platform argument* framing (not how-to), demo of scaled GrowthOS pipeline output, capped at 50, ICP-gated registration, Marcel solo | Harmony (framing + topic lock) |
-| **Podcast** | Yes. *Whiteboard Sessions with Marcel*, biweekly cadence, George as surrogate | Will + George (lock + production day) |
-| **OS Demos** | Two tracks (cold animated + hot screen). 5 workflows prioritized. Linear-style minimal animation. | Marcel + Katia + Will (sync + raw captures) |
-| **Short-form** | ~12 pieces, 4 lanes (Stats / Marcel quotes / Charlie / Demo cuts). Charlie holds for post-launch. | Will (cut Lane B from existing footage) |
+| **Workshop** | Live + recording, *platform argument* framing (not how-to), demo walks the four-system loop (*Record → Intelligence → Action → Learning*), capped at 50, ICP-gated registration, Marcel solo | Harmony (framing + topic lock) |
+| **Podcast** | Yes. *Whiteboard Sessions with Marcel*, biweekly cadence, George as surrogate. Episode 1 frames the four-systems framework. | Will + George (lock + production day) |
+| **OS Demos** | **4 demos, one per system** (Record / Intelligence / Action / Learning). Two production tracks (cold animated + hot screen). Optional 5th "meta-demo" of the full loop. | Marcel + Katia + Will (sync on four-system mapping + raw captures) |
+| **Short-form** | ~12 pieces, 4 lanes (Stats / Marcel quotes / Charlie / Demo cuts). Charlie holds for post-launch. Hooks use Harmony's POV verbatim. | Will (cut Lane B from existing footage) |
 | **Long-form** | One flagship report (*State of AEO*) + one practical guide (*AEO Playbook*). No third thing. | Will (writing draft) + Harmony (scope lock) |
 
 ## The throughline
@@ -358,5 +374,33 @@ Every proposal above lines up against either:
 - A specific cleaned-survey number (so we can defend why this content over that)
 - A specific Marcel quote from the Quotes Bank (so we know the founder voice is on tape and won't drift)
 - A specific beat of the narrative spine (so the launch positioning is reinforced, not blurred)
+- **One of the four systems** Harmony locked (so the product framework is reinforced everywhere, building the category vocabulary as we go)
 
 The cleanest way to fail at this launch is to spread the team thin across too many formats. Each item in this proposal exists to do ONE job in the launch funnel. If it doesn't, cut it.
+
+---
+
+## Questions for Harmony — consolidated
+
+Surfaced by the CMO TL;DR update. Each one needs a call before the corresponding asset can be built.
+
+### On the four-systems framework
+
+- **Are the names final?** Specifically "System of Record" — that term has prior meaning in MarTech (Salesforce/HubSpot positioning). Is the overlap intentional ("we're the system of record for content + AEO") or do we want a different word?
+- **Order:** we're presenting as *Record → Intelligence → Action → Learning* (the loop direction). Confirm that's the order you want repeated everywhere.
+- **Does Marcel have verbatim language** for each of the four systems in the existing footage, or do we need a pickup recording? The Quotes Bank from yesterday is organized around the four narrative *beats*, not the four *systems* — they're complementary frameworks and we need both vocabularies on tape.
+
+### On the demos
+
+- **Collapse approved?** Prior Workflows #3 (decay detection) and #5 (human-in-the-loop review) are now one demo under "System of Learning". Sanity-check we're not losing a story we'll regret.
+- **The optional meta-demo** (~60s animation showing all four systems looping together) — green light or scope creep? Lean: green light, it's the homepage hero video and the cover slide for every sales deck.
+- **Cold demos calling competitors by name** (AirOps / NotebookLM / "AI visibility dashboard") — your TL;DR named them explicitly, so it would be consistent. Confirm we're comfortable putting the names in the animations.
+
+### On the podcast
+
+- Episode 1 was originally *"Why your AEO dashboard is lying to you"* — now *"The four systems every marketing team is missing"*. The dashboard critique has been re-housed inside the new Episode 1. Confirm the reordering.
+- Episode 2 title now uses your exact phrase *"Stop buying tools that hand marketers more work."* Confirm we can use the verbatim line as a show title.
+
+### On the website mock
+
+The TL;DR notes Marcel is mocking the new website over the next two days. Once that lands, both the workshop demo and the OS Demos may need to be re-cut to match the new UI. Flag if any of the proposals above need to wait on the website mock before raw captures begin.
