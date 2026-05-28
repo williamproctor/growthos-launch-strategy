@@ -184,22 +184,69 @@ Minimal / abstract, in the spirit of **Linear** or **Stripe** product motion —
 - Reuses well across all 4 cold demos with consistent visual grammar — same shape vocabulary across all four systems
 - Doesn't compete with the upcoming Charlie content for "fun" — keeps the product surface serious
 
-### Bonus opportunity: the meta-demo
+### Demo 0 — The Framework Loop (meta-demo, greenlit)
 
-Because all four demos use the same shape vocabulary and explicitly carry their system label, there's an obvious 5th piece worth considering: a **~60-second loop animation that shows all four systems connecting in sequence** — Record feeds Intelligence feeds Action feeds Learning feeds back into Record. No product UI; pure framework explainer. This becomes the homepage hero video and the slide that opens every sales deck. Low cost if Katia's already built the shape vocabulary for the four demos.
+**Confirmed by Harmony.** A **~60-second loop animation** showing all four systems connecting in sequence: Record → Intelligence → Action → Learning → back into Record. **No product UI; pure framework explainer.** Each system label appears as the animation passes through that node. Same shape vocabulary as the four individual demos, so it reads as the master version of them.
 
-### Open questions (please flag, especially Harmony)
+**Uses:** homepage hero video, opening slide of every sales deck, opening of the workshop's demo segment, opening of every Hot Demo. The single most reusable asset on the entire content list.
 
-- **Does the prior #5 workflow ("Human-in-the-loop review") get fully collapsed into Demo 4**, or does it deserve its own short? Recommendation: collapse, but sanity-check needed.
-- **The meta-demo (all four systems looped together)** — green light, or scope creep?
-- **Are the four-system names final?** Specifically "System of Record" — that term has prior meaning in MarTech (Salesforce/HubSpot positioning). Is that overlap intentional ("we're the system of record for content + AEO") or do we want a different word?
-- **Comfortable showing competitor names** (AirOps, NotebookLM, the "AI visibility dashboard" category) in cold demos to anchor positioning, or stay general? Harmony's TL;DR called them out explicitly so it would be consistent to name them.
-- **Cold demo durations:** hard cap at 30s, or allow up to 60s for Demo 3 (Action) where the "publish a real page" visual needs breathing room?
-- **Does Marcel currently have verbatim language for each of the four systems?** The Quotes Bank from yesterday is organized around the four narrative *beats*, not the four *systems*. If Marcel didn't say "system of record / intelligence / action / learning" verbatim in the monologue, we'll need a pickup recording so the workshop, podcast, and hot demos all use the same vocabulary as the cold demos.
+**Sequencing:** ship FIRST. Katia builds the shape vocabulary here, then reuses across Demos 1-4.
+
+### Creative direction — how the cold demos open (revised)
+
+Decision locked: **no competitor names in the cold demos.** Each demo opens on the *category-level pain* these products create — never naming the products themselves. The platform gets named in the takeaway.
+
+| Demo | Opening pain (no competitor named) | Resolution (system labeled) |
+|---|---|---|
+| **1 · Record** | *"Your brand voice keeps drifting across every AI tool, channel, and writer."* | "Set it once. Every action downstream reads from one source." → **System of Record** |
+| **2 · Intelligence** | *"Your AEO dashboard tells you what's happening. Not why. Not what to do."* | "Signal with context, mapped to the page that needs to change." → **System of Intelligence** |
+| **3 · Action** | *"Your AI tools each need a workflow you don't have time to build."* | "You direct the strategy. The platform ships the page." → **System of Action** |
+| **4 · Learning** | *"Your content goes stale. You can't tell which pages, or how to fix them."* | "The system flags decay. You confirm. The next 100 pages get better." → **System of Learning** |
+
+*Each pain is the shape of what blank-canvas builders, disconnected workflow tools, and AI-visibility dashboards leave their users with. The category gets indicted; the products get the silent treatment. Cleaner positioning than naming names.*
+
+### Decisions locked (5/28 from Harmony)
+
+- ✅ **"System of Record" naming is intentional.** The MarTech overlap (Salesforce/HubSpot) is by design — we're claiming the system-of-record position for content + AEO.
+- ✅ **Loop order is Record → Intelligence → Action → Learning**, repeated everywhere.
+- ⚠️ **Marcel does NOT currently have verbatim four-systems language on tape.** Pickup recording is happening **today**. See the priming card below.
+- ✅ **Demo 4 collapse approved** — prior Workflows #3 and #5 are one demo under "System of Learning".
+- ✅ **Meta-demo (Demo 0) greenlit.** Ship first so it sets the visual grammar.
+- ✅ **No competitor names in cold demos.** Reference the category pains those products create (see table above) without naming the products.
+
+### Marcel pickup recording brief — for today's session
+
+Goal: get Marcel saying the four-system terms in his own voice so the launch video, workshop, podcast, hot demos, and cold-demo title cards all use the same words. Three short takes per system (definition / pain frame / capability line) + a master loop line. **~13 total takes, none over 15 seconds.** Marcel reads them his own way; this is a priming card, not a script.
+
+**1 · System of Record (the canonical brand truth)**
+- *"Your System of Record is the single source of truth for who your brand is — your voice, your positioning, your ICP. Everything else reads from it."*
+- *"Without a System of Record, your brand drifts across every AI tool, every channel, every writer."*
+- *"GrowthOS ingests your brand context once. From that point on, every action takes the same starting position."*
+
+**2 · System of Intelligence (the signal layer)**
+- *"Your System of Intelligence is what the agents are doing with your content. Who's citing you. What they're quoting. What they're missing."*
+- *"Without a System of Intelligence, you're optimizing in the dark — or worse, optimizing toward a dashboard number that doesn't connect to revenue."*
+- *"GrowthOS shows you the signal AND the page that needs to change. Not just what — why and where."*
+
+**3 · System of Action (the publishing engine)**
+- *"Your System of Action is the part that actually ships pages into the market. Researched, brand-voiced, at scale."*
+- *"Without a System of Action, you're stitching together blank-canvas tools and praying your team has the bandwidth to drive them."*
+- *"GrowthOS publishes a researched, brand-voiced page in 30 minutes. You direct the strategy. The platform executes."*
+
+**4 · System of Learning (the loop that closes)**
+- *"Your System of Learning is what closes the loop. Signals come back, you confirm what's working, the next batch gets better."*
+- *"Without a System of Learning, every piece of content is a one-off. Nothing compounds. Nothing improves."*
+- *"GrowthOS detects decay, flags it, takes your correction, and bakes it into the next 100 pages. The loop closes."*
+
+**Master loop line (the canonical 8-second cut for any cold demo or hero video):**
+- *"Record. Intelligence. Action. Learning. Closed loop. That's a growth engine."*
+
+**One bridge line tying systems to Harmony's POV:**
+- *"You don't need to become an engineer to operate this. You don't need to buy four more tools. You direct the strategy. The systems do the work."*
 
 ### First action
 
-Marcel + Katia + Will 30-min sync to confirm the four-system mapping (and that the collapsed #5 doesn't lose a story we'll regret). Then raw screen captures begin for Demo 3 (Action) and Demo 2 (Intelligence) first.
+Marcel + Katia + Will sync today to (a) capture the four-systems pickup audio above and (b) confirm Demo 0 + raw screen captures order. Demo 3 (Action) and Demo 2 (Intelligence) lead, current UI is fine (no need to wait on the website mock).
 
 ---
 
@@ -380,27 +427,27 @@ The cleanest way to fail at this launch is to spread the team thin across too ma
 
 ---
 
-## Questions for Harmony — consolidated
+## Decisions locked (5/28 from Harmony)
 
-Surfaced by the CMO TL;DR update. Each one needs a call before the corresponding asset can be built.
+All open questions from the CMO TL;DR pass have been answered. The proposals above have been updated to reflect each decision.
 
-### On the four-systems framework
+### Framework
 
-- **Are the names final?** Specifically "System of Record" — that term has prior meaning in MarTech (Salesforce/HubSpot positioning). Is the overlap intentional ("we're the system of record for content + AEO") or do we want a different word?
-- **Order:** we're presenting as *Record → Intelligence → Action → Learning* (the loop direction). Confirm that's the order you want repeated everywhere.
-- **Does Marcel have verbatim language** for each of the four systems in the existing footage, or do we need a pickup recording? The Quotes Bank from yesterday is organized around the four narrative *beats*, not the four *systems* — they're complementary frameworks and we need both vocabularies on tape.
+1. ✅ **"System of Record" naming is intentional.** The MarTech overlap with Salesforce/HubSpot is by design — we're claiming the system-of-record position for content + AEO. Don't change the term.
+2. ✅ **Order locked: Record → Intelligence → Action → Learning.** Repeated everywhere.
+3. ⚠️ **Marcel does NOT currently have verbatim four-systems language on tape.** Capture is happening **today**. Priming card with 13 suggested takes is in the OS Demos section above.
 
-### On the demos
+### Demos
 
-- **Collapse approved?** Prior Workflows #3 (decay detection) and #5 (human-in-the-loop review) are now one demo under "System of Learning". Sanity-check we're not losing a story we'll regret.
-- **The optional meta-demo** (~60s animation showing all four systems looping together) — green light or scope creep? Lean: green light, it's the homepage hero video and the cover slide for every sales deck.
-- **Cold demos calling competitors by name** (AirOps / NotebookLM / "AI visibility dashboard") — your TL;DR named them explicitly, so it would be consistent. Confirm we're comfortable putting the names in the animations.
+1. ✅ **Meta-demo (Demo 0) greenlit.** ~60s pure-animation framework loop. Becomes the homepage hero video, the cover slide for every sales deck, and the opener for every Hot Demo and the workshop demo segment. Ship FIRST so it sets the visual grammar.
+2. ✅ **No competitor names in cold demos.** Reference the category pains those products create (dashboard fatigue, blank-canvas sprawl, disconnected workflow tools) without naming the products. See revised opening table above.
+3. ✅ **Demo 4 collapse confirmed** — prior Workflows #3 (decay detection) and #5 (human-in-the-loop review) become one demo under "System of Learning".
 
-### On the podcast
+### Podcast
 
-- Episode 1 was originally *"Why your AEO dashboard is lying to you"* — now *"The four systems every marketing team is missing"*. The dashboard critique has been re-housed inside the new Episode 1. Confirm the reordering.
-- Episode 2 title now uses your exact phrase *"Stop buying tools that hand marketers more work."* Confirm we can use the verbatim line as a show title.
+1. ✅ **Episode 1 reorder confirmed** — *"The four systems every marketing team is missing"*. The "AEO dashboard is lying to you" critique is re-housed inside this episode under the "Intelligence" segment.
+2. ✅ **Episode 2 verbatim title approved** — *"Stop buying tools that hand marketers more work."*
 
-### On the website mock
+### Production sequencing
 
-The TL;DR notes Marcel is mocking the new website over the next two days. Once that lands, both the workshop demo and the OS Demos may need to be re-cut to match the new UI. Flag if any of the proposals above need to wait on the website mock before raw captures begin.
+1. ✅ **No need to wait on the website mock** — raw screen captures proceed against current UI. Accept the small risk of re-cut later.
