@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Charlie — CMO Emeritus · Project One-Pager</title>
+<style>
+  :root{
+    --bg:#0c0d10; --bg2:#131519; --panel:#16181d; --panel2:#1c1f26;
+    --line:#282c34; --line2:#333844;
+    --ink:#f4f5f7; --sub:#aeb4c0; --mut:#7d8595;
+    --accent:#e8a33d;      /* warm amber — Charlie */
+    --accent2:#f2c078;
+    --good:#57c98a; --warn:#e8a33d; --danger:#e5736b; --info:#6ea8ff;
+    --radius:16px;
+    --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    --mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:var(--font);line-height:1.6;
+    -webkit-font-smoothing:antialiased;font-size:16px}
+  a{color:var(--accent2);text-decoration:none}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    position:relative;overflow:hidden;
+    background:
+      radial-gradient(1000px 500px at 80% -10%, rgba(232,163,61,.18), transparent 60%),
+      radial-gradient(700px 400px at 0% 0%, rgba(110,168,255,.08), transparent 55%),
+      linear-gradient(180deg,#101216, #0c0d10);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-inner{padding:64px 0 52px}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent2);
+    border:1px solid var(--line2);background:rgba(232,163,61,.06);
+    padding:6px 12px;border-radius:100px;margin-bottom:20px}
+  .eyebrow .d{width:6px;height:6px;border-radius:50%;background:var(--accent)}
+  h1.title{font-size:clamp(38px,6vw,62px);line-height:1.02;letter-spacing:-.02em;font-weight:800}
+  h1.title span{color:var(--accent)}
+  .tag{margin-top:18px;font-size:19px;color:var(--sub);max-width:680px}
+  .hero-meta{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px}
+  .chip{font-family:var(--mono);font-size:12px;color:var(--sub);background:var(--panel);
+    border:1px solid var(--line);border-radius:100px;padding:7px 13px}
+  .chip b{color:var(--ink)}
+
+  /* ---------- TOC ---------- */
+  nav.toc{position:sticky;top:0;z-index:20;background:rgba(12,13,16,.86);
+    backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+  .toc-inner{display:flex;gap:6px;overflow-x:auto;padding:12px 0;scrollbar-width:none}
+  .toc-inner::-webkit-scrollbar{display:none}
+  nav.toc a{white-space:nowrap;font-size:13px;color:var(--mut);padding:7px 13px;border-radius:100px;
+    border:1px solid transparent;transition:.15s}
+  nav.toc a:hover{color:var(--ink);background:var(--panel);border-color:var(--line)}
+
+  /* ---------- Sections ---------- */
+  section{padding:56px 0;border-bottom:1px solid var(--line)}
+  .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--accent);margin-bottom:12px}
+  h2{font-size:clamp(24px,3.4vw,34px);letter-spacing:-.01em;font-weight:750;margin-bottom:8px}
+  h2 + .lede{color:var(--sub);font-size:17px;max-width:760px;margin-bottom:26px}
+  h3{font-size:18px;margin:26px 0 12px;font-weight:650}
+  p{color:var(--sub)}
+  p + p{margin-top:12px}
+  strong{color:var(--ink);font-weight:650}
+  em{color:var(--accent2);font-style:normal}
+
+  .grid{display:grid;gap:18px}
+  .g2{grid-template-columns:1fr 1fr}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  @media(max-width:760px){.g2,.g3{grid-template-columns:1fr}}
+
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .card .lbl{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--mut);margin-bottom:10px}
+  .card p{color:#d5d9e0}
+
+  ul.list{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:6px}
+  ul.list li{position:relative;padding-left:24px;color:var(--sub)}
+  ul.list li::before{content:"";position:absolute;left:4px;top:11px;width:7px;height:7px;
+    border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+
+  .callout{border:1px solid var(--line2);border-left:3px solid var(--accent);
+    background:linear-gradient(90deg,rgba(232,163,61,.07),rgba(232,163,61,0));
+    border-radius:12px;padding:18px 20px;margin:22px 0}
+  .callout.warn{border-left-color:var(--warn);background:linear-gradient(90deg,rgba(232,163,61,.09),transparent)}
+  .callout.good{border-left-color:var(--good);background:linear-gradient(90deg,rgba(87,201,138,.08),transparent)}
+  .callout .ct{font-weight:700;color:var(--ink);margin-bottom:6px;font-size:14px;
+    display:flex;align-items:center;gap:8px}
+  .callout p{color:#d5d9e0;font-size:15px}
+
+  /* pills */
+  .pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+  .pill{font-family:var(--mono);font-size:13px;color:var(--sub);background:var(--panel2);
+    border:1px solid var(--line);border-radius:8px;padding:6px 12px}
+  .pill em{color:var(--accent2)}
+
+  /* ---------- Style gallery ---------- */
+  .style-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:16px;margin-top:8px}
+  .tile{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    display:flex;flex-direction:column;transition:.16s}
+  .tile:hover{transform:translateY(-3px);border-color:var(--line2)}
+  .tile a.img{display:block;position:relative;aspect-ratio:1/1;background:#0a0b0d;overflow:hidden}
+  .tile a.img img{width:100%;height:100%;object-fit:cover;display:block}
+  .tile .num{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:11px;
+    background:rgba(10,11,13,.72);border:1px solid var(--line2);color:var(--sub);
+    padding:3px 8px;border-radius:7px}
+  .tile .rec{position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:10px;
+    letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:#1a1204;font-weight:700;
+    padding:3px 8px;border-radius:7px}
+  .tile .body{padding:13px 14px 15px}
+  .tile h4{font-size:15px;margin-bottom:5px}
+  .tile .desc{font-size:12.5px;color:var(--mut);line-height:1.5}
+  .tile .best{margin-top:10px;font-size:11px;color:var(--sub);border-top:1px solid var(--line);padding-top:9px}
+  .tile .best b{color:var(--accent2);font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase}
+
+  /* ---------- Reference set ---------- */
+  .ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-top:8px}
+  .ref{background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+  .ref .img{aspect-ratio:16/10;background:
+      repeating-linear-gradient(45deg,#141519,#141519 10px,#111216 10px,#111216 20px);
+    display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .ref .img img{width:100%;height:100%;object-fit:cover}
+  .ref .img .ph{font-family:var(--mono);font-size:11px;color:var(--mut);letter-spacing:.08em}
+  .ref .body{padding:14px 15px}
+  .ref .rtag{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent2)}
+  .ref h4{font-size:15px;margin:6px 0 8px}
+  .ref .prompt{font-size:12.5px;color:var(--mut);line-height:1.55}
+
+  /* ---------- Table ---------- */
+  table{width:100%;border-collapse:collapse;margin-top:6px;font-size:14.5px}
+  th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut)}
+  td{color:var(--sub)}
+  td strong{color:var(--ink)}
+  .do{color:#bfe6cf}.dont{color:#ecc0bc}
+
+  pre{background:#0a0b0d;border:1px solid var(--line);border-radius:12px;padding:20px;overflow:auto;
+    font-family:var(--mono);font-size:12.5px;color:#cdd3dd;line-height:1.7;margin-top:6px}
+  pre .k{color:var(--accent2)}
+
+  /* rollout */
+  .phase{display:grid;grid-template-columns:120px 1fr 150px;gap:16px;align-items:start;
+    padding:16px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border-bottom:0}
+  .phase .p{font-family:var(--mono);font-size:13px;color:var(--accent);font-weight:700}
+  .phase .when{font-family:var(--mono);font-size:12px;color:var(--mut);text-align:right}
+  @media(max-width:640px){.phase{grid-template-columns:1fr}.phase .when{text-align:left}}
+
+  footer{padding:40px 0 70px;color:var(--mut);font-family:var(--mono);font-size:12px}
+  .two-lane{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px}
+  @media(max-width:640px){.two-lane{grid-template-columns:1fr}}
+  .lane{border:1px solid var(--line2);border-radius:14px;padding:20px;background:var(--panel2)}
+  .lane .h{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+  .lane .badge{font-family:var(--mono);font-size:10px;text-transform:uppercase;letter-spacing:.08em;
+    background:var(--accent);color:#1a1204;font-weight:700;padding:3px 8px;border-radius:6px}
+  .lane h4{font-size:17px}
+  .lane p{font-size:14px;color:#d5d9e0}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="d"></span>GrowthX · Generative Franchise · Project One-Pager</span>
+    <h1 class="title">Charlie<br/><span>— CMO Emeritus</span></h1>
+    <p class="tag">GrowthX's bulldog, playing the career marketer who has seen every trend cycle and is over all of it. Everything we've built for the franchise, in one place: the character, the ten style renders, the reference set, the prompt system, and the rollout plan.</p>
+    <div class="hero-meta">
+      <span class="chip"><b>Status:</b> Character sheet v0.2</span>
+      <span class="chip"><b>Renders:</b> 10 styles + 6 reference scenes</span>
+      <span class="chip"><b>Tooling:</b> Seedance · Kling · Veo · Omni</span>
+      <span class="chip"><b>Timing:</b> post-launch (not launch week)</span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ TOC ============ -->
+<nav class="toc">
+  <div class="wrap toc-inner">
+    <a href="#identity">Identity</a>
+    <a href="#personality">Personality &amp; Voice</a>
+    <a href="#styles">10 Styles</a>
+    <a href="#recommendation">Recommendation</a>
+    <a href="#world">Wardrobe &amp; World</a>
+    <a href="#tonal">Tonal Range</a>
+    <a href="#reference">Reference Set</a>
+    <a href="#prompt">Prompt System</a>
+    <a href="#content">Content Ideas</a>
+    <a href="#rollout">Rollout</a>
+    <a href="#ship">What's Needed</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- IDENTITY -->
+  <section id="identity">
+    <div class="kicker">01 · Who he is</div>
+    <h2>Identity</h2>
+    <p class="lede">The actual GrowthX mascot — we're not inventing a character from scratch, we're promoting the dog the brand already has. His identity isn't tied to the product: in fiction he's a career marketer, decades in, completely over it.</p>
+    <div class="grid g2">
+      <div class="card">
+        <div class="lbl">The basics</div>
+        <p><strong>Name:</strong> Charlie<br/>
+        <strong>Species:</strong> English Bulldog<br/>
+        <strong>Age in fiction:</strong> Senior. Gray muzzle. World-weary.<br/>
+        <strong>Title in fiction:</strong> CMO Emeritus. Career marketer. Has seen every trend cycle twice. Attends no meetings — they come to him, and he sleeps through them.<br/>
+        <strong>Origin:</strong> The real GrowthX mascot — the brand's resident marketer.</p>
+      </div>
+      <div class="card">
+        <div class="lbl">The one-line essence</div>
+        <p>Charlie is the <em>Larry David of marketing dogs</em>. He's not here to be cute — he's here to react to the absurdity of how marketing actually works. The product benefit lives in the silence after the reaction.</p>
+        <div class="callout" style="margin:16px 0 0">
+          <p style="font-size:14px"><strong>We're not selling GrowthOS in the clips.</strong> We're building a character marketers want to follow. The Wendy's principle: the content is about the personality, not the product.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERSONALITY -->
+  <section id="personality">
+    <div class="kicker">02 · How he behaves</div>
+    <h2>Personality &amp; Voice</h2>
+    <div class="grid g2">
+      <div>
+        <h3 style="margin-top:0">Personality</h3>
+        <ul class="list">
+          <li><strong>Senior.</strong> Has seen every trend cycle. Bored before the trend starts.</li>
+          <li><strong>Skeptical without being mean.</strong> He doesn't dunk — he just looks at you until you realize.</li>
+          <li><strong>Opinionated, but rarely speaks.</strong> The look IS the take.</li>
+          <li><strong>Observational, not aspirational.</strong> He's the witness to the absurdity, not the hero.</li>
+          <li><strong>Never sells.</strong> Never names GrowthOS, GrowthX, or any product. An adjacent character, not an ad.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-top:0">Voice</h3>
+        <p>Charlie is <strong>90% silent</strong>. His reactions do the talking. When he does "speak" (text overlay, thought bubble, AI VO), it's one short, dry observation. No exclamation marks. Never finishes a thought he doesn't have to.</p>
+        <h3>Catchphrase candidates to test</h3>
+        <div class="pills">
+          <span class="pill"><em>"Mm."</em> — the universal response</span>
+          <span class="pill"><em>"Bark."</em> — his rating; 1–5, never 5</span>
+          <span class="pill"><em>"Pass."</em> — after a beat too long</span>
+          <span class="pill"><em>"Hmm."</em> — the soft no</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STYLES -->
+  <section id="styles">
+    <div class="kicker">03 · How he looks</div>
+    <h2>Ten style renders</h2>
+    <p class="lede">Same subject — hero portrait, slight scowl, weary expression — rendered in ten distinct visual styles. The choice cascades into every future render: wardrobe, settings, even the comedic register shift per style. Click any image to open full-size.</p>
+    <div class="callout">
+      <div class="ct">Render provenance</div>
+      <p>Styles 01–05 were rendered with a fast prototyping tool; 06–10 are gpt-image-2 production quality. Production renders will all come from gpt-image-2 regardless of the lane picked (01–05 can be re-rendered at matching quality for ~$1.05).</p>
+    </div>
+    <div class="style-grid">
+
+      <figure class="tile">
+        <a class="img" href="assets/charlie-style-01-photoreal.png" target="_blank">
+          <img src="assets/charlie-style-01-photoreal.png" alt="Photo-real Charlie" loading="lazy"/>
+          <span class="num">01</span><span class="rec">Reactive lane</span>
+        </a>
+        <div class="body"><h4>Photo-real</h4>
+          <div class="desc">"A real dog who happens to be in a sweater." Documentary credibility — humor comes from the situation, not the style.</div>
+          <div class="best"><b>Best for</b> · reaction shots · reply game · documentary clips</div></div>
+      </figure>
+
+      <figure class="tile">
+        <a class="img" href="assets/charlie-style-02-pixar.png" target="_blank">
+          <img src="assets/charlie-style-02-pixar.png" alt="Pixar 3D Charlie" loading="lazy"/>
+          <span class="num">02</span>
+        </a>
+        <div class="body"><h4>Pixar 3D</h4>
+          <div class="desc">Highest production-value feel. Reads as a "character" instantly — but leans cute and kid-adjacent, which can undercut B2B credibility.</div>
+          <div class="best"><b>Best for</b> · hero brand spot · big-budget signaling</div></div>
+      </figure>
+
+      <figure class="tile">
+        <a class="img" href="assets/charlie-style-03-aardman.png" target="_blank">
+          <img src="assets/charlie-style-03-aardman.png" alt="Aardman claymation Charlie" loading="lazy"/>
+          <span class="num">03</span><span class="rec">Hero lane</span>
+        </a>
+        <div class="body"><h4>Aardman claymation</h4>
+          <div class="desc">Dry British comedy baked into the medium. Almost no B2B brand uses it — the format itself says "we don't take ourselves too seriously."</div>
+          <div class="best"><b>Best for</b> · serialized franchise · recurring storytelling</div></div>
+      </figure>
+
+      <figure class="tile">
+        <a class="img" href="assets/charlie-style-04-2d-vector.png" target="_blank">
+          <img src="assets/charlie-style-04-2d-vector.png" alt="2D vector Charlie" loading="lazy"/>
+          <span class="num">04</span>
+        </a>
+        <div class="body"><h4>2D vector</h4>
+          <div class="desc">Friendly, modern, shareable. Cheapest path to motion. Risk: crowded — many B2B brands live in this lane.</div>
+          <div class="best"><b>Best for</b> · short-form social · scaling volume</div></div>
+      </figure>
+
+      <figure class="tile">
+        <a class="img" href="assets/charlie-style-05-comic.png" target="_blank">
+          <img src="assets/charlie-style-05-comic.png" alt="Comic book Charlie" loading="lazy"/>
+          <span class="num">05</span>
+        </a>
+        <div class="body"><h4>Comic / graphic novel</h4>
+          <div class="desc">Most personality-forward of the lot. Strongest as static — carousels, deck slides, blog headers. Hard to animate.</div>
+          <div class="best"><b>Best for</b> · blog headers · sales decks · companion art</div></div>
+      </figure>
+
+      <figure class="tile">
+        <a class="img" href="assets/charlie-style-06-felt-puppet.png" target="_blank">
+          <img src="assets/charlie-style-06-felt-puppet.png" alt="Felt puppet Charlie" loading="lazy"/>
+          <span class="num">06</span>
+        </a>
+        <div class="body"><h4>Felt puppet</h4>
+          <div class="desc">Tactile handmade warmth — the Muppets / Sesame Street lane. Softer than claymation; decades of audience trust baked in.</div>
+          <div class="best"><b>Best for</b> · warm character content · runner-up hero</div></div>
+      </figure>
+
+      <figure class="tile">
+        <a class="img" href="assets/charlie-style-07-ghibli.png" target="_blank">
+          <img src="assets/charlie-style-07-ghibli.png" alt="Ghibli watercolor Charlie" loading="lazy"/>
+          <span class="num">07</span>
+        </a>
+        <div class="body"><h4>Studio Ghibli watercolor</h4>
+          <div class="desc">Hand-painted Miyazaki feel. Rare in B2B. Risk: soft painterly tone may undercut Charlie's dry skepticism.</div>
+          <div class="best"><b>Best for</b> · seasonal pieces · year-end recaps · brand films</div></div>
+      </figure>
+
+      <figure class="tile">
+        <a class="img" href="assets/charlie-style-08-anime.png" target="_blank">
+          <img src="assets/charlie-style-08-anime.png" alt="Anime Charlie" loading="lazy"/>
+          <span class="num">08</span>
+        </a>
+        <div class="body"><h4>Anime / cel-shaded</h4>
+          <div class="desc">Bold shonen energy. Charlie as the intense protagonist of his own series. Hilarious one-off; try-hard as a default.</div>
+          <div class="best"><b>Best for</b> · one-off intense moments · reply-game ammo</div></div>
+      </figure>
+
+      <figure class="tile">
+        <a class="img" href="assets/charlie-style-09-pixel-art.png" target="_blank">
+          <img src="assets/charlie-style-09-pixel-art.png" alt="Pixel art Charlie" loading="lazy"/>
+          <span class="num">09</span>
+        </a>
+        <div class="body"><h4>16-bit pixel art</h4>
+          <div class="desc">SNES-era sprite. Instantly nostalgic and shareable. Tradeoff: faces collapse to a few pixels — emotional range narrows.</div>
+          <div class="best"><b>Best for</b> · launch stunt · gamified content · retro callbacks</div></div>
+      </figure>
+
+      <figure class="tile">
+        <a class="img" href="assets/charlie-style-10-midcentury.png" target="_blank">
+          <img src="assets/charlie-style-10-midcentury.png" alt="Mid-century modern Charlie" loading="lazy"/>
+          <span class="num">10</span>
+        </a>
+        <div class="body"><h4>Mid-century flat</h4>
+          <div class="desc">Vintage editorial. Designer-y, sophisticated. Functions more as a logo system than a character — Charlie as icon, not personality.</div>
+          <div class="best"><b>Best for</b> · brand identity · signage · premium moments</div></div>
+      </figure>
+
+    </div>
+  </section>
+
+  <!-- RECOMMENDATION -->
+  <section id="recommendation">
+    <div class="kicker">04 · The call</div>
+    <h2>Recommendation: a two-lane system</h2>
+    <p class="lede">Don't pick one style — pick two with clear jobs. A character franchise needs a consistent hero look <em>and</em> a fast reactive look.</p>
+    <div class="two-lane">
+      <div class="lane">
+        <div class="h"><span class="badge">Hero lane</span><h4>03 · Aardman claymation</h4></div>
+        <p>Almost no B2B brand uses it, the medium itself signals "we don't take ourselves too seriously," and the dry-British register is exactly Charlie's voice. The look for evergreen, scripted franchise pieces.</p>
+      </div>
+      <div class="lane">
+        <div class="h"><span class="badge">Reactive lane</span><h4>01 · Photo-real</h4></div>
+        <p>Fastest to produce, reads as "a real dog reacting" — perfect for reply-game and topical posts where the joke is the situation, not the style.</p>
+      </div>
+    </div>
+    <div class="callout good">
+      <div class="ct">Runner-up &amp; one-offs</div>
+      <p><strong>06 felt puppet</strong> is the alternate hero if we want more warmth than claymation — worth A/B-ing the first few hero clips. Everything else is a one-off tool: <strong>09 pixel-art</strong> for a launch-day stunt, <strong>05 comic</strong> for blog/deck art, <strong>08 anime</strong> for a single over-the-top reaction.</p>
+    </div>
+  </section>
+
+  <!-- WORLD -->
+  <section id="world">
+    <div class="kicker">05 · Where he lives</div>
+    <h2>Wardrobe &amp; world</h2>
+    <div class="grid g2">
+      <div>
+        <h3 style="margin-top:0">Wardrobe</h3>
+        <p>Tiny accessories that signal his "role" without putting him in costume. Quiet. Believable.</p>
+        <ul class="list">
+          <li>Small black blazer lapel pin (eventually the GrowthX mark)</li>
+          <li>Bluetooth earpiece — almost too small to see</li>
+          <li>Reading glasses balanced on his head, not his nose</li>
+          <li>Office badge on a thin lanyard</li>
+          <li>Occasionally a tiny blazer over the shoulders (sparingly)</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-top:0">Settings — Charlie's world</h3>
+        <p>Marketing's natural habitats. Indoor, lit by office light or screen glow. Outdoor only in transit. Never a park. Never a beach.</p>
+        <ul class="list">
+          <li><strong>The desk.</strong> A leather chair he barely fits in.</li>
+          <li><strong>The conference room.</strong> Long table, empty chairs, acronym-covered whiteboard.</li>
+          <li><strong>The break room.</strong> Coffee machine, free snacks, nobody around.</li>
+          <li><strong>The coffee shop.</strong> An empty chair across from him.</li>
+          <li><strong>The commute.</strong> Outside an unmarked office, badge on, weary.</li>
+          <li><strong>The screen-share.</strong> Straight into the webcam. The Zoom POV.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TONAL -->
+  <section id="tonal">
+    <div class="kicker">06 · Guardrails</div>
+    <h2>Tonal range</h2>
+    <table>
+      <thead><tr><th style="width:50%">Do</th><th>Don't</th></tr></thead>
+      <tbody>
+        <tr><td class="do">Bored, smug, unimpressed, mock-attentive, asleep mid-meeting, judgmental, quietly sympathetic</td>
+            <td class="dont">Angry, sad, hurt, scared, aggressive, manic, "cute"</td></tr>
+        <tr><td class="do">Office, conference room, coffee shop, commute, screen-share</td>
+            <td class="dont">Park, beach, dog show, fields, "outdoor adventure"</td></tr>
+        <tr><td class="do">Looking directly into camera — the silent take</td>
+            <td class="dont">Looking at another dog, person, or a treat</td></tr>
+        <tr><td class="do">Dry, observational, low-volume comedy</td>
+            <td class="dont">Voiceover narrating jokes; on-the-nose punchlines</td></tr>
+        <tr><td class="do">Punch up at the category (marketing's noise) &amp; the status quo (broken stacks, agency theater)</td>
+            <td class="dont">Punch down at customers, name real competitors, or mock anyone's job</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- REFERENCE -->
+  <section id="reference">
+    <div class="kicker">07 · The canon</div>
+    <h2>Visual reference set</h2>
+    <p class="lede">Six foundational scenes — each a deliberate piece of Charlie's world. They lock visual consistency across the entire franchise; every future clip cites this set. All six are rendered (gpt-image-2, photo-real). Click any image to open it full-size.</p>
+    <div class="ref-grid">
+      <div class="ref">
+        <a class="img" href="assets/charlie-prototype-01-hero.png" target="_blank"><img src="assets/charlie-prototype-01-hero.png" alt="Charlie hero portrait"/></a>
+        <div class="body"><span class="rtag">Brand asset · 1:1 · Rendered</span><h4>01 · Hero portrait</h4>
+          <p class="prompt">Studio portrait of a senior English bulldog, slight scowl, looking into camera. Soft warm office light, shallow DOF, small black blazer lapel pin. Photographic, not stylized.</p></div>
+      </div>
+      <div class="ref">
+        <a class="img" href="assets/charlie-prototype-02-desk.png" target="_blank"><img src="assets/charlie-prototype-02-desk.png" alt="Charlie at the desk"/></a>
+        <div class="body"><span class="rtag">Establishing · 16:9 · Rendered</span><h4>02 · At the desk</h4>
+          <p class="prompt">Wide shot in a leather office chair, paws on a desk before a closed MacBook. Coffee cup, framed photo. Stares unimpressed. Empty office. Mundane, dry.</p></div>
+      </div>
+      <div class="ref">
+        <a class="img" href="assets/charlie-conference-room.png" target="_blank"><img src="assets/charlie-conference-room.png" alt="Charlie asleep in the conference room"/></a>
+        <div class="body"><span class="rtag">Set piece · 16:9 · Rendered</span><h4>03 · Asleep in the conference room</h4>
+          <p class="prompt">Asleep at the end of a long empty conference table. Whiteboard of marketing acronyms behind. Fluorescent light. Wide, still. Slightly absurd, slightly sad.</p></div>
+      </div>
+      <div class="ref">
+        <a class="img" href="assets/charlie-reaction.png" target="_blank"><img src="assets/charlie-reaction.png" alt="Charlie reaction close-up"/></a>
+        <div class="body"><span class="rtag">Reply game · 1:1 · Rendered</span><h4>04 · The reaction</h4>
+          <p class="prompt">Tight close-up. Side-eyes camera, mock-shocked — eyes wide, jowls raised. Soft light, neutral background. Reads as "I cannot believe what I just saw."</p></div>
+      </div>
+      <div class="ref">
+        <a class="img" href="assets/charlie-commute.png" target="_blank"><img src="assets/charlie-commute.png" alt="Charlie on the commute" style="object-position:50% 62%"/></a>
+        <div class="body"><span class="rtag">Day-in-life · 9:16 · Rendered</span><h4>05 · The commute</h4>
+          <p class="prompt">Standing on a sidewalk outside an unmarked office. Tiny badge on a lanyard. Light rain, morning, looking down, weary. Cinematic still, low contrast.</p></div>
+      </div>
+      <div class="ref">
+        <a class="img" href="assets/charlie-webcam-stare.png" target="_blank"><img src="assets/charlie-webcam-stare.png" alt="Charlie webcam stare"/></a>
+        <div class="body"><span class="rtag">Screen-share · 1:1 · Rendered</span><h4>06 · The webcam stare</h4>
+          <p class="prompt">Laptop-webcam POV: stares directly at the screen, tiny Bluetooth earpiece, blurred office behind. Tired but attentive. The joke: he's in a meeting.</p></div>
+      </div>
+    </div>
+    <div class="callout good">
+      <div class="ct">✓ Design locked</div>
+      <p>The bulldog in these renders <strong>is</strong> canonical Charlie: graying muzzle, heavy jowls, dark sweater, tiny gold lapel pin. No photo set required — every future render cites 3–4 approved images from this set as its character reference.</p>
+    </div>
+  </section>
+
+  <!-- PROMPT -->
+  <section id="prompt">
+    <div class="kicker">08 · The system</div>
+    <h2>Master prompt template</h2>
+    <p class="lede">The structural skeleton for every Charlie render (Seedance / Kling / Veo). Lock the reference set first — every prompt cites it. Only the action, setting, and resolve change between clips.</p>
+    <pre><span class="k">[CHARACTER REFERENCE: 3–4 locked Charlie reference images]</span>
+
+A senior English bulldog [described per locked reference: coat color,
+jowl shape, eye color, signature features]. He is in [<span class="k">SETTING</span> from
+the approved list]. He wears [<span class="k">WARDROBE</span> from the approved list — or none].
+
+<span class="k">ACTION:</span>   [one observable beat, short — e.g., "stares at the laptop,"
+          "exhales slowly," "shifts his weight"]
+<span class="k">RESOLVE:</span>  [turns his head, stares directly into camera with
+          EXPRESSION from the do-list]
+<span class="k">LIGHTING:</span> natural office light / screen glow / overcast street light
+          (no warm sunset, no studio glamour)
+<span class="k">CAMERA:</span>   locked-off mid-shot at his eye level — no pet-cam high
+          angles, no extreme close-ups unless reaction
+<span class="k">TONE:</span>     mundane, slightly absurd, dry. No music. No burned-in captions.
+<span class="k">ASPECT:</span>   9:16 vertical (social) or 1:1 (cross-post)
+
+<span class="k">NEGATIVE:</span> cute, adorable, happy, playful, anthropomorphic standing,
+          outdoor adventure, other animals, dialogue from Charlie</pre>
+    <h3>Tooling map</h3>
+    <div class="pills">
+      <span class="pill"><em>Seedance 2.0</em> — lip-sync &amp; short motion</span>
+      <span class="pill"><em>Kling 3.0</em> — transitions, surreal/physics comedy</span>
+      <span class="pill"><em>Veo</em> — highest-fidelity hero shots</span>
+      <span class="pill"><em>Google Omni</em> — multimodal scene composition</span>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section id="content">
+    <div class="kicker">09 · What he'd post</div>
+    <h2>Content ideas</h2>
+    <div class="grid g2">
+      <div>
+        <h3 style="margin-top:0">Content pillars (lock 3)</h3>
+        <ul class="list">
+          <li><strong>"Charlie reviews the stack"</strong> — evaluates a tool. Always disappointed.</li>
+          <li><strong>"A day in the life of Charlie, CMO"</strong> — tiny blazer, runs a "meeting," signs a plan, naps.</li>
+          <li><strong>"Charlie reacts to bad marketing tweets"</strong> — bulldog reactions over hot takes. Reply-game ammo.</li>
+          <li><strong>"Charlie's content audit"</strong> — stares at a blog post, judges silently, walks away.</li>
+          <li><strong>"Charlie + Marcel"</strong> — odd-couple bit: Marcel explains something serious, Charlie is unimpressed.</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-top:0">Launch-adjacent short-form (Lane C)</h3>
+        <ul class="list">
+          <li><strong>"Charlie tries to learn Zapier"</strong> → cuts to him sleeping → card: <em>"You don't have to become an engineer."</em></li>
+          <li><strong>"Charlie's MarTech stack"</strong> → 40,000 toys on the floor → he picks one bone (the harness).</li>
+          <li><strong>"Charlie reads ChatGPT for his daily walks"</strong> — AEO joke for the in-the-know.</li>
+          <li><strong>"Charlie meets a marketing engineer"</strong> — staring blankly at a Zapier diagram on a whiteboard.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="ct">Cadence &amp; distribution</div>
+      <p>Target <strong>2 posts/week</strong> (1 evergreen + 1 reactive), 15–30s vertical, captioned, organic-first. Cross-post: LinkedIn + X corporate, Marcel's personal X, and a dedicated Charlie handle (TBD). Reels/TikTok is Charlie-only — the Marcel material is too B2B-dense for TikTok native behavior.</p>
+    </div>
+  </section>
+
+  <!-- ROLLOUT -->
+  <section id="rollout">
+    <div class="kicker">10 · The plan</div>
+    <h2>Rollout</h2>
+    <div class="callout warn" style="margin-top:0">
+      <div class="ct">⚠ Timing rule</div>
+      <p>Charlie launches <strong>after</strong> the main GrowthOS launch, never concurrent — so he doesn't dilute the core message or compete with Marcel for attention in launch week.</p>
+    </div>
+    <div style="margin-top:8px">
+      <div class="phase"><div class="p">Phase 0</div><div>Character sheet v1 locked. Canonical design locked from the render set. Image-gen approach decided (gpt-image-2 for stills).</div><div class="when">This week</div></div>
+      <div class="phase"><div class="p">Phase 1</div><div>10 prototype clips rendered. Internal review only — not public.</div><div class="when">Following week</div></div>
+      <div class="phase"><div class="p">Phase 2</div><div>Soft launch: 5 best clips drip-posted on Marcel's personal account over 2 weeks. Read engagement, refine voice.</div><div class="when">Post-launch</div></div>
+      <div class="phase"><div class="p">Phase 3</div><div>Corporate franchise launch. Dedicated handle decision (handle name TBD, or under @GrowthX). Cadence locked.</div><div class="when">Late Jun / early Jul</div></div>
+      <div class="phase"><div class="p">Phase 4</div><div>Steady state: 2 posts/week (1 evergreen + 1 reactive). Monthly review of what's working.</div><div class="when">Ongoing</div></div>
+    </div>
+  </section>
+
+  <!-- SHIP -->
+  <section id="ship" style="border-bottom:0">
+    <div class="kicker">11 · Unblock</div>
+    <h2>What's needed to ship Phase 1</h2>
+    <div class="grid g2">
+      <div class="card">
+        <div class="lbl">Decisions</div>
+        <ul class="list">
+          <li>Approval on personality + tonal range (this doc)</li>
+          <li>Pick <strong>3 content pillars</strong> from the five above</li>
+          <li>Confirm the two-lane style call (03 hero / 01 reactive)</li>
+          <li>Distribution handle (can defer to Phase 3)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="lbl">Assets</div>
+        <ul class="list">
+          <li>All 6 reference scenes rendered ✓ — canonical design locked, no photo set needed</li>
+          <li>Lock the <strong>3–4 hero reference images</strong> the prompt template cites (suggest 01 hero, 02 desk, 04 reaction)</li>
+          <li>First prototype clips in the two lanes (Seedance / Kling / Veo)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    Charlie — CMO Emeritus · project one-pager · consolidated from the GrowthOS launch strategy repo (character sheet v0.2, 10 style renders, video &amp; content plan). Sources: <code>index.html #charlie</code>, <code>Will — Video Content Expansion Notes.md</code>, <code>Content &amp; Video — Proposals.md</code>.
+  </div>
+</footer>
+
+</body>
+</html>
